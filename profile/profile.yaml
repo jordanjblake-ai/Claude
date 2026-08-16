@@ -893,7 +893,9 @@ ai_tracking:
         description, but per the no-guessing rule on names (see the
         Krystyna/Max corrections earlier), recorded as literally said
         rather than silently 'corrected' to a guess. Worth a quick confirm."
-  current_toolchain: []               # Round 8 Q3 not yet answered
+  current_toolchain: [Google Gemini, Grok, ChatGPT, Cursor, Claude]  # ANSWERED
+                                       # 2026-08-16, Round 8 Q3. What he's been meaning
+                                       # to evaluate but hasn't -- not yet answered.
   evaluation_backlog:                 # meant to try, haven't
     - "Podcast and audiobook listening history -- owner wants a full history
       of everything he's ever listened to, requested 2026-08-16 as
@@ -901,9 +903,18 @@ ai_tracking:
       plausibly quest-master/hobbies too). Not scoped yet -- likely sources
       would be Spotify, Apple Podcasts, Apple Books/Audible, none of which
       have a live connector here. Real integration idea, not built."
-  digest:
-    cadence: TODO                     # daily | weekly
-    depth: TODO                       # headlines | only-if-it-changes-my-actions
+  digest:                             # ANSWERED (interpreted) 2026-08-16, Round 8 Q4
+    cadence: weekly
+    depth: only-if-it-changes-my-actions
+    note: "Owner's literal wording was ambiguous via speech-to-text: 'yes
+      daily headlines or weekly brief that only surfaces what I would do' --
+      reads like an echo of the question rather than a clean pick between
+      the two options. Interpreted as the weekly, high-signal-only option
+      because it's consistent with his stated preference elsewhere
+      (operating.daily_brief note: wants to automate rather than read
+      reports daily, and was unsure a daily brief adds value at all). NOT
+      independently confirmed word-for-word -- flag this reading back to
+      him and correct if wrong."
 
 # ── Round 9 ──────────────────────────────────────────────────────────────────
 goals:
