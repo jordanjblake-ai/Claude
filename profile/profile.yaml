@@ -8,7 +8,7 @@
 
 meta:
   last_updated: 2026-08-16
-  interview_rounds_complete: [1]      # e.g. [1, 2, 3]
+  interview_rounds_complete: [1, 2]   # e.g. [1, 2, 3]
   region: United Kingdom              # determines banking & health API options
   timezone: Europe/London
   general_area: London (Mitcham)      # city-level only, for local-service automation
@@ -106,7 +106,7 @@ finance:
       amount: TODO
       day_of_month: TODO
       note: "Flagged under known_leaks -- visits haven't actually been scheduled recently, so this commitment may be lapsed rather than active. Worth confirming which is true."
-  debts: []                           # {name, balance, rate, revolving: true|false} -- not yet asked
+  debts: []                           # confirmed: no debt of any kind
   accounts:                           # names only, never numbers -- 10 institutions is a lot
                                        # of surface area; matters for aggregator coverage below
     - {institution: Virgin Money, type: main current account}
@@ -122,7 +122,10 @@ finance:
   aggregator: TODO                    # TrueLayer/Plaid both cover the major UK banks, but
                                        # coverage of Chip, LifeStage Money and Revolut via
                                        # open banking is worth checking before committing
-  categories: []                      # 8–12 buckets, proposed from real history
+  categories: []                      # owner prefers 8-12 buckets (the recommended default),
+                                       # open to more granularity if it proves useful. To be
+                                       # proposed from real transaction history once the
+                                       # aggregator is live rather than invented upfront.
   agent_write_access: false           # keep false until it's been right for a quarter
 
 # ── Rounds 4–5 ───────────────────────────────────────────────────────────────

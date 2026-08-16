@@ -11,7 +11,7 @@ without it — the "unlocks" line says which one.
 ## Progress
 
 - [x] Round 1 — Orientation (cross-cutting)
-- [ ] Round 2 — Finance: the picture
+- [x] Round 2 — Finance: the picture
 - [ ] Round 3 — Finance: the plumbing
 - [ ] Round 4 — Health: the target
 - [ ] Round 5 — Health: the sensors
