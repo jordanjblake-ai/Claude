@@ -227,7 +227,19 @@ finance:
       note: "Owner is currently locked out, can't confirm balance right now
         (2026-08-16). Not necessarily dormant -- access issue, not
         inactivity. Revisit once he regains access."
-    - {institution: Chip, type: savings app}
+    - institution: Chip
+      type: savings app
+      note: "Real balances from owner's screenshots 2026-08-16. Savings tab:
+        GBP 53,124.48 total across three products -- Instant Access (2.49%
+        AER, +GBP 4,861.21 all-time gain, individual balance not broken out
+        in the screenshot), a Smart Cash ISA (3.75% AER), and an Easy Access
+        account (3.60% AER); the GBP 53,124.48 total is confirmed but the
+        per-product split isn't. Investing/Stocks & Shares ISA: GBP 0.00
+        (not used). Chip's own 'Connections' page shows both the Coinbase
+        and PayPal aggregation links as 'Expired' (last updated 27 Jun) --
+        this corroborates the owner's original statement that some LifeStage
+        Money connectors are stale, and explains why those two accounts
+        needed manual screenshots rather than trusting the aggregator feed."
     - {institution: PayPal, type: payments}
     - institution: Revolut
       type: current account/card
@@ -263,10 +275,15 @@ finance:
         export, which only showed wallet names/transaction flow, no values):
         Bitcoin GBP 540.57, Ethereum GBP 456.48 (99% staked), USDS GBP 341.02,
         Litecoin GBP 99.46, Algorand GBP 20.24, SushiSwap GBP 3.45. Total
-        ~GBP 1,461.22. Litecoin and SushiSwap weren't visible in the
+        ~GBP 1,461.22, reconfirmed via a separate portfolio-detail screenshot
+        showing GBP 1,461.26 (1p rounding difference between screens, not a
+        balance change). Litecoin and SushiSwap weren't visible in the
         LifeStage data at all -- this screenshot is the more complete
         picture. Crypto values fluctuate; treat this as a snapshot, not a
-        stable figure."
+        stable figure. NOTE: Chip's Connections page shows its own Coinbase
+        aggregation link as 'Expired', so LifeStage/Chip's view of this
+        account cannot be trusted -- these screenshot-sourced figures are the
+        only reliable numbers currently available for it."
   aggregator: lifestage_money             # CONFIRMED 2026-08-16 -- owner successfully
                                        # exported and delivered a real transaction
                                        # CSV (8,466 rows, back to Feb 2023). Working,
