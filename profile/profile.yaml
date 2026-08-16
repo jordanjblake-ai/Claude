@@ -47,6 +47,11 @@ priorities:
 stack:
   phone: ios                          # iPhone 16
   wearable: none
+  sleep_device: eight_sleep_pod4       # in-bed sensor, not worn -- covers sleep/recovery
+                                       # in place of a wearable. Integration path TBD:
+                                       # no fully public Eight Sleep API; likely route is
+                                       # its Apple Health sleep-stage export given the
+                                       # iPhone. Revisit in Round 5.
   smart_scale: withings                # + a Withings BPM (blood pressure) device
   notes_and_tasks: TODO               # notion | obsidian | apple notes | none
   automation_platform: TODO           # make | n8n | zapier | none yet
