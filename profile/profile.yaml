@@ -44,8 +44,9 @@ orientation:
         the owner's Drive, not just a stated intention."
     - gift_buying: "Struggles to choose/purchase gifts for family members — wants this taken off his plate."
   known_leaks:
-    - "Doctor's appointment for a lingering chest infection never got booked. Mostly recovered but still flares up under high-output effort (beach volleyball) and when talking/laughing — affects breathing capacity in the moment."
+    - "Doctor's appointment for a lingering chest infection never got booked. Mostly recovered but still flares up under high-output effort (beach volleyball) and when talking/laughing — affects breathing capacity in the moment. UPDATE 2026-08-16: owner said the chest infection has recently flared up again (his exact phrasing was unclear via speech-to-text -- transcribed as 'it has just gone Miss recently', probably meaning it flared up/worsened again -- worth confirming directly) and was a contributing factor, alongside Krystyna's agency work weekends, to date nights quietly lapsing -- see the next item and relationships.protected_commitments."
     - "Cleaner never got scheduled to come to the flat."
+    - "NEW 2026-08-16: date nights with Krystyna quietly stopped happening over the last few months -- between her agency work on some weekends and the owner being unwell with a chest infection. Now a protected commitment (relationships.protected_commitments): at least every 2 weeks, usually weekends."
 
 # Found 2026-08-16 in the owner's Drive -- a prior Claude session had already
 # scoped this in real detail. Source doc:
@@ -596,6 +597,16 @@ health:
       note: "The GP letter draft contains the owner's DOB, home address and
         phone number -- deliberately NOT copied here, per the no-secrets
         rule at the top of this file. Only medical content is recorded."
+    - condition: "Self-identified autism"
+      history: "Owner's own words, 2026-08-16: 'I believe I have autism.'
+        Not stated as formally diagnosed -- self-identified. Owner
+        explicitly asked for this to be taken into consideration by the
+        system, not just logged."
+      note: "Relevant context for how any agent should reason about pacing,
+        routine, communication style, and sensory/energy load -- e.g. why a
+        protected, predictable cadence (date nights, training week
+        structure) may matter more than it would for someone without this
+        context. Not a basis for assumptions beyond what's stated here."
   sensors:
     scale_pipe: withings_api           # LIVE as of 2026-08-16. Owner registered a
                                        # Withings developer app, ran the local auth
@@ -692,7 +703,16 @@ relationships:
           DOB -- deliberately did NOT record any of that here. Only name and
           relationship are captured, per the no-secrets rule and because
           it's a third party's sensitive medical information, not the
-          owner's to have logged without her knowledge either way."
+          owner's to have logged without her knowledge either way.
+          DIFFERENT CASE 2026-08-16: owner directly and deliberately told
+          the system Krystyna has been diagnosed with AuDHD (combined
+          autism/ADHD), explicitly asking for it to be taken into
+          consideration -- recorded here since it was volunteered on
+          purpose for the system's use, unlike the DOB/GP email above which
+          was found incidentally and withheld. Relevant context for how the
+          relationship-concierge should think about date-night planning,
+          communication style, and not adding pressure on top of what
+          she's managing -- not a detail to surface casually in reports."
       - name: Debbie Blake
         relationship: mother
         cadence_target: "every 2 weeks"  # CONFIRMED 2026-08-16 by owner -- this is a
@@ -718,8 +738,26 @@ relationships:
           on their phones -- worth keeping in mind for relationship-
           concierge nudges, since 'reach out' for this pairing likely means
           'start a game session', not a message or call."
-      - {name: Sean O'Keeffe, relationship: "closest friend, secondary school"}
-      - {name: Robbie O'Keeffe, relationship: "closest friend, secondary school"}
+      - name: Sean O'Keeffe
+        relationship: "closest friend, secondary school"
+        cadence_target: "every 3 months"  # CONFIRMED 2026-08-16 by owner
+        contact_preference: draft_for_me  # CONFIRMED 2026-08-16 by owner, specific to
+                                       # Sean and Robbie -- he wants the concierge to
+                                       # draft the reach-out message, not just prompt him
+                                       # to write one. Not yet confirmed as the general
+                                       # rule for every ring -- see
+                                       # relationships.contact_preference below.
+        note: "First quarterly draft delivered 2026-08-16 in-chat (not stored
+          here since it's a one-off message, not durable data) -- future
+          quarterly check-ins should follow the same draft_for_me pattern."
+      - name: Robbie O'Keeffe
+        relationship: "closest friend, secondary school"
+        cadence_target: "every 3 months"  # CONFIRMED 2026-08-16 by owner
+        contact_preference: draft_for_me  # see Sean O'Keeffe note above -- same
+                                       # arrangement, confirmed together
+        note: "First quarterly draft delivered 2026-08-16 in-chat (not stored
+          here since it's a one-off message, not durable data) -- future
+          quarterly check-ins should follow the same draft_for_me pattern."
     second:                           # captured 2026-08-16
       - {name: Jo Cope, relationship: auntie, email: jocopetabasco@gmail.com}
       - {name: Tracy Dombey, relationship: auntie, email: tracy.dombey@googlemail.com}
@@ -738,12 +776,17 @@ relationships:
     Max Dombey. Searched Gmail for additional Dombey/Cope-surname contacts
     and found nothing further conclusive. Ask for names if worth tracking
     individually, or leave as an informal group.
-    ALSO STILL OPEN 2026-08-16: cadence targets only captured for 3 of 5
-    inner-circle people so far (Krystyna, Debbie, Max) -- Sean O'Keeffe and
-    Robbie O'Keeffe don't have one yet, and no second-ring cadence has been
-    asked at all. Round 6 Q3's other half (prompt-me vs. draft-for-me) is
-    also still unanswered -- see relationships.contact_preference below."
-  contact_preference: TODO            # prompt_me | draft_for_me -- not yet asked
+    RESOLVED 2026-08-16: Sean O'Keeffe and Robbie O'Keeffe now have a
+    quarterly cadence target and a draft_for_me preference (see their
+    entries above). Still open: no second-ring cadence has been asked at
+    all, and the general ring-wide default for prompt-me vs. draft-for-me
+    is still unconfirmed -- see relationships.contact_preference below."
+  contact_preference: TODO            # prompt_me | draft_for_me as a GENERAL default --
+                                       # still not asked. Sean O'Keeffe and Robbie
+                                       # O'Keeffe specifically confirmed draft_for_me
+                                       # 2026-08-16 (see their entries above), but that
+                                       # was scoped to them, not stated as a rule for
+                                       # everyone else.
   active_investments:                 # relationships needing deliberate attention now
     - "Debbie Blake (mother) -- owner's own words 2026-08-16: 'more of a
       challenging character... though I love her dearly', contact currently
@@ -751,6 +794,10 @@ relationships:
       signal so far for Round 6 Q4; not yet explicitly confirmed as
       'needing repair' vs. just naturally lower-cadence, worth asking
       directly."
+    - "Date nights with Krystyna -- see relationships.protected_commitments
+      below for the full account. Quietly stopped happening over the last
+      few months; owner wants this actively protected going forward, not
+      just monitored."
   occasions:
     source: TODO                      # contacts | calendar | to be seeded
     lead_time_days: TODO
@@ -758,7 +805,19 @@ relationships:
     philosophy: TODO
     budget_inner: TODO
     budget_second: TODO
-  protected_commitments: []           # standing calendar blocks the system defends
+  protected_commitments:              # standing calendar blocks the system defends --
+                                       # RESOLVED 2026-08-16, answers Round 7 Q4
+    - name: "Date night with Krystyna"
+      cadence: "at least every 2 weeks"
+      typical_timing: weekends
+      note: "CONFIRMED 2026-08-16 by owner -- this had quietly stopped
+        happening over the last few months (exactly the Round 1 'leak'
+        pattern; see orientation.known_leaks) between Krystyna working
+        agency shifts some weekends and the owner being unwell with a chest
+        infection. He wants it actively protected now, not just tracked --
+        the relationship-concierge should treat this as a standing block to
+        defend when scheduling, not merely note its absence after the
+        fact."
 
 # ── Round 8 ──────────────────────────────────────────────────────────────────
 ai_tracking:
