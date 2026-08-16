@@ -945,12 +945,17 @@ operating:
       real signal: drift, a deadline, a decision only he can make) rather
       than a fixed daily habit regardless of whether anything changed --
       see if that framing lands better than 'time and surface'."
-  weekly_review: {day: TODO, time: TODO, max_minutes: TODO}
-  never_without_asking:               # hard guardrails, enforced by every agent
+  weekly_review: {day: Friday, time: afternoon, max_minutes: 30}  # CONFIRMED 2026-08-16
+  never_without_asking:               # hard guardrails, enforced by every agent.
+                                       # CONFIRMED 2026-08-16 by owner -- nothing to add,
+                                       # this list is complete as-is.
     - send messages as me
     - spend money
     - contact people directly
-  tone_when_off_track: TODO           # blunt | gentle
+  tone_when_off_track: blunt          # CONFIRMED 2026-08-16 by owner -- his own words,
+                                       # "for now". Worth re-checking this periodically
+                                       # rather than treating it as permanent, he flagged
+                                       # it as a current preference, not a fixed rule.
   writing_style:                      # CONFIRMED 2026-08-16 by owner
     em_dashes: never                  # do not use em dashes in any response to the owner
     drafted_messages: "Personalised and human, not templated or generic --
