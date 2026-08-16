@@ -140,6 +140,19 @@ finance:
                                        # the target materially.
     target_gbp: 1000000
     by: 2027-12-31                    # "end of next year" from 2026-08-16
+    lifestage_own_reported_total_gbp: 153676   # LifeStage Money's own dashboard
+                                       # figure, screenshotted 2026-08-16 (its
+                                       # "Net worth" chart header). NOT being
+                                       # used as the real number -- it bakes in
+                                       # the stale Aviva pension figure
+                                       # (GBP 41,283 vs the real GBP 68,318,
+                                       # confirmed via the "Out of sync" tag on
+                                       # LifeStage's own Connections page) and
+                                       # possibly other lag. Kept here purely as
+                                       # a cross-check data point, not a
+                                       # replacement for the manually-assembled
+                                       # figure this whole screenshot exercise
+                                       # exists to build.
   fixed_commitments:
     - name: Rent
       amount_gbp: ~1300                 # ESTIMATED 2026-08-16 from the LifeStage
@@ -204,9 +217,28 @@ finance:
   debts: []                           # confirmed: no debt of any kind
   accounts:                           # names only, never numbers -- 10 institutions is a lot
                                        # of surface area; matters for aggregator coverage below
-    - {institution: Virgin Money, type: main current account}
-    - {institution: Chase, type: payments/current account}
-    - {institution: Monzo, type: current account}
+    - institution: Virgin Money
+      type: current + savings account
+      note: "Real balances from a LifeStage Money 'Accounts and assets'
+        screenshot 2026-08-16 (LifeStage's own aggregator view, not a
+        direct app screenshot like most other entries -- flagged since the
+        owner's whole reason for this exercise is that some LifeStage
+        connectors are stale; Chase's connection showed as 'Connected' /
+        recently updated on the same Connections page, so treating these as
+        reasonably fresh). Current account: GBP 0.00. Savings account:
+        GBP 7,958.92. Total GBP 7,958.92."
+    - institution: Chase
+      type: current + savings account
+      note: "Real balances from the same LifeStage 'Accounts and assets'
+        screenshot 2026-08-16. Current account ('Jordan's Account'):
+        GBP 328.05. Savings: Round-up GBP 130.70, Saver GBP 0.00. Total
+        GBP 458.75. Chase's own Connections entry showed 'Connected,
+        updated 16th Aug 14:47' -- same day, high confidence."
+    - institution: Monzo
+      type: current + savings account
+      note: "Real balances from the same LifeStage 'Accounts and assets'
+        screenshot 2026-08-16. Current account: GBP 651.44. Savings:
+        GBP 29.16. Total GBP 680.60."
     - institution: LifeStage Money
       type: financial guidance app (built by WPS Advisory on Moneyhub's Open
         Finance platform -- not a standalone savings product)
@@ -221,12 +253,26 @@ finance:
       type: current + savings account
       note: "CORRECTED 2026-08-16 -- not actually dormant. Real balances from
         owner's own screenshot: 1st Account GBP 400.00, Savings Account
-        GBP 3,736.18. Total GBP 4,136.18."
+        GBP 3,736.18. PLUS a Regular Saver GBP 2,100.00 found via the
+        LifeStage 'Accounts and assets' aggregator screenshot (same day) --
+        wasn't visible in the owner's own First Direct screenshot. Total
+        GBP 6,236.18."
     - institution: NatWest
-      type: current account
-      note: "Owner is currently locked out, can't confirm balance right now
-        (2026-08-16). Not necessarily dormant -- access issue, not
-        inactivity. Revisit once he regains access."
+      type: current + savings account
+      note: "Owner is currently locked out of the NatWest app itself, can't
+        confirm balance directly (2026-08-16). However the LifeStage
+        'Accounts and assets' aggregator screenshot (same day) shows cached
+        NatWest data: current account ('BLAKE JJ') GBP 500.00, Regular
+        Saver GBP 6,578.00, Savings Builder GBP 500.00 (Savings Builder
+        appears listed twice at the same value across screenshots --
+        possibly one line, not two). LOWER CONFIDENCE than the owner's own
+        screenshots elsewhere in this list -- this is aggregator-cached
+        data for an account the owner cannot currently verify directly, and
+        the whole point of this exercise is that some of these connectors
+        are known to be stale. Treat as indicative, not confirmed, until
+        access is regained. Total shown by LifeStage: GBP 7,578.00 (or
+        GBP 7,078.00 if Savings Builder is a duplicate line, not two
+        accounts)."
     - institution: Chip
       type: savings app
       note: "Real balances from owner's screenshots 2026-08-16. Savings tab:
@@ -239,22 +285,53 @@ finance:
         and PayPal aggregation links as 'Expired' (last updated 27 Jun) --
         this corroborates the owner's original statement that some LifeStage
         Money connectors are stale, and explains why those two accounts
-        needed manual screenshots rather than trusting the aggregator feed."
-    - {institution: PayPal, type: payments}
+        needed manual screenshots rather than trusting the aggregator feed.
+        CROSS-CHECK: the LifeStage 'Accounts and assets' aggregator
+        screenshot shows Chip Instant Access at GBP 51,374.00 -- close to
+        but not identical to the GBP 53,124.48 total from Chip's own app
+        (which includes the Cash ISA and Easy Access products too, not just
+        Instant Access, so some of that ~GBP 1,750 gap is expected; the
+        rest may be a small sync lag). Using Chip's own in-app total
+        (GBP 53,124.48) as the authoritative figure since it's the source
+        app itself, most recently screenshotted, and covers all three
+        products."
+    - institution: PayPal
+      type: payments
+      note: "Real balance from the LifeStage 'Accounts and assets' aggregator
+        screenshot 2026-08-16: GBP Wallet GBP 0.00."
     - institution: Revolut
       type: current account/card
       note: "Real balance from owner's screenshot 2026-08-16: Total wealth
         GBP 330, all in Cash (Savings/Invest/Crypto currently empty).
         Cash itself is multi-currency: EUR 265.93, GBP 103.75, MXN 0, TRY 0."
     - institution: Halifax
-      type: current account
+      type: current + savings account
       note: "NEW 2026-08-16 -- owner mentioned being locked out of this
-        alongside NatWest, wasn't previously in this list at all. Balance
-        unknown until access is regained."
+        alongside NatWest. The LifeStage 'Accounts and assets' aggregator
+        screenshot (same day) shows cached data: current account GBP 0.00,
+        a second (savings-type) account GBP 1.92. Same lower-confidence
+        caveat as NatWest above -- aggregator-cached, not independently
+        confirmed by the owner, who cannot currently check the Halifax app
+        directly. Effectively negligible balance either way (~GBP 1.92
+        total) even if stale."
     - institution: American Express (Platinum Cashback Everyday Credit Card)
       type: credit card -- CANCELLED
       note: "NEW 2026-08-16, found in owner's own screenshot. Card account is
-        cancelled, GBP 0.00 balance. Not a debt, informational only."
+        cancelled, GBP 0.00 balance. Not a debt, informational only. The
+        LifeStage aggregator screenshot shows TWO archived Amex entries,
+        both GBP 0.00 -- likely the same cancelled card plus a duplicate/old
+        aggregator record, not two real cards. Not worth chasing further
+        given both are zero."
+    - institution: Beehive Money
+      type: Lifetime ISA (LISA)
+      note: "NEW 2026-08-16 -- found via the LifeStage 'Accounts and assets'
+        aggregator screenshot, not previously mentioned by the owner at all.
+        GBP 38,000.00. A meaningful balance -- worth the owner confirming
+        this is current/correct and explaining what it's earmarked for
+        (LISAs are typically first-home or retirement savings with a
+        government bonus and a withdrawal penalty outside those uses),
+        since it changes the net worth picture materially and wasn't
+        volunteered in any interview round so far."
     - institution: Aviva (MyAviva)
       type: pension
       note: "CORRECTED 2026-08-16 -- real fund value from owner's own screenshot:
@@ -268,7 +345,15 @@ finance:
         NOT recording the policy number visible in one screenshot -- treating
         it like an account number under the no-secrets rule. API/open-banking
         access question is now moot for getting the value (owner can just
-        screenshot it), though still relevant if automated sync is wanted."
+        screenshot it), though still relevant if automated sync is wanted.
+        CONFIRMED STALE 2026-08-16 via the LifeStage 'Accounts and assets'
+        aggregator: it shows Aviva at GBP 41,283.38, and the Connections
+        page explicitly flags Aviva as 'Out of sync, updated on 20th Nov'
+        (many months stale). This is strong direct confirmation that the
+        MyAviva screenshot figure above (GBP 68,318.72) is the one to trust,
+        not LifeStage's cached figure -- a real ~GBP 27K gap caused purely by
+        aggregator staleness, exactly the failure mode the owner flagged at
+        the start of this exercise."
     - institution: Coinbase
       type: crypto exchange
       note: "Real holdings from owner's screenshot 2026-08-16 (not the LifeStage
