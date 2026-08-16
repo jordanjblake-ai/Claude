@@ -271,36 +271,51 @@ finance:
 
 # ── Rounds 4–5 ───────────────────────────────────────────────────────────────
 health:
-  # Partially pre-filled 2026-08-16 from files found in the owner's Google
-  # Drive (Health folder + a GP appointment draft), NOT yet confirmed by the
-  # owner in conversation. Treat every value below as a starting point to
-  # verify in Round 4, not a settled answer -- especially the weight data,
-  # which is 14 months stale.
-  objective: TODO                     # fat loss | strength | endurance | recomp | consistency
+  objective: "Athletic performance for beach volleyball, at a competitive
+    level -- CORRECTED 2026-08-16. Earlier pre-fill from stale Drive data
+    (see below) looked like plain fat loss; owner clarified the real goal is
+    sport-specific performance. Scale weight is a secondary metric at best --
+    power, agility and sport-specific conditioning matter more than the
+    number on the scale. Don't let weight-trend reporting override this."
   metrics:
     weight:
-      current: TODO                   # last known data point (Jun 2025, STALE): 89.7kg
-      target: TODO                    # last known implied goal (same stale source): 80kg
+      current_kg: 88                  # owner-reported 2026-08-16, weighed
+                                       # himself "this weekend/last week"
+      target: TODO                    # the old 80kg figure was tied to a fat-loss
+                                       # framing that no longer applies -- do not
+                                       # carry it forward. Ask what target (if any)
+                                       # makes sense under a performance objective.
       unit: kg
+      sync: "No live sync pipe yet. Owner weighs in periodically and reports
+        the number in conversation -- adequate for a rolling trend given the
+        health-coach reports trends, not single readings. Apple Health has no
+        connector in this environment (would need a bridge app, e.g. Health
+        Auto Export, exporting somewhere readable -- not yet built). Withings
+        has its own developer API and is the more direct long-term option
+        since it's the source device, but needs a real OAuth integration
+        built (Phase 2, not started). Revisit once more of Phase 2 is live;
+        manual reporting is fine for now."
     others:
       - name: Body fat %
         current: TODO                 # last known (Jun 2025, STALE): 15.8%
         target: TODO
       - name: BMI
-        current: TODO                 # last known (Jun 2025, STALE): 27.4 ("overweight" band)
+        current: TODO                 # last known (Jun 2025, STALE): 27.4 -- less
+                                       # relevant now the objective is performance,
+                                       # not weight-band driven
         target: TODO
-    source_note: "All figures above from a Withings scan dated June 2025 --
-      found in Drive, not provided by the owner this conversation. 14+ months
-      old, do not treat as current. Ask for an up-to-date reading."
+    source_note: "The body-fat/BMI figures above are still from a Withings
+      scan dated June 2025 (14+ months stale, found in Drive) -- only weight
+      has been updated with a fresh, owner-reported number. Ask for current
+      body fat / BMI too if it's useful under the performance objective."
   training_week:
     sessions_per_week: TODO
     types: []
     preferred_time: TODO              # when it must happen to survive the calendar
   known_derailers:
-    - "A structured knee-pain rehab/return-to-squatting program exists in
-      Drive (recently viewed, so possibly still relevant) -- suggests a past
-      or ongoing knee issue that shaped training design. Not yet confirmed
-      as current with the owner."
+    - "RESOLVED, per owner 2026-08-16: the knee-pain rehab program found in
+      Drive is no longer relevant -- 'no longer apparent'. Kept here as
+      history, not as an active derailer."
   medical_context:
     - condition: "Polypoidal sinusitis / nasal polyps"
       history: "Dating back to at least 2018. Previous ENT referral requests
@@ -309,13 +324,12 @@ health:
         drip -- affecting sleep quality. Owner drafted a GP appointment
         request on 2026-08-08 (found in Drive) requesting review and a
         renewed ENT referral."
-      relationship_to_chest_infection_leak: "UNCLEAR -- the known_leaks entry
-        above describes a lingering chest infection affecting breathing
-        during beach volleyball and while talking/laughing. This sinusitis
-        history is a separate, chronic, previously-diagnosed condition. Do
-        not assume they're the same thing without the owner confirming --
-        could be unrelated, could be the chest symptoms flaring the sinus
-        issue or vice versa."
+      relationship_to_chest_infection_leak: "CONFIRMED SEPARATE by owner
+        2026-08-16 -- two distinct streams, not one condition presenting two
+        ways. Track and report on them independently: (1) this chronic
+        sinusitis/nasal polyps history with its own GP/ENT thread, and (2)
+        the lingering chest infection in known_leaks with its own unbooked
+        doctor's appointment. Don't merge them in reporting."
       note: "The GP letter draft contains the owner's DOB, home address and
         phone number -- deliberately NOT copied here, per the no-secrets
         rule at the top of this file. Only medical content is recorded."
