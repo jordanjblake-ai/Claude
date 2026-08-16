@@ -9,8 +9,15 @@
 meta:
   last_updated: 2026-08-16
   interview_rounds_complete: []       # e.g. [1, 2, 3]
-  region: TODO                        # country — determines banking & health API options
-  timezone: TODO
+  region: United Kingdom              # determines banking & health API options
+  timezone: Europe/London
+  general_area: London (Mitcham)      # city-level only, for local-service automation
+                                       # (grocery delivery, tradespeople). Full street
+                                       # address deliberately not stored here — see the
+                                       # no-secrets note at the top of this file; keep
+                                       # anything more precise in the automation
+                                       # platform's vault if a specific integration
+                                       # ever needs it.
 
 # ── Round 1 ──────────────────────────────────────────────────────────────────
 orientation:
