@@ -1,0 +1,110 @@
+# Life OS — Owner Profile
+#
+# The single source of truth. Every agent reads this before acting.
+# Fields marked TODO are unanswered; agents must ask rather than assume.
+#
+# NEVER store here: account numbers, API keys, access tokens, passwords,
+# full dates of birth, or anything else that would be damaging in a leaked repo.
+
+meta:
+  last_updated: 2026-08-16
+  interview_rounds_complete: []       # e.g. [1, 2, 3]
+  region: TODO                        # country — determines banking & health API options
+  timezone: TODO
+
+# ── Round 1 ──────────────────────────────────────────────────────────────────
+orientation:
+  ninety_day_objective: TODO          # the one outcome, stated as an outcome
+  known_leaks: []                     # what quietly didn't happen last month
+
+# Ranked, no ties. Arbitration rule 1 depends on this ordering.
+priorities:
+  - TODO                              # 1st — finance | health | relationships | ai | hobbies
+  - TODO
+  - TODO
+  - TODO
+  - TODO
+
+stack:
+  phone: TODO                         # ios | android
+  wearable: TODO                      # apple watch | garmin | whoop | oura | fitbit | none
+  smart_scale: TODO                   # make and model, or none
+  notes_and_tasks: TODO               # notion | obsidian | apple notes | none
+  automation_platform: TODO           # make | n8n | zapier | none yet
+  live_connectors: [gmail, google_calendar, google_drive, notion, github]
+
+# ── Rounds 2–3 ───────────────────────────────────────────────────────────────
+finance:
+  income_sources: []                  # {name, cadence, variable: true|false}
+  headline_metric:
+    name: TODO                        # net worth | savings rate | monthly spend | debt | runway
+    current: TODO
+    target: TODO
+    by: TODO
+  fixed_commitments: []               # {name, amount, day_of_month}
+  debts: []                           # {name, balance, rate, revolving: true|false}
+  accounts: []                        # {institution, type} — names only, never numbers
+  aggregator: TODO
+  categories: []                      # 8–12 buckets, proposed from real history
+  agent_write_access: false           # keep false until it's been right for a quarter
+
+# ── Rounds 4–5 ───────────────────────────────────────────────────────────────
+health:
+  objective: TODO                     # fat loss | strength | endurance | recomp | consistency
+  metrics:
+    weight: {current: TODO, target: TODO, unit: TODO}
+    others: []                        # {name, current, target}
+  training_week:
+    sessions_per_week: TODO
+    types: []
+    preferred_time: TODO              # when it must happen to survive the calendar
+  known_derailers: []                 # the owner's specific failure pattern
+  sensors:
+    scale_pipe: TODO                  # withings api | apple health bridge | manual | none
+    wearable_pipe: TODO
+    nutrition_tracking: TODO          # be honest; don't build on an abandoned habit
+    aggregation_hub: TODO             # apple health | google fit | none
+
+# ── Rounds 6–7 ───────────────────────────────────────────────────────────────
+relationships:
+  rings:
+    inner: []                         # {name, relationship, cadence_days, channel}
+    second: []
+  contact_preference: TODO            # prompt_me | draft_for_me
+  active_investments: []              # relationships needing deliberate attention now
+  occasions:
+    source: TODO                      # contacts | calendar | to be seeded
+    lead_time_days: TODO
+  gifting:
+    philosophy: TODO
+    budget_inner: TODO
+    budget_second: TODO
+  protected_commitments: []           # standing calendar blocks the system defends
+
+# ── Round 8 ──────────────────────────────────────────────────────────────────
+ai_tracking:
+  purpose: TODO                       # building | investing | career | curiosity — sets the filter
+  decision_it_feeds: TODO
+  trusted_sources: []
+  current_toolchain: []
+  evaluation_backlog: []              # meant to try, haven't
+  digest:
+    cadence: TODO                     # daily | weekly
+    depth: TODO                       # headlines | only-if-it-changes-my-actions
+
+# ── Round 9 ──────────────────────────────────────────────────────────────────
+goals:
+  hobbies: []                         # {name, starved: true|false}
+  deadlined: []                       # {name, deadline, why_it_matters}
+  skills: []                          # {name, measure, twelve_month_target}
+  uncommitted_hours_per_week: TODO    # be pessimistic
+
+# ── Round 10 ─────────────────────────────────────────────────────────────────
+operating:
+  daily_brief: {time: TODO, surface: TODO}
+  weekly_review: {day: TODO, time: TODO, max_minutes: TODO}
+  never_without_asking:               # hard guardrails, enforced by every agent
+    - send messages as me
+    - spend money
+    - contact people directly
+  tone_when_off_track: TODO           # blunt | gentle
