@@ -250,14 +250,23 @@ finance:
         S6', 42,582.1005 units @ GBP 1.6044, 100% allocation, risk rating 5 of
         7). Replaces the earlier ~50K estimate -- a real difference of
         ~18K, worth carrying through to the headline net worth figure.
-        API/open-banking access question is now moot for getting the value
-        (owner can just screenshot it), though still relevant if automated
-        sync is ever wanted."
-    - institution: Crypto wallets (via LifeStage Money)
-      type: "ETH, staked ETH, DAI, ALGO, USDS -- found 2026-08-16 in the LifeStage
-        transaction export, not previously captured anywhere. Only transaction
-        flow visible, not current holdings/value -- ask owner for current
-        balances/value if this should factor into net worth."
+        5-year change: +GBP 55,305.31 pension value, +GBP 19,618.79
+        investment growth. Contributions: GBP 552.80/month total, entirely
+        employer-paid (no separate employee contribution shown). Deliberately
+        NOT recording the policy number visible in one screenshot -- treating
+        it like an account number under the no-secrets rule. API/open-banking
+        access question is now moot for getting the value (owner can just
+        screenshot it), though still relevant if automated sync is wanted."
+    - institution: Coinbase
+      type: crypto exchange
+      note: "Real holdings from owner's screenshot 2026-08-16 (not the LifeStage
+        export, which only showed wallet names/transaction flow, no values):
+        Bitcoin GBP 540.57, Ethereum GBP 456.48 (99% staked), USDS GBP 341.02,
+        Litecoin GBP 99.46, Algorand GBP 20.24, SushiSwap GBP 3.45. Total
+        ~GBP 1,461.22. Litecoin and SushiSwap weren't visible in the
+        LifeStage data at all -- this screenshot is the more complete
+        picture. Crypto values fluctuate; treat this as a snapshot, not a
+        stable figure."
   aggregator: lifestage_money             # CONFIRMED 2026-08-16 -- owner successfully
                                        # exported and delivered a real transaction
                                        # CSV (8,466 rows, back to Feb 2023). Working,
