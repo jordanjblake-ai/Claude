@@ -128,9 +128,16 @@ finance:
         is checking the MyAviva portal/app directly for an open-banking consent
         option, or contacting Aviva support -- owner offered to help obtain
         access if possible, worth doing once other Round 3 items are settled."
-  aggregator: TODO                    # TrueLayer/Plaid both cover the major UK banks, but
-                                       # coverage of Chip, LifeStage Money and Revolut via
-                                       # open banking is worth checking before committing
+  aggregator: moneyhub (leading candidate, not yet confirmed)
+    # Both TrueLayer and Plaid are developer platforms, not individual
+    # self-serve products -- either would mean registering as a developer and
+    # building the integration. Moneyhub looks like the better single fit:
+    # UK bank aggregation + pension aggregation (solves the Aviva access
+    # question in one provider) + it's the first non-shareholder participant
+    # in the UK's new cVRP payment scheme (relevant to the Mark/Justyna
+    # payment automation). Caveat: Moneyhub reads as enterprise/B2B-oriented
+    # too -- individual signup path not yet confirmed. Owner to check
+    # moneyhub.com before this is locked in.
   categories: []                      # owner prefers 8-12 buckets (the recommended default),
                                        # open to more granularity if it proves useful. To be
                                        # proposed from real transaction history once the
@@ -140,29 +147,35 @@ finance:
   # Owner wants two specific payees automated -- flagged as its own item rather
   # than folded into agent_write_access, because it changes the guardrail in
   # operating.never_without_asking ("spend money") for these two people
-  # specifically. Not built. See rollout note: true unattended send isn't
-  # realistically available yet on UK consumer banking for arbitrary payees
-  # (see payment_rails_research below) -- recommended v1 is draft-and-approve,
-  # not silent auto-pay. Needs explicit owner confirmation before build starts.
+  # specifically. Owner explicitly confirmed he's happy with the draft-and-
+  # approve v1 (not silent auto-send) after hearing why full unattended send
+  # isn't realistically available yet on UK consumer banking -- see
+  # payment_rails_research below. Not built yet.
   payment_automation_requested:
-    - payee: Mark (beach volleyball coach)
-      trigger: "A calendar event with Mark marked as completed/passed"
-      amount_rule: "GBP 50/hour, split among however many players (excl. Mark)
-        trained in that session -- owner doesn't train 1:1 with Mark, so other
-        players reimburse their share to the owner. Amount owed by owner to
-        Mark, and amount owed back to owner by other players, both depend on
-        session attendance which isn't currently captured anywhere structured.
-        Needs a concrete data source (calendar attendees? a manual tally?)
-        before this can be computed automatically -- ask the owner."
-      status: requirements captured, not designed
-    - payee: Justyna (cleaner)
-      trigger: TODO                     # presumably per completed visit -- not yet asked
-      amount_rule: TODO                 # rate not yet captured (see fixed_commitments.Cleaner)
-      status: requirements captured, not designed
+    v1_model: draft_and_approve          # owner-confirmed; not silent auto-send
+    payees:
+      - payee: Mark (beach volleyball coach)
+        trigger: "A calendar event with Mark has passed"
+        amount_rule: "GBP 50 x the event's duration in hours. Owner pays Mark
+          the FULL amount every time regardless of headcount (corrected from
+          an earlier assumption of a split) -- so this side needs only the
+          calendar event and its duration, no attendance data."
+        reimbursement: "Separately, other players who trained that session pay
+          the owner back their share. No attendee list exists (events aren't
+          sent as invites) and there's no WhatsApp access to infer headcount.
+          Proposed fix, pending owner confirmation: owner adds player count to
+          the event title/description (e.g. 'Beach Volleyball w/ Mark --
+          3 players') when creating it -- calendar connector can read that
+          directly, no new tooling needed."
+        status: "Mark's own-payment side is fully specced; reimbursement side
+          pending the event-title convention being confirmed/adopted"
+      - payee: Justyna (cleaner)
+        trigger: TODO                   # presumably per completed visit -- not yet asked
+        amount_rule: TODO               # rate not yet captured (see fixed_commitments.Cleaner)
+        status: requirements captured, not designed
     note: "Owner open to adding more payees later, or a lighter-weight version
-      that just prompts for these payments rather than sending them
-      automatically -- his words: 'we'll see'. Treat draft-and-approve as the
-      working v1 target unless he explicitly asks for full unattended send."
+      that just prompts for these payments rather than drafting them --
+      his words: 'we'll see'."
 
   payment_rails_research:
     date: 2026-08-16
