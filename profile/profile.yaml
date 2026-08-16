@@ -456,6 +456,15 @@ finance:
     - Gifts and giving
     - Income
   agent_write_access: false           # keep false until it's been right for a quarter
+  trusted_sources:                    # ADDED 2026-08-16, volunteered alongside the
+                                       # Round 8 AI-sources answer but really belongs
+                                       # here -- financial trust, not AI trust
+    - name: "Martin Lewis / MoneySavingExpert.com"
+      note: "Owner's words 2026-08-16: 'I use his website to make decisions.'
+        Worth the finance-cfo cross-referencing MSE guidance where relevant
+        (e.g. savings rates, LISA rules) rather than treating it as just
+        another source among many -- this one the owner already trusts and
+        acts on."
 
   # Owner wants two specific payees automated -- flagged as its own item rather
   # than folded into agent_write_access, because it changes the guardrail in
@@ -870,11 +879,28 @@ relationships:
 
 # ── Round 8 ──────────────────────────────────────────────────────────────────
 ai_tracking:
-  purpose: TODO                       # building | investing | career | curiosity — sets the filter
-  decision_it_feeds: TODO
-  trusted_sources: []
-  current_toolchain: []
-  evaluation_backlog: []              # meant to try, haven't
+  purpose: "professional and personal"  # ANSWERED 2026-08-16, Round 8 Q1 -- both, not
+                                       # one or the other
+  decision_it_feeds: "OPEN -- owner's own words: 'not sure what decisions it
+    feeds though'. Genuinely unresolved, not a placeholder. Don't build the
+    ai-scout digest around an assumed decision (career move, investing,
+    product building) that hasn't actually been confirmed -- keep it
+    lightweight and general until a real pattern shows up, then ask again."
+  trusted_sources:                    # PARTIAL 2026-08-16, Round 8 Q2
+    - name: "'Simon Bartlett' the podcaster, and his guests"
+      note: "Owner's exact wording 2026-08-16, via speech-to-text. Almost
+        certainly means Steven Bartlett (Diary of a CEO podcast) given the
+        description, but per the no-guessing rule on names (see the
+        Krystyna/Max corrections earlier), recorded as literally said
+        rather than silently 'corrected' to a guess. Worth a quick confirm."
+  current_toolchain: []               # Round 8 Q3 not yet answered
+  evaluation_backlog:                 # meant to try, haven't
+    - "Podcast and audiobook listening history -- owner wants a full history
+      of everything he's ever listened to, requested 2026-08-16 as
+      something that 'could help feed decisions' for AI tracking (and
+      plausibly quest-master/hobbies too). Not scoped yet -- likely sources
+      would be Spotify, Apple Podcasts, Apple Books/Audible, none of which
+      have a live connector here. Real integration idea, not built."
   digest:
     cadence: TODO                     # daily | weekly
     depth: TODO                       # headlines | only-if-it-changes-my-actions
