@@ -23,6 +23,30 @@ Three ways to move data. Use the cheapest one that works:
 The instinct to reach for Zapier first is worth resisting. Most of what people build in
 Zapier for a system like this is now a connector call.
 
+### Candidate: a quick-capture channel (Telegram bot)
+
+Not yet built. Surfaced by a real gap: the owner arranges things with people who aren't
+in this system — his beach volleyball coach and his cleaner — over WhatsApp and Facebook
+Messenger respectively, neither of which has a connector here, so an agent has no way to
+know when a session or a visit happened.
+
+For those two specific cases the fix doesn't need new infrastructure: the owner already
+creates calendar events for both, so putting the missing detail (headcount, visit
+confirmation) directly in the event title or description gives every agent a readable
+signal with zero behaviour change asked of Mark or Justyna. That's the v1 approach — see
+`profile.yaml → finance.payment_automation_requested`.
+
+Telegram is worth naming separately because it's the strongest candidate **if** a
+general-purpose capture channel is ever wanted — "log X" from a phone in two seconds,
+for anything in the Life OS, not tied to one payee. Telegram's Bot API is free and needs
+no business verification, unlike WhatsApp Business API or the Messenger Platform, both
+of which require an approval process disproportionate to a personal system. The cost is
+real, though: no connector exists for it yet, so it's a genuine build (a bot + a small
+relay into Notion/the agents), not a flip of a switch — and it only helps for capture
+*by the owner*; it doesn't retroactively give visibility into conversations happening on
+other platforms. Revisit if/when a second or third case like Mark/Justyna shows up and
+the per-case calendar workaround stops scaling.
+
 ## Personal Finance
 
 | Source | Reach it with | Lands in | Effort |
