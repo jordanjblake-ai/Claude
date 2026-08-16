@@ -8,7 +8,7 @@
 
 meta:
   last_updated: 2026-08-16
-  interview_rounds_complete: []       # e.g. [1, 2, 3]
+  interview_rounds_complete: [1]      # e.g. [1, 2, 3]
   region: United Kingdom              # determines banking & health API options
   timezone: Europe/London
   general_area: London (Mitcham)      # city-level only, for local-service automation
@@ -53,14 +53,30 @@ stack:
                                        # its Apple Health sleep-stage export given the
                                        # iPhone. Revisit in Round 5.
   smart_scale: withings                # + a Withings BPM (blood pressure) device
-  notes_and_tasks: TODO               # notion | obsidian | apple notes | none
+  notes_and_tasks: apple_notes         # currently just jotted ideas, not kept up to date.
+                                       # Owner is open to switching -- recommendation:
+                                       # Notion as the structured Life OS ledger (already
+                                       # the designated ledger in the architecture and it's
+                                       # a live connector), Apple Notes stays for loose
+                                       # personal jotting. Confirm before treating as final.
   automation_platform: TODO           # make | n8n | zapier | none yet
   desktop: windows                    # laptop, new high-spec unit arriving next week
   live_connectors: [gmail, google_calendar, google_drive, notion, github]
 
 # ── Rounds 2–3 ───────────────────────────────────────────────────────────────
 finance:
-  income_sources: []                  # {name, cadence, variable: true|false}
+  income_sources:
+    - name: Salary
+      cadence: monthly
+      variable: false
+      amount_annual_gbp: 60000        # approximate, per owner ("something around 60K")
+    - name: Internet bill (expensed)
+      cadence: monthly
+      variable: false
+      note: "Reimbursed by employer -- reduces effective cost rather than adding income."
+    - name: Savings account interest
+      cadence: variable
+      variable: true
   headline_metric:
     name: TODO                        # net worth | savings rate | monthly spend | debt | runway
     current: TODO
