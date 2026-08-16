@@ -47,8 +47,8 @@ orientation:
     - "Doctor's appointment for a lingering chest infection never got booked. Mostly recovered but still flares up under high-output effort (beach volleyball) and when talking/laughing — affects breathing capacity in the moment. UPDATE 2026-08-16: owner said the chest infection has recently flared up again (his exact phrasing was unclear via speech-to-text -- transcribed as 'it has just gone Miss recently', probably meaning it flared up/worsened again -- worth confirming directly) and was a contributing factor, alongside Krystyna's agency work weekends, to date nights quietly lapsing -- see the next item and relationships.protected_commitments."
     - "Cleaner never got scheduled to come to the flat."
     - "NEW 2026-08-16: date nights with Krystyna quietly stopped happening over the last few months -- between her agency work on some weekends and the owner being unwell with a chest infection. Now a protected commitment (relationships.protected_commitments): at least every 2 weeks, usually weekends."
-    - "NEW 2026-08-16: hygienist appointment never booked. Owner's own words: 'something I've not quietly done recently... I need to do.' No connector here can book appointments -- this needs the owner to actually do it, the system can only remind/track."
-    - "NEW 2026-08-16: sports massage never booked. Same pattern as the hygienist appointment -- flagged by owner as quietly missed. Worth cross-referencing with the beach volleyball training load (health.training_week, 8 sessions/week) -- recovery work matters more than usual given that volume, not just general self-care."
+    - "NEW 2026-08-16: hygienist appointment never booked, provider already chosen -- Simply Bright, Mitcham (close to home). Both this and the sports massage below are covered under the owner's company health insurance (see health.insurance) -- holding off contacting the provider until that policy has been reviewed, so booking happens in whatever way actually maximises the cover rather than by default."
+    - "NEW 2026-08-16: sports massage never booked, provider already chosen -- Savoy Sports Massage (close to home). Worth cross-referencing with the beach volleyball training load (health.training_week, 8 sessions/week) -- recovery work matters more than usual given that volume, not just general self-care. Also covered under company health insurance -- see health.insurance and the hygienist note above."
 
 # Found 2026-08-16 in the owner's Drive -- a prior Claude session had already
 # scoped this in real detail. Source doc:
@@ -626,6 +626,28 @@ health:
         protected, predictable cadence (date nights, training week
         structure) may matter more than it would for someone without this
         context. Not a basis for assumptions beyond what's stated here."
+  insurance:                           # NEW 2026-08-16
+    provider: TODO                     # via employer -- name not yet given
+    policy_document: NOT_YET_SUPPLIED  # owner said 2026-08-16 this covers at least
+                                       # dental hygienist visits and sports massage,
+                                       # and wants the contract read properly so he
+                                       # maximises what he's entitled to. Can't do
+                                       # that without the actual document -- same
+                                       # pattern as everything else Claude can't reach
+                                       # directly: owner drops the policy PDF/document
+                                       # into Drive, then it gets read and summarised
+                                       # here (coverage, limits, network requirements,
+                                       # claim process) once supplied.
+    known_covered:                     # what owner has said is covered so far, not yet
+                                       # verified against the actual policy text
+      - "Dental hygienist"
+      - "Sports massage"
+    note: "Booking the hygienist (Simply Bright, Mitcham) and sports massage
+      (Savoy Sports Massage) is deliberately paused until this policy is
+      reviewed -- owner wants to book in whatever way actually maximises
+      the cover (e.g. in-network provider requirements, pre-authorisation,
+      claim-after-paying vs. direct billing) rather than by default. See
+      the known_leaks entries for both appointments."
   sensors:
     scale_pipe: withings_api           # LIVE as of 2026-08-16. Owner registered a
                                        # Withings developer app, ran the local auth
@@ -1001,11 +1023,21 @@ operating:
       see if that framing lands better than 'time and surface'."
   weekly_review: {day: Friday, time: afternoon, max_minutes: 30}  # CONFIRMED 2026-08-16
   never_without_asking:               # hard guardrails, enforced by every agent.
-                                       # CONFIRMED 2026-08-16 by owner -- nothing to add,
-                                       # this list is complete as-is.
     - send messages as me
     - spend money
-    - contact people directly
+    - name: "contact people directly"
+      note: "AMENDED 2026-08-16 by owner -- this is not an absolute ban
+        anymore. Owner's words: 'if I explicitly tell you to do it then I
+        want you to do so.' So: never initiate contact with anyone on the
+        system's own judgement, but if the owner gives an explicit,
+        specific instruction to contact a specific person or business for
+        a specific purpose, that's authorised for that instance. Doesn't
+        become a standing permission to contact that person/business again
+        later without being asked each time. Also worth being honest about
+        actual capability here -- no phone-calling tool exists in this
+        environment, so 'contact' in practice means email (Gmail) or
+        drafting something the owner sends himself; there's no live web
+        booking-form automation confirmed available either."
   tone_when_off_track: blunt          # CONFIRMED 2026-08-16 by owner -- his own words,
                                        # "for now". Worth re-checking this periodically
                                        # rather than treating it as permanent, he flagged
