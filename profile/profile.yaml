@@ -846,3 +846,9 @@ operating:
     - spend money
     - contact people directly
   tone_when_off_track: TODO           # blunt | gentle
+  writing_style:                      # CONFIRMED 2026-08-16 by owner
+    em_dashes: never                  # do not use em dashes in any response to the owner
+    drafted_messages: "Personalised and human, not templated or generic --
+      draw on real, specific details about the person and the relationship
+      wherever they're known, rather than warm-sounding filler that could
+      apply to anyone."
