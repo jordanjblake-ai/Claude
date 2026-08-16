@@ -8,10 +8,15 @@
 
 meta:
   last_updated: 2026-08-16
-  interview_rounds_complete: [1, 2, 4, 5]  # Round 3 still open (LifeStage aggregator
-                                       # confirmation, net worth composition ambiguity,
-                                       # Justyna's rate/trigger) -- rounds can complete
-                                       # out of order
+  interview_rounds_complete: [1, 2, 4, 5]  # Round 3 still open. Aggregator confirmed
+                                       # (lifestage_money, working, with known staleness
+                                       # caveats) and net worth composition now RESOLVED
+                                       # 2026-08-16 (see finance.headline_metric) -- the two
+                                       # remaining Round 3 items are categorisation
+                                       # granularity confirmation (a category list is
+                                       # already seeded from real transaction data, just
+                                       # unconfirmed by the owner) and Justyna's rate/
+                                       # trigger -- rounds can complete out of order
   region: United Kingdom              # determines banking & health API options
   timezone: Europe/London
   general_area: London (Mitcham)      # city-level only, for local-service automation
@@ -131,13 +136,35 @@ finance:
       variable: true
   headline_metric:
     name: net_worth
-    current_gbp: 150000                # AMBIGUOUS -- owner said "~150K" then separately
-                                       # mentioned a ~50K pension. Unclear if the 150K
-                                       # already includes the pension or is on top of it
-                                       # (i.e. true current net worth may be ~150K or
-                                       # ~200K). Confirm before treating either as solid --
-                                       # it changes the required monthly delta to hit
-                                       # the target materially.
+    current_gbp: 182568                # RESOLVED 2026-08-16 -- no longer ambiguous. Real
+                                       # figure assembled account-by-account from the
+                                       # owner's own app screenshots (highest confidence)
+                                       # and cross-checked against the LifeStage Money
+                                       # aggregator, which turned out to have real
+                                       # staleness/omission bugs on several accounts
+                                       # (Aviva ~GBP 27K low, the Nottingham/Beehive LISA
+                                       # ~GBP 5.8K low, Chase current account ~GBP 11 low,
+                                       # PayPal missing its EUR balance entirely, Virgin
+                                       # Money's current/savings split reversed) -- this is
+                                       # exactly the failure mode the owner set out to fix
+                                       # with this exercise, and it's why every account
+                                       # note under finance.accounts favours a direct
+                                       # in-app screenshot over the aggregator wherever one
+                                       # exists.
+                                       #
+                                       # Breakdown (GBP): First Direct 6,236.18 + Revolut
+                                       # 330.00 + Amex 0.00 + Aviva pension 68,318.72 +
+                                       # Coinbase 1,461.26 + Chip 53,124.48 + Virgin Money
+                                       # 7,958.92 + Chase 469.51 + Monzo 680.60 + PayPal
+                                       # 143.22 + Nottingham LISA 43,845.58 = GBP 182,568.47
+                                       # (rounded here to 182,568). No debt (confirmed).
+                                       #
+                                       # EXCLUDES NatWest (~GBP 7,078-7,578) and Halifax
+                                       # (~GBP 1.92) -- owner is currently locked out of
+                                       # both apps, so those figures are aggregator-cached
+                                       # only, not independently confirmed. Including them
+                                       # would put the range at roughly GBP 189,600-190,150.
+                                       # Revisit and fold in once access is regained.
     target_gbp: 1000000
     by: 2027-12-31                    # "end of next year" from 2026-08-16
     lifestage_own_reported_total_gbp: 153676   # LifeStage Money's own dashboard
@@ -349,16 +376,21 @@ finance:
         both GBP 0.00 -- likely the same cancelled card plus a duplicate/old
         aggregator record, not two real cards. Not worth chasing further
         given both are zero."
-    - institution: Beehive Money
+    - institution: Nottingham Building Society (Online Lifetime ISA)
       type: Lifetime ISA (LISA)
-      note: "NEW 2026-08-16 -- found via the LifeStage 'Accounts and assets'
-        aggregator screenshot, not previously mentioned by the owner at all.
-        GBP 38,000.00. A meaningful balance -- worth the owner confirming
-        this is current/correct and explaining what it's earmarked for
-        (LISAs are typically first-home or retirement savings with a
-        government bonus and a withdrawal penalty outside those uses),
-        since it changes the net worth picture materially and wasn't
-        volunteered in any interview round so far."
+      note: "CORRECTED 2026-08-16 via owner's own Nottingham Building Society
+        app screenshot: real balance GBP 43,845.58, not the GBP 38,000.00
+        the LifeStage aggregator showed -- a real ~GBP 5,846 gap, the
+        largest staleness gap found across this whole exercise (bigger than
+        the Aviva one). CLARIFIED by owner: this was originally opened as a
+        'Beehive Money' LISA -- Beehive has since been absorbed into
+        Nottingham Building Society, so the institution name changed, not
+        the account itself. Also visible: Remaining LISA allowance for the
+        tax year GBP 4,000.00, total LISA government bonus earned to date
+        GBP 2,000.00 (25% top-up, confirms real contributions of roughly
+        GBP 8,000 to have earned that bonus). Rate 2.00% tax-free/AER. Was
+        previously listed as 'Beehive Money' -- renamed here to match the
+        current provider."
     - institution: Aviva (MyAviva)
       type: pension
       note: "CORRECTED 2026-08-16 -- real fund value from owner's own screenshot:
