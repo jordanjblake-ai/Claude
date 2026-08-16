@@ -38,11 +38,12 @@ priorities:
   - ai
 
 stack:
-  phone: TODO                         # ios | android
-  wearable: TODO                      # apple watch | garmin | whoop | oura | fitbit | none
-  smart_scale: TODO                   # make and model, or none
+  phone: ios                          # iPhone 16
+  wearable: none
+  smart_scale: withings                # + a Withings BPM (blood pressure) device
   notes_and_tasks: TODO               # notion | obsidian | apple notes | none
   automation_platform: TODO           # make | n8n | zapier | none yet
+  desktop: windows                    # laptop, new high-spec unit arriving next week
   live_connectors: [gmail, google_calendar, google_drive, notion, github]
 
 # ── Rounds 2–3 ───────────────────────────────────────────────────────────────
