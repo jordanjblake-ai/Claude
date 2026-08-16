@@ -1024,7 +1024,16 @@ operating:
   weekly_review: {day: Friday, time: afternoon, max_minutes: 30}  # CONFIRMED 2026-08-16
   never_without_asking:               # hard guardrails, enforced by every agent.
     - send messages as me
-    - spend money
+    - name: "spend money"
+      note: "CLARIFIED 2026-08-16 -- owner considered and explicitly declined
+        a standing threshold (e.g. 'under GBP 20/50, just go ahead'), which
+        would have reversed the deliberately cautious stance already in
+        finance.agent_write_access (false, 'keep false until it's been
+        right for a quarter'). What stays true: per-instance explicit
+        authorisation already satisfies 'never without asking' as written
+        -- if he says 'yes, pay for this specific thing now' in the
+        moment, that's him asking, not a guardrail exception. No standing
+        autonomy to spend without checking first, full stop."
     - name: "contact people directly"
       note: "AMENDED 2026-08-16 by owner -- this is not an absolute ban
         anymore. Owner's words: 'if I explicitly tell you to do it then I
