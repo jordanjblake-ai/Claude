@@ -2,9 +2,8 @@
 
 There's no Apple Health connector in this environment, and there can't
 really be one directly — Health data lives in a sandboxed store on your
-iPhone, not behind any cloud API Apple exposes to third parties. The
-standard bridge is a third-party export app; **Health Auto Export** is the
-one with the best reputation for this. This is a setup guide for the phone,
+iPhone, not behind any cloud API Apple exposes to third parties. A bridge
+app or shortcut is the only way out. This is a setup guide for the phone,
 not something Claude can do remotely.
 
 ## What it needs to do
@@ -12,43 +11,53 @@ not something Claude can do remotely.
 Same pattern as everything else in this system: produce a file, drop it
 somewhere Claude can read it. Concretely: export to CSV, save it into the
 **"Life OS — Health Exports"** Drive folder (same one the Withings script
-uses), on a schedule.
+uses).
 
-## Setup steps (on your iPhone)
+## Two free routes (revised — Health Auto Export's free tier doesn't
+actually cover this)
 
-1. **Install Health Auto Export** from the App Store (the free tier covers
-   CSV export; the automation/scheduling features are a paid tier — worth it
-   if you want this hands-off rather than manual).
+Checked what's genuinely free as of August 2026: Health Auto Export's free
+tier is widgets only — real CSV export needs its paid "Basic" tier, and
+automated Google Drive export needs paid "Premium." So it's dropped as the
+default recommendation. Two free alternatives instead:
 
-2. **Install the Google Drive app** if it isn't already on your phone, and
+### Option A — Simple Health Export CSV (recommended starting point)
+
+A free app (tip-supported, not paywalled) that exports your full Health
+data to CSV in one tap.
+
+1. Install **Simple Health Export CSV** from the App Store.
+2. Install the **Google Drive app** if it isn't already on your phone, and
    sign in with the same Google account this Life OS uses
-   (`jordanjblake@gmail.com`). This matters because it's what lets iOS's
-   Files app "Save to..." picker see Drive as a destination.
+   (`jordanjblake@gmail.com`) — this is what lets iOS's share sheet see
+   Drive as a save destination.
+3. Open the app, export, then use the share sheet to **save the CSV
+   directly to the "Life OS — Health Exports" Drive folder**.
+4. This is manual-trigger, not scheduled — run it whenever you want fresh
+   data pulled in. That's fine: the health-coach reports trends, not single
+   readings, so occasional manual exports are enough, and it matches how
+   the Withings script already works.
 
-3. **In Health Auto Export, create an export** for the metrics that matter
-   to the health-coach — at minimum: weight, body fat %, resting heart rate,
-   sleep analysis, and anything Eight Sleep is writing into Health (check
-   whether it does — if Eight Sleep pushes sleep stages/HRV into Apple
-   Health, this is also how that data reaches the Life OS).
+### Option B — Build it yourself with Apple's native Shortcuts app (fully
+automated, still free)
 
-4. **Set the export format to CSV.**
+More setup effort, but genuinely free and unlimited — no app purchase at
+all. The Health app exposes "Health Sample" actions directly to Shortcuts
+(built into iOS):
 
-5. **Set the destination.** Depending on the app version, this is either:
-   - A direct **"Automations"** feature that can export on a schedule to a
-     folder — if it offers Google Drive natively, use that.
-   - Or, more commonly, an **iOS Shortcut**: Health Auto Export has a
-     Shortcuts action ("Export Health Data") you can chain to a "Save File"
-     action, and point that Save File action at Drive (via the Files app
-     integration from step 2).
+1. In the **Shortcuts** app, create a new shortcut.
+2. Add a **"Get Health Samples"** action for each metric that matters —
+   weight, body fat %, resting heart rate, sleep analysis, and anything
+   Eight Sleep writes into Health (worth checking whether it does; if so,
+   this is also how sleep stages/HRV reach the Life OS).
+3. Add a **"Save File"** action, pointed at the "Life OS — Health Exports"
+   Drive folder (via the Files integration from step 2 above).
+4. Add a **Personal Automation** (Automation tab → "+") to run this
+   shortcut on a schedule — a time-of-day trigger is free, no subscription
+   needed.
 
-   Whichever path is available in your version of the app, the destination
-   folder is **"Life OS — Health Exports."**
-
-6. **Schedule it**, if you have the paid tier — daily or weekly is both
-   fine, the health-coach reports trends, not single readings, so it
-   doesn't need to be frequent. Without the paid tier, run the export
-   manually whenever you want fresh data pulled in, same as the Withings
-   script.
+Worth doing once Option A proves the pipeline works end-to-end and you want
+it fully hands-off.
 
 ## What Claude does from here
 

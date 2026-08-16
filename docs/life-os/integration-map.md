@@ -78,7 +78,7 @@ the country wastes the setup effort.
 | Source | Reach it with | Lands in | Effort |
 | --- | --- | --- | --- |
 | Smart scale (Withings) | **BUILDING.** Withings Health API via OAuth — `scripts/health/withings_sync.py` in this repo (local script, own-device OAuth, outputs CSV) | Notion `Body` DB | M |
-| Apple Health aggregate | **BUILDING.** Health Auto Export (iOS) → CSV → Drive folder (see `docs/life-os/apple-health-setup.md`) — simpler than the originally-planned webhook/Make route since Drive is already a live connector | Notion `Body` DB | M |
+| Apple Health aggregate | **BUILDING.** Free route: Simple Health Export CSV or a self-built Shortcuts automation → CSV → Drive folder (see `docs/life-os/apple-health-setup.md`) — Health Auto Export dropped, its free tier doesn't cover real export | Notion `Body` DB | M |
 | Garmin / Whoop / Oura | Official developer APIs; Whoop and Oura are the friendliest | Notion `Recovery` DB | M |
 | Google Fit | Fitness REST API | Sheet | M |
 | Training sessions | Strava API, or calendar events tagged as training | Notion `Training` DB | S–M |
