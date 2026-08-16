@@ -119,7 +119,16 @@ finance:
     - {institution: Virgin Money, type: main current account}
     - {institution: Chase, type: payments/current account}
     - {institution: Monzo, type: current account}
-    - {institution: LifeStage Money, type: savings/investment app}
+    - institution: LifeStage Money
+      type: financial guidance app (built by WPS Advisory on Moneyhub's Open
+        Finance platform -- not a standalone savings product)
+      note: "Owner already has an account. Corrected an earlier mix-up: it's
+        not that Moneyhub was acquired by LifeStage Money -- LifeStage Money
+        is a consumer app that uses Moneyhub's aggregation tech underneath,
+        including pension data sharing. Since the owner already has this
+        account, this may be the answer to both the aggregator decision and
+        the Aviva pension access question, with no new signup needed. Owner
+        checking what's already linked in the app."
     - {institution: First Direct, type: dormant/lingering account}
     - {institution: NatWest, type: dormant/lingering account}
     - {institution: Chip, type: savings app}
@@ -135,16 +144,17 @@ finance:
         is checking the MyAviva portal/app directly for an open-banking consent
         option, or contacting Aviva support -- owner offered to help obtain
         access if possible, worth doing once other Round 3 items are settled."
-  aggregator: moneyhub (leading candidate, not yet confirmed)
-    # Both TrueLayer and Plaid are developer platforms, not individual
-    # self-serve products -- either would mean registering as a developer and
-    # building the integration. Moneyhub looks like the better single fit:
-    # UK bank aggregation + pension aggregation (solves the Aviva access
-    # question in one provider) + it's the first non-shareholder participant
-    # in the UK's new cVRP payment scheme (relevant to the Mark/Justyna
-    # payment automation). Caveat: Moneyhub reads as enterprise/B2B-oriented
-    # too -- individual signup path not yet confirmed. Owner to check
-    # moneyhub.com before this is locked in.
+  aggregator: lifestage_money (leading candidate, not yet confirmed)
+    # Revised: TrueLayer and Plaid are developer platforms, not individual
+    # self-serve products. Moneyhub is the aggregation tech that would solve
+    # this (UK bank + pension aggregation, cVRP payment participation), but
+    # Moneyhub itself is B2B-only -- it doesn't offer its own consumer app.
+    # The owner already has an account with LifeStage Money, a consumer app
+    # built by WPS Advisory on top of Moneyhub's platform (see the LifeStage
+    # Money entry under accounts above). If it already surfaces his other
+    # accounts and the Aviva pension, this needs no new signup at all --
+    # confirming what's already linked is the next step, not choosing a
+    # provider.
   categories: []                      # owner prefers 8-12 buckets (the recommended default),
                                        # open to more granularity if it proves useful. To be
                                        # proposed from real transaction history once the
