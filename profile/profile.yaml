@@ -142,7 +142,12 @@ finance:
     by: 2027-12-31                    # "end of next year" from 2026-08-16
   fixed_commitments:
     - name: Rent
-      amount: TODO
+      amount_gbp: ~1300                 # ESTIMATED 2026-08-16 from the LifeStage
+                                       # transaction export: GBP 3,900 in the
+                                       # "Rent payment" category over the last 90
+                                       # days, i.e. 3 months. Estimated, not
+                                       # confirmed against a single line item -- ask
+                                       # owner to confirm the exact figure.
       day_of_month: TODO
     - name: Gym membership
       amount: TODO
@@ -227,21 +232,30 @@ finance:
         is checking the MyAviva portal/app directly for an open-banking consent
         option, or contacting Aviva support -- owner offered to help obtain
         access if possible, worth doing once other Round 3 items are settled."
-  aggregator: lifestage_money (leading candidate, not yet confirmed)
-    # Revised: TrueLayer and Plaid are developer platforms, not individual
-    # self-serve products. Moneyhub is the aggregation tech that would solve
-    # this (UK bank + pension aggregation, cVRP payment participation), but
-    # Moneyhub itself is B2B-only -- it doesn't offer its own consumer app.
-    # The owner already has an account with LifeStage Money, a consumer app
-    # built by WPS Advisory on top of Moneyhub's platform (see the LifeStage
-    # Money entry under accounts above). If it already surfaces his other
-    # accounts and the Aviva pension, this needs no new signup at all --
-    # confirming what's already linked is the next step, not choosing a
-    # provider.
-  categories: []                      # owner prefers 8-12 buckets (the recommended default),
-                                       # open to more granularity if it proves useful. To be
-                                       # proposed from real transaction history once the
-                                       # aggregator is live rather than invented upfront.
+    - institution: Crypto wallets (via LifeStage Money)
+      type: "ETH, staked ETH, DAI, ALGO, USDS -- found 2026-08-16 in the LifeStage
+        transaction export, not previously captured anywhere. Only transaction
+        flow visible, not current holdings/value -- ask owner for current
+        balances/value if this should factor into net worth."
+  aggregator: lifestage_money             # CONFIRMED 2026-08-16 -- owner successfully
+                                       # exported and delivered a real transaction
+                                       # CSV (8,466 rows, back to Feb 2023). Working,
+                                       # no new signup needed.
+  categories:                         # SEEDED 2026-08-16 from the LifeStage export's own
+                                       # "CATEGORY GROUP" field rather than invented --
+                                       # matches the "propose from real history" plan.
+                                       # Owner hasn't reviewed/confirmed this list yet.
+    - Transfers                       # mostly round-ups and inter-account moves --
+                                       # NOT real spend, exclude from spend totals
+    - Rent payment
+    - Shopping
+    - Health
+    - Entertainment
+    - Household
+    - Bills and utilities
+    - Transport
+    - Gifts and giving
+    - Income
   agent_write_access: false           # keep false until it's been right for a quarter
 
   # Owner wants two specific payees automated -- flagged as its own item rather
@@ -474,10 +488,45 @@ health:
 # ── Rounds 6–7 ───────────────────────────────────────────────────────────────
 relationships:
   rings:
-    inner: []                         # {name, relationship, cadence_days, channel}
-    second: []
-  contact_preference: TODO            # prompt_me | draft_for_me
+    inner:                            # captured 2026-08-16
+      - name: Krystyna MacGibbon
+        relationship: partner
+        note: "Owner initially gave the anglicised spelling 'Christina' and
+          flagged it as wrong. Confirmed via Gmail correspondence (calendar
+          invites, shared docs, a Google family group) that the correct name
+          is Krystyna MacGibbon -- goes by 'Krysia' as a nickname, uses
+          macgibbonk96@gmail.com personally and macgk.work@gmail.com /
+          hello@krystynamacg.com for work. NOTE: while searching, came across
+          a GP appointment/medical monitoring email for her, including her
+          DOB -- deliberately did NOT record any of that here. Only name and
+          relationship are captured, per the no-secrets rule and because
+          it's a third party's sensitive medical information, not the
+          owner's to have logged without her knowledge either way."
+      - {name: Debbie Blake, relationship: mother}
+      - {name: Max "Maxie" Dombey, relationship: cousin}
+      - {name: Sean O'Keeffe, relationship: "closest friend, secondary school"}
+      - {name: Robbie O'Keeffe, relationship: "closest friend, secondary school"}
+    second:                           # captured 2026-08-16
+      - {name: Jo Cope, relationship: auntie, email: jocopetabasco@gmail.com}
+      - {name: Tracy Dombey, relationship: auntie, email: tracy.dombey@googlemail.com}
+      - {name: Sean Smith, relationship: friend}
+      - name: Valerie Cope
+        relationship: "TODO -- likely extended family on the Cope side (aunt/
+          cousin?), unconfirmed"
+        note: "FOUND, not named by owner directly -- a Bloom & Wild birthday
+          reminder email in Gmail ('don't forget Valerie Cope's birthday')
+          shows the owner already has a standing reminder set up for her,
+          birthday 13 November. Surfacing this as exactly the kind of
+          extended-family fill-in he asked for -- confirm the relationship
+          and whether she belongs here."
+  outstanding: "Owner mentioned 'my cousins' (plural, unnamed) and a 'Beach
+    Volleyball friends' group as existing but didn't name individuals beyond
+    Max Dombey. Searched Gmail for additional Dombey/Cope-surname contacts
+    and found nothing further conclusive. Ask for names if worth tracking
+    individually, or leave as an informal group."
+  contact_preference: TODO            # prompt_me | draft_for_me -- not yet asked
   active_investments: []              # relationships needing deliberate attention now
+                                       # -- not yet asked
   occasions:
     source: TODO                      # contacts | calendar | to be seeded
     lead_time_days: TODO
