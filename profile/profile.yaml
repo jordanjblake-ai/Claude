@@ -47,6 +47,8 @@ orientation:
     - "Doctor's appointment for a lingering chest infection never got booked. Mostly recovered but still flares up under high-output effort (beach volleyball) and when talking/laughing — affects breathing capacity in the moment. UPDATE 2026-08-16: owner said the chest infection has recently flared up again (his exact phrasing was unclear via speech-to-text -- transcribed as 'it has just gone Miss recently', probably meaning it flared up/worsened again -- worth confirming directly) and was a contributing factor, alongside Krystyna's agency work weekends, to date nights quietly lapsing -- see the next item and relationships.protected_commitments."
     - "Cleaner never got scheduled to come to the flat."
     - "NEW 2026-08-16: date nights with Krystyna quietly stopped happening over the last few months -- between her agency work on some weekends and the owner being unwell with a chest infection. Now a protected commitment (relationships.protected_commitments): at least every 2 weeks, usually weekends."
+    - "NEW 2026-08-16: hygienist appointment never booked. Owner's own words: 'something I've not quietly done recently... I need to do.' No connector here can book appointments -- this needs the owner to actually do it, the system can only remind/track."
+    - "NEW 2026-08-16: sports massage never booked. Same pattern as the hygienist appointment -- flagged by owner as quietly missed. Worth cross-referencing with the beach volleyball training load (health.training_week, 8 sessions/week) -- recovery work matters more than usual given that volume, not just general self-care."
 
 # Found 2026-08-16 in the owner's Drive -- a prior Claude session had already
 # scoped this in real detail. Source doc:
