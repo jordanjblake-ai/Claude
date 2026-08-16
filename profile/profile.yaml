@@ -267,14 +267,15 @@ finance:
                                        # coach (GoCardless GBP 60)". Paid via GoCardless
                                        # direct debit, distinct payment rail from the Mark
                                        # Garcia-Kidd entries above (those are GBP 20/session
-                                       # Stripe and GBP 50/hour bank transfer). NOT YET
-                                       # CONFIRMED whether this is the same tailored beach
-                                       # volleyball gym program mentioned in
-                                       # health.training_week, a different coach entirely,
-                                       # or possibly related to Mark's Performance Training
-                                       # Group under another billing arrangement -- ask
-                                       # directly rather than assume it's a fourth
-                                       # unrelated coaching expense.
+                                       # Stripe and GBP 50/hour bank transfer). LIKELY
+                                       # CANDIDATE surfaced 2026-08-16: owner separately
+                                       # mentioned an existing coach, Connor, tracked via
+                                       # TrueCoach (see
+                                       # health.sensors.existing_coach_and_platform) --
+                                       # plausible this GBP 60 GoCardless payment is Connor's
+                                       # fee, but NOT explicitly confirmed as the same person.
+                                       # Don't merge the two records until owner says so
+                                       # directly.
       day_of_month: TODO
   debts: []                           # confirmed: no debt of any kind
   accounts:                           # names only, never numbers -- 10 institutions is a lot
@@ -648,6 +649,16 @@ health:
       Notes. Owner logs each session here; review monthly and revise the
       Training Program page against real RPE/weight trends per the review
       rules written on that page. Empty so far -- not yet in use."
+    existing_coach_and_platform: "NEW 2026-08-16 -- owner already has a coach,
+      Connor, and logs results on TrueCoach (a third-party coaching app), not
+      just the Training Log above. Owner is going to give access to his
+      TrueCoach history so real historical lift/weight data can ground the
+      Training Program instead of starting from a blank template. No live
+      connector for TrueCoach -- likely the same local-export/Drive-drop
+      pattern as everything else Claude can't reach directly. OPEN QUESTION:
+      whether Connor is the same coach behind the GBP 60/month GoCardless
+      'current training program' entry in finance.fixed_commitments -- not
+      yet confirmed, don't assume either way."
   known_derailers:
     - "RESOLVED, per owner 2026-08-16: the knee-pain rehab program found in
       Drive is no longer relevant -- 'no longer apparent'. Kept here as
