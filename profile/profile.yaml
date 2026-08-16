@@ -625,6 +625,29 @@ health:
                                        # happens, since overplanning relative to real
                                        # free time is the single most common way
                                        # training schedules collapse
+  gym_program:                        # NEW 2026-08-16 -- owner wants Claude to programme
+                                       # the 2x/week gym sessions specifically for beach
+                                       # volleyball, and to log weights/results so the
+                                       # program adjusts over time, rather than a static
+                                       # plan. Built as two Notion pieces instead of
+                                       # anything in this repo, since it needs to accept
+                                       # ongoing logged input:
+    program_doc: "https://app.notion.com/p/3be56997baa98101acc1e9968e4e3c02 -- 'Training
+      Program' page. Day A (power/legs: trap bar deadlift, box jumps, Bulgarian
+      split squat, single-leg RDL, Pallof press, calf raise) and Day B
+      (upper/shoulder: weighted pull-up, landmine press, Y-T-W-L raises, band
+      external rotation, face pull, hip thrust). Grounded in real research, not
+      just generated from memory -- cited sources on the page, including the
+      beach volleyball shoulder-injury rate (~43% vs ~16% indoor) that shaped
+      why Day B exists as its own session rather than a generic 'upper body day'.
+      STATUS: starting template, no prior lift history existed to base loads on,
+      so only sets/reps are prescribed, not weights yet."
+    training_log_db: "https://app.notion.com/ec293a1395554790a27c4f20729c7364 --
+      'Training Log' database. Fields: Date, Session (Day A / Day B / Beach
+      volleyball / Sauna / Other), Exercise, Weight (kg), Sets, Reps, RPE,
+      Notes. Owner logs each session here; review monthly and revise the
+      Training Program page against real RPE/weight trends per the review
+      rules written on that page. Empty so far -- not yet in use."
   known_derailers:
     - "RESOLVED, per owner 2026-08-16: the knee-pain rehab program found in
       Drive is no longer relevant -- 'no longer apparent'. Kept here as
