@@ -67,8 +67,19 @@ relevant fields into the Notion `Body` database. No separate ingestion path
 needed; all three sources funnel into the same folder and the same read
 step.
 
-## Status
+## Status — superseded, kept for reference
 
-Not yet done — this is the setup guide, not a confirmation it's been set
-up. Come back and update `profile/profile.yaml → health.sensors` once it's
-live.
+**Live as of 2026-08-16, but not via this guide.** The owner found and used
+a different app, "HealthMirror," on his own — not Simple Health Export CSV
+or a Shortcuts automation as planned here. It exported 90 days as a zip of
+raw per-sample JSONL (not flat CSV), moved from iCloud to Google Drive
+manually via the iOS Files app, then processed in the Claude Code session
+itself (which has Bash access, so the zip was downloaded, unzipped, and
+aggregated with a Python script run inline — see
+`profile/profile.yaml → health.sensors.body_data_pipe_status` for the full
+account, including a real data-quality bug found and fixed in Eight Sleep's
+sleep data).
+
+Keeping this doc as-is for the two free options it documents (Simple Health
+Export CSV, Shortcuts) — genuinely still valid if HealthMirror stops
+working or the owner wants a lighter-weight alternative later.

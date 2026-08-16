@@ -354,28 +354,61 @@ health:
                                        # callback is a localhost URL -- irrelevant here
                                        # since this is a single-user personal app.
     wearable_pipe: none                # no wearable (see stack.wearable) -- Eight Sleep
-                                       # covers recovery/sleep instead, via the Apple
-                                       # Health export pipe below if it writes there
+                                       # covers recovery/sleep instead, CONFIRMED live
+                                       # 2026-08-16 via the Apple Health pipe below
     nutrition_tracking: TODO          # be honest; don't build on an abandoned habit
-    aggregation_hub: apple_health       # BUILDING 2026-08-16, REVISED same day. Health
-                                       # Auto Export's free tier turned out not to cover
-                                       # real export (CSV needs its paid Basic tier,
-                                       # Drive automation needs Premium) -- switched to
-                                       # two free routes instead: Simple Health Export
-                                       # CSV (free app, manual trigger, recommended
-                                       # starting point) or a self-built Shortcuts
-                                       # automation (fully free, more setup, scheduled).
-                                       # See docs/life-os/apple-health-setup.md. Owner
-                                       # still needs to install + configure on his
-                                       # iPhone. Same handoff pattern either way: CSV
-                                       # dropped into "Life OS -- Health Exports" Drive
-                                       # folder.
+    aggregation_hub: apple_health       # LIVE as of 2026-08-16. Owner used an app called
+                                       # "HealthMirror" (not one Claude recommended --
+                                       # owner found it himself), which exported 90 days
+                                       # to iCloud Drive; moved to Google Drive manually
+                                       # via the iOS Files app since there's no iCloud
+                                       # connector here. Export format: a zip of raw
+                                       # per-sample JSONL by metric/month (weight,
+                                       # heart_rate, steps, sleep_analysis,
+                                       # active_energy, workout) -- much richer than the
+                                       # planned CSV route, so processed differently (see
+                                       # below) rather than the docs/life-os/
+                                       # apple-health-setup.md plan, which is now moot.
     body_data_pipe_status: |
-      Withings: LIVE 2026-08-16, first real sync complete (7 measurements).
-      Apple Health: still pending -- owner needs to set up Simple Health Export CSV
-      or a Shortcuts automation (see docs/life-os/apple-health-setup.md).
-      Both feed the same Drive folder; Claude reads/parses from there into the
-      Notion "Body" database (https://app.notion.com/p/4bbdf5ae67574f21b6c1680d1e669b69).
+      Both pipes LIVE as of 2026-08-16.
+
+      WITHINGS: direct API, 7 measurements synced (2026-08-08 to 08-16).
+
+      APPLE HEALTH (via HealthMirror export): 90 days of raw JSONL processed locally
+      (this session has Bash access -- downloaded the zip from Drive, unzipped,
+      aggregated with Python). Findings:
+        - weight: 9 samples. 7 match the Withings pull exactly (same underlying
+          Withings scale, synced into Apple Health too -- good cross-check, not
+          double-counted in Notion). 2 NEW points found from an app called "Prozis
+          Go" (2026-06-11: 90.25kg, 2026-07-30: 89.25kg) -- fills gaps in weight
+          history from before the Withings pipe existed. Both added to Notion.
+        - sleep_analysis + heart_rate: source is Eight Sleep (confirms it does write
+          into Apple Health, resolving the earlier open question). DATA QUALITY BUG
+          FOUND: Eight Sleep re-syncs re-insert already-logged sleep intervals under
+          new UUIDs -- raw sums were wildly inflated (some "nights" summed to 60+
+          hours). Fixed by deduplicating on (start, end, label) before summing.
+          Average-based stats (HR) were unaffected by the bug since duplicate-value
+          means don't shift; only summed stats (sleep duration) needed the fix.
+          70 days of corrected daily sleep-hours + avg-overnight-HR archived in Drive
+          (apple_health_sleep_hr_daily_2026-08-16.csv); last 14 days loaded into
+          Notion `Body`. Overall stats: sleep mean 8.1h/median 8.2h (range 1.5-13.5h),
+          overnight HR mean 67.5 (range 55.8-80.6) -- "Resting HR" in the Body DB from
+          this source is really avg overnight HR from Eight Sleep's continuous
+          monitoring, not a single spot reading; labelled as such in the Notes field.
+        - steps + active_energy: clean (no duplicate-record issue), ~90 days each,
+          from the iPhone's own tracking. NOT yet loaded into Notion -- the Body DB
+          schema doesn't have columns for these and it wasn't obvious they belong in
+          a body-composition table vs. a separate training/activity log. Raw JSONL
+          still sits in the downloaded zip (not separately archived to Drive at
+          conversation-line granularity, only the aggregated CSV was). Revisit if
+          training-load tracking becomes a priority -- ties into
+          health.training_week and possibly quest-master territory.
+        - workout: only 2 cycling sessions logged (via an app called "Beryl"), both
+          in early June. Too sparse to be a useful signal on its own.
+
+      Ongoing use for both pipes: owner reruns the export/sync when he wants fresh
+      data, moves the file to Drive. Nothing scheduled automatically for either.
+      Notion `Body` DB: https://app.notion.com/p/4bbdf5ae67574f21b6c1680d1e669b69
 
 # ── Rounds 6–7 ───────────────────────────────────────────────────────────────
 relationships:
