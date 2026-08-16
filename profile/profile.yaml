@@ -8,7 +8,10 @@
 
 meta:
   last_updated: 2026-08-16
-  interview_rounds_complete: [1, 2]   # e.g. [1, 2, 3]
+  interview_rounds_complete: [1, 2, 4, 5]  # Round 3 still open (LifeStage aggregator
+                                       # confirmation, net worth composition ambiguity,
+                                       # Justyna's rate/trigger) -- rounds can complete
+                                       # out of order
   region: United Kingdom              # determines banking & health API options
   timezone: Europe/London
   general_area: London (Mitcham)      # city-level only, for local-service automation
@@ -356,9 +359,18 @@ health:
       (2026-08-16). BMI still not captured -- lower priority given the
       performance objective."
   training_week:
-    sessions_per_week: TODO
-    types: []
-    preferred_time: TODO              # when it must happen to survive the calendar
+    sessions_per_week: 8                # target, per owner 2026-08-16
+    types:
+      - {type: Beach volleyball, sessions_per_week: 4}
+      - {type: Gym, sessions_per_week: 2}
+      - {type: Sauna, sessions_per_week: 2}
+    preferred_time: TODO               # not yet answered -- when must this happen to
+                                       # survive the calendar? 8 sessions/week is a lot
+                                       # to fit; worth checking this against
+                                       # goals.uncommitted_hours_per_week once Round 9
+                                       # happens, since overplanning relative to real
+                                       # free time is the single most common way
+                                       # training schedules collapse
   known_derailers:
     - "RESOLVED, per owner 2026-08-16: the knee-pain rehab program found in
       Drive is no longer relevant -- 'no longer apparent'. Kept here as
@@ -399,7 +411,13 @@ health:
     wearable_pipe: none                # no wearable (see stack.wearable) -- Eight Sleep
                                        # covers recovery/sleep instead, CONFIRMED live
                                        # 2026-08-16 via the Apple Health pipe below
-    nutrition_tracking: TODO          # be honest; don't build on an abandoned habit
+    nutrition_tracking: none           # confirmed 2026-08-16 -- not tracked anywhere.
+                                       # Don't build health-coach reporting or the
+                                       # grocery automation's diet framing on an
+                                       # assumption of tracked macros/calories; the
+                                       # high-protein grocery staples list is the
+                                       # closest thing to a nutrition signal that
+                                       # actually exists right now.
     aggregation_hub: apple_health       # LIVE as of 2026-08-16. Owner used an app called
                                        # "HealthMirror" (not one Claude recommended --
                                        # owner found it himself), which exported 90 days

@@ -13,8 +13,8 @@ without it — the "unlocks" line says which one.
 - [x] Round 1 — Orientation (cross-cutting)
 - [x] Round 2 — Finance: the picture
 - [ ] Round 3 — Finance: the plumbing
-- [ ] Round 4 — Health: the target
-- [ ] Round 5 — Health: the sensors
+- [x] Round 4 — Health: the target
+- [x] Round 5 — Health: the sensors
 - [ ] Round 6 — Relationships: the people
 - [ ] Round 7 — Relationships: the occasions
 - [ ] Round 8 — AI stack: what you're tracking and why
