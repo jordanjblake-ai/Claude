@@ -279,35 +279,39 @@ health:
     number on the scale. Don't let weight-trend reporting override this."
   metrics:
     weight:
-      current_kg: 88                  # owner-reported 2026-08-16, weighed
-                                       # himself "this weekend/last week"
+      current_kg: 88.39                # LIVE Withings data as of 2026-08-16 11:35,
+                                       # replacing the earlier same-day manual estimate
+                                       # (88kg -- close match, good sanity check). Full
+                                       # 7-point trend (2026-08-08 to 2026-08-16) is in
+                                       # the Notion `Body` DB: ranges 87.8-89.9kg, loosely
+                                       # trending down across the week. Too short a
+                                       # window to call a real trend yet -- one more
+                                       # week of data before the health-coach should
+                                       # state a direction with any confidence.
       target: TODO                    # the old 80kg figure was tied to a fat-loss
                                        # framing that no longer applies -- do not
                                        # carry it forward. Ask what target (if any)
                                        # makes sense under a performance objective.
       unit: kg
-      sync: "No live sync pipe yet. Owner weighs in periodically and reports
-        the number in conversation -- adequate for a rolling trend given the
-        health-coach reports trends, not single readings. Apple Health has no
-        connector in this environment (would need a bridge app, e.g. Health
-        Auto Export, exporting somewhere readable -- not yet built). Withings
-        has its own developer API and is the more direct long-term option
-        since it's the source device, but needs a real OAuth integration
-        built (Phase 2, not started). Revisit once more of Phase 2 is live;
-        manual reporting is fine for now."
+      sync: "LIVE 2026-08-16 -- see health.sensors.scale_pipe for the full
+        Withings pipeline status. Apple Health pipe still pending."
     others:
       - name: Body fat %
-        current: TODO                 # last known (Jun 2025, STALE): 15.8%
+        current: 14.5                 # LIVE Withings, 2026-08-16 (was 15.8% Jun 2025).
+                                       # Note: the 2026-08-09 reading in the Body DB
+                                       # (10.9%) is flagged as a probable bioimpedance
+                                       # outlier, not a real day-to-day swing -- don't
+                                       # let it skew the trend read.
         target: TODO
       - name: BMI
-        current: TODO                 # last known (Jun 2025, STALE): 27.4 -- less
-                                       # relevant now the objective is performance,
-                                       # not weight-band driven
+        current: TODO                 # not returned by the Withings API pull -- can be
+                                       # computed from weight + height if height is
+                                       # captured, though BMI matters less now the
+                                       # objective is performance, not weight-band driven
         target: TODO
-    source_note: "The body-fat/BMI figures above are still from a Withings
-      scan dated June 2025 (14+ months stale, found in Drive) -- only weight
-      has been updated with a fresh, owner-reported number. Ask for current
-      body fat / BMI too if it's useful under the performance objective."
+    source_note: "Weight and body fat % are now live from Withings
+      (2026-08-16). BMI still not captured -- lower priority given the
+      performance objective."
   training_week:
     sessions_per_week: TODO
     types: []
@@ -334,15 +338,21 @@ health:
         phone number -- deliberately NOT copied here, per the no-secrets
         rule at the top of this file. Only medical content is recorded."
   sensors:
-    scale_pipe: withings_api           # BUILDING 2026-08-16. Local OAuth+sync script
-                                       # at scripts/health/withings_sync.py in this repo.
-                                       # Runs on the owner's machine (OAuth needs a
-                                       # localhost redirect), outputs CSV, owner drops it
-                                       # in the "Life OS -- Health Exports" Drive folder.
-                                       # Setup steps he still needs to do: register an app
-                                       # at developer.withings.com, set env vars, run
-                                       # `python3 withings_sync.py auth` once. See
-                                       # scripts/health/README.md.
+    scale_pipe: withings_api           # LIVE as of 2026-08-16. Owner registered a
+                                       # Withings developer app, ran the local auth
+                                       # script (scripts/health/withings_sync.py) and
+                                       # completed a real sync -- 7 measurements
+                                       # (2026-08-08 to 2026-08-16) pulled, archived as
+                                       # CSV in the "Life OS -- Health Exports" Drive
+                                       # folder, and written into the Notion `Body`
+                                       # database. Ongoing use: owner runs
+                                       # `python withings_sync.py sync` on his machine
+                                       # whenever he wants fresh data, moves/pastes the
+                                       # CSV to Drive. Nothing scheduled automatically.
+                                       # NOTE: the app is in Withings' "restricted mode"
+                                       # (capped at 10 linked users) because the OAuth
+                                       # callback is a localhost URL -- irrelevant here
+                                       # since this is a single-user personal app.
     wearable_pipe: none                # no wearable (see stack.wearable) -- Eight Sleep
                                        # covers recovery/sleep instead, via the Apple
                                        # Health export pipe below if it writes there
@@ -361,13 +371,11 @@ health:
                                        # dropped into "Life OS -- Health Exports" Drive
                                        # folder.
     body_data_pipe_status: |
-      Not live yet -- infrastructure built 2026-08-16, owner setup steps still pending:
-      1. Withings: register developer app, run local auth script once (his action)
-      2. Apple Health: install/configure Health Auto Export (his action)
+      Withings: LIVE 2026-08-16, first real sync complete (7 measurements).
+      Apple Health: still pending -- owner needs to set up Simple Health Export CSV
+      or a Shortcuts automation (see docs/life-os/apple-health-setup.md).
       Both feed the same Drive folder; Claude reads/parses from there into the
-      Notion "Body" database (created 2026-08-16:
-      https://app.notion.com/p/4bbdf5ae67574f21b6c1680d1e669b69). First manual
-      entry logged there already: 88kg, 2026-08-16.
+      Notion "Body" database (https://app.notion.com/p/4bbdf5ae67574f21b6c1680d1e669b69).
 
 # ── Rounds 6–7 ───────────────────────────────────────────────────────────────
 relationships:
