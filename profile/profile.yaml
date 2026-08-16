@@ -53,13 +53,18 @@ stack:
                                        # its Apple Health sleep-stage export given the
                                        # iPhone. Revisit in Round 5.
   smart_scale: withings                # + a Withings BPM (blood pressure) device
-  notes_and_tasks: apple_notes         # currently just jotted ideas, not kept up to date.
-                                       # Owner is open to switching -- recommendation:
-                                       # Notion as the structured Life OS ledger (already
-                                       # the designated ledger in the architecture and it's
-                                       # a live connector), Apple Notes stays for loose
-                                       # personal jotting. Confirm before treating as final.
+  notes_and_tasks: notion              # CONFIRMED 2026-08-16. Apple Notes stays for loose
+                                       # personal jotting; Notion is the structured Life
+                                       # OS ledger. Workspace live at:
+                                       # https://app.notion.com/p/3be56997baa9814db2c7e75612ac631c
+                                       # Databases so far: Net Worth, Subscriptions, People
+                                       # (all under that parent page).
   automation_platform: TODO           # make | n8n | zapier | none yet
+  drive_folders:
+    lifestage_exports: "https://drive.google.com/drive/folders/1b4TK85xH1dpotu3gFCZJG_cXGFijjlvZ"
+      # Owner drops WPS LifeStage Money CSV exports here (Gmail's attachment
+      # download tool has no content-read capability, metadata only -- Drive
+      # is the workaround). Agent reads/parses from here automatically.
   desktop: windows                    # laptop, new high-spec unit arriving next week
   live_connectors: [gmail, google_calendar, google_drive, notion, github]
 
