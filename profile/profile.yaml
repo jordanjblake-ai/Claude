@@ -262,20 +262,15 @@ finance:
                                        # regular bill, biller confirmed (LB Merton), amount
                                        # not yet given
       day_of_month: TODO
-    - name: Training program (current coach, via GoCardless)
-      amount_gbp: 60                    # NEW 2026-08-16 by owner, "current training program
-                                       # coach (GoCardless GBP 60)". Paid via GoCardless
-                                       # direct debit, distinct payment rail from the Mark
-                                       # Garcia-Kidd entries above (those are GBP 20/session
-                                       # Stripe and GBP 50/hour bank transfer). LIKELY
-                                       # CANDIDATE surfaced 2026-08-16: owner separately
-                                       # mentioned an existing coach, Connor, tracked via
-                                       # TrueCoach (see
-                                       # health.sensors.existing_coach_and_platform) --
-                                       # plausible this GBP 60 GoCardless payment is Connor's
-                                       # fee, but NOT explicitly confirmed as the same person.
-                                       # Don't merge the two records until owner says so
-                                       # directly.
+    - name: Coach Connor (TrueCoach), via GoCardless
+      amount_gbp: 60                    # CONFIRMED 2026-08-16 by owner -- this IS Connor's
+                                       # fee, paid via GoCardless direct debit. Distinct
+                                       # payment rail from the Mark Garcia-Kidd entries
+                                       # above (GBP 20/session Stripe, GBP 50/hour bank
+                                       # transfer) -- three separate coaches/arrangements
+                                       # in total, not overlapping. See
+                                       # health.sensors.existing_coach_and_platform for
+                                       # the TrueCoach access plan.
       day_of_month: TODO
   debts: []                           # confirmed: no debt of any kind
   accounts:                           # names only, never numbers -- 10 institutions is a lot
@@ -578,6 +573,8 @@ health:
     sport-specific performance. Scale weight is a secondary metric at best --
     power, agility and sport-specific conditioning matter more than the
     number on the scale. Don't let weight-trend reporting override this."
+  height_cm: 180.34                   # CONFIRMED 2026-08-16 by owner: "5 foot 11"
+                                       # (180.34cm). Used below to compute BMI.
   metrics:
     weight:
       current_kg: 88.39                # LIVE Withings data as of 2026-08-16 11:35,
@@ -589,10 +586,15 @@ health:
                                        # window to call a real trend yet -- one more
                                        # week of data before the health-coach should
                                        # state a direction with any confidence.
-      target: TODO                    # the old 80kg figure was tied to a fat-loss
-                                       # framing that no longer applies -- do not
-                                       # carry it forward. Ask what target (if any)
-                                       # makes sense under a performance objective.
+      target: "Not directly targeted -- see body_fat_target below and the
+        objective note above. A naive weight target derived from elite
+        beach volleyball BMI norms (see BMI note below) would actually
+        suggest LOSING weight down to ~77-78kg, but that reference sample
+        averages 1.93m tall -- 13cm taller than the owner. Applying their
+        BMI to a shorter, already-lean frame (14.5% body fat, within the
+        elite range) would likely mean cutting real muscle, not fat. Not
+        recommending it. Body composition, not scale weight, is the real
+        target."
       unit: kg
       sync: "LIVE 2026-08-16 -- see health.sensors.scale_pipe for the full
         Withings pipeline status. Apple Health pipe still pending."
@@ -603,16 +605,28 @@ health:
                                        # (10.9%) is flagged as a probable bioimpedance
                                        # outlier, not a real day-to-day swing -- don't
                                        # let it skew the trend read.
-        target: TODO
+        target: "10-12% within 12 months -- ANSWERED 2026-08-16, Round 9 Q3.
+          Elite male beach volleyball players (Olympic/World Tour level)
+          average 8.7% body fat, range 4.6-16%. Owner's current 14.5% is
+          already inside that range, at the higher end -- consistent with
+          'compete at the highest level in the UK' rather than full
+          international elite, which is a real notch below Olympic Tour.
+          10-12% is an honest stretch target for that level, not the most
+          extreme end of the elite range."
       - name: BMI
-        current: TODO                 # not returned by the Withings API pull -- can be
-                                       # computed from weight + height if height is
-                                       # captured, though BMI matters less now the
-                                       # objective is performance, not weight-band driven
-        target: TODO
-    source_note: "Weight and body fat % are now live from Withings
-      (2026-08-16). BMI still not captured -- lower priority given the
-      performance objective."
+        current: 27.18                 # COMPUTED 2026-08-16 from current_kg (88.39) and
+                                       # height_cm (180.34): 88.39 / 1.8034^2.
+        target: "Deliberately NOT setting a BMI target. Elite beach
+          volleyball BMI averages 23.8-24.1, but that figure comes from a
+          sample averaging 1.93m tall. BMI doesn't separate muscle from
+          fat, and scaling a taller sample's BMI onto a 1.80m frame that's
+          already at a competitive body fat % would push toward an
+          unrealistically light, likely muscle-losing target. Body fat %
+          above is the real target; BMI is recorded here for completeness,
+          not as something to chase down."
+    source_note: "Weight and body fat % are live from Withings (2026-08-16).
+      BMI now computed from height + weight (2026-08-16), see the caveat on
+      why it isn't used as a target."
   training_week:
     sessions_per_week: 8                # target, per owner 2026-08-16
     types:
@@ -649,16 +663,15 @@ health:
       Notes. Owner logs each session here; review monthly and revise the
       Training Program page against real RPE/weight trends per the review
       rules written on that page. Empty so far -- not yet in use."
-    existing_coach_and_platform: "NEW 2026-08-16 -- owner already has a coach,
-      Connor, and logs results on TrueCoach (a third-party coaching app), not
-      just the Training Log above. Owner is going to give access to his
-      TrueCoach history so real historical lift/weight data can ground the
-      Training Program instead of starting from a blank template. No live
+    existing_coach_and_platform: "Owner already has a coach, Connor, and logs
+      results on TrueCoach (a third-party coaching app), not just the
+      Training Log above. CONFIRMED 2026-08-16: Connor is the GBP 60/month
+      GoCardless payment in finance.fixed_commitments. Owner is going to
+      give access to his TrueCoach history so real historical lift/weight
+      data can ground the Training Program instead of starting from a
+      blank template -- reminder scheduled for 2026-08-17. No live
       connector for TrueCoach -- likely the same local-export/Drive-drop
-      pattern as everything else Claude can't reach directly. OPEN QUESTION:
-      whether Connor is the same coach behind the GBP 60/month GoCardless
-      'current training program' entry in finance.fixed_commitments -- not
-      yet confirmed, don't assume either way."
+      pattern as everything else Claude can't reach directly."
   known_derailers:
     - "RESOLVED, per owner 2026-08-16: the knee-pain rehab program found in
       Drive is no longer relevant -- 'no longer apparent'. Kept here as
@@ -872,15 +885,22 @@ relationships:
       - {name: Jo Cope, relationship: auntie, email: jocopetabasco@gmail.com}
       - {name: Tracy Dombey, relationship: auntie, email: tracy.dombey@googlemail.com}
       - {name: Sean Smith, relationship: friend}
-      - name: Valerie Cope
-        relationship: "TODO -- likely extended family on the Cope side (aunt/
-          cousin?), unconfirmed"
-        note: "FOUND, not named by owner directly -- a Bloom & Wild birthday
-          reminder email in Gmail ('don't forget Valerie Cope's birthday')
-          shows the owner already has a standing reminder set up for her,
-          birthday 13 November. Surfacing this as exactly the kind of
-          extended-family fill-in he asked for -- confirm the relationship
-          and whether she belongs here."
+  remembrance:                        # CORRECTED 2026-08-16 -- Valerie Cope was
+                                       # initially placed in the second ring as
+                                       # unconfirmed extended family. Owner corrected
+                                       # this: she's his grandmother, and she has
+                                       # passed away. Moved out of the contact-cadence
+                                       # rings entirely -- a cadence target doesn't
+                                       # apply here, this is about remembering her, not
+                                       # reaching out.
+    - name: Valerie Cope
+      relationship: grandmother
+      note: "The standing birthday reminder found in Gmail (13 November,
+        via a Bloom & Wild reminder) is being kept as-is -- likely how the
+        owner marks the day, not something to 'fix' or repurpose. No
+        outreach cadence, no ring. If the owner wants anything active done
+        around 13 November (a moment to pause, a way of marking it), that's
+        his call to raise, not something to assume."
   outstanding: "Owner mentioned 'my cousins' (plural, unnamed) and a 'Beach
     Volleyball friends' group as existing but didn't name individuals beyond
     Max Dombey. Searched Gmail for additional Dombey/Cope-surname contacts
@@ -1050,14 +1070,13 @@ goals:
         reporting, progress toward this isn't just a stat line."
   skills:                             # ANSWERED 2026-08-16, Round 9 Q3
     - name: "Health numbers for competitive beach volleyball"
-      measure: "TODO -- owner's words: wants his numbers 'in alignment with
-        what a person of my size should be around for beach volleyball'.
-        Not an arbitrary target, a sport-appropriate benchmark for his
-        height/build. Needs research into typical body composition ranges
-        for competitive beach volleyball players before this can become a
-        real number. Directly feeds health.metrics.weight.target and the
-        body fat % target, both still TODO there -- resolve together."
-      twelve_month_target: TODO
+      measure: "Body fat %, tracked via the Withings scale. RESOLVED
+        2026-08-16 -- see health.metrics.others (Body fat %) for the full
+        reasoning. Weight and BMI deliberately excluded as targets, see
+        the caveats on both in health.metrics -- height (1.80m) versus
+        the elite reference sample's average height (1.93m) makes a
+        direct BMI/weight comparison misleading for someone already lean."
+      twelve_month_target: "10-12% body fat, down from 14.5% (2026-08-16)"
   uncommitted_hours_per_week: 3       # CONFIRMED 2026-08-16 by owner, Round 9 Q4.
                                        # WORTH FLAGGING: this is separate from the
                                        # 8 training sessions/week already in
