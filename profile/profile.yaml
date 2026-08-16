@@ -102,10 +102,17 @@ finance:
     - name: Beach volleyball coach
       amount: TODO
       day_of_month: TODO
-    - name: Cleaner
-      amount: TODO
-      day_of_month: TODO
-      note: "Flagged under known_leaks -- visits haven't actually been scheduled recently, so this commitment may be lapsed rather than active. Worth confirming which is true."
+    - name: Cleaner (Justyna)
+      amount_per_hour_gbp: 18           # owner unsure, "can't remember 100%" -- treat as
+                                       # approximate until confirmed against an actual invoice
+      hours_per_visit: TODO
+      current_cadence: monthly
+      desired_cadence: weekly           # owner wants to increase frequency
+      arranged_via: Facebook Messenger  # no connector for this -- same gap as WhatsApp,
+                                       # visits/scheduling aren't readable by any agent here
+      note: "Also flagged under known_leaks -- visits haven't been consistently
+        scheduled recently. Increasing to weekly and fixing the leak are really
+        the same fix."
   debts: []                           # confirmed: no debt of any kind
   accounts:                           # names only, never numbers -- 10 institutions is a lot
                                        # of surface area; matters for aggregator coverage below
@@ -170,9 +177,17 @@ finance:
         status: "Mark's own-payment side is fully specced; reimbursement side
           pending the event-title convention being confirmed/adopted"
       - payee: Justyna (cleaner)
-        trigger: TODO                   # presumably per completed visit -- not yet asked
-        amount_rule: TODO               # rate not yet captured (see fixed_commitments.Cleaner)
-        status: requirements captured, not designed
+        trigger: "Per completed visit, presumably -- not explicitly confirmed"
+        amount_rule: "~GBP 18/hour (owner unsure of exact rate); hours per
+          visit not yet known"
+        blocker: "Visits are arranged over Facebook Messenger, which has no
+          connector here -- there is no way for any agent in this system to
+          see when a visit happened, so this can't be triggered automatically
+          at all right now, regardless of the payment-rails question. Would
+          need either a different scheduling channel (e.g. a shared calendar
+          event, same trick as Mark) or a manual owner confirmation after
+          each visit."
+        status: blocked on visit-detection, not just payment rails
     note: "Owner open to adding more payees later, or a lighter-weight version
       that just prompts for these payments rather than drafting them --
       his words: 'we'll see'."
