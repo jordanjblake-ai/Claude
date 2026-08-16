@@ -887,12 +887,9 @@ ai_tracking:
     product building) that hasn't actually been confirmed -- keep it
     lightweight and general until a real pattern shows up, then ask again."
   trusted_sources:                    # PARTIAL 2026-08-16, Round 8 Q2
-    - name: "'Simon Bartlett' the podcaster, and his guests"
-      note: "Owner's exact wording 2026-08-16, via speech-to-text. Almost
-        certainly means Steven Bartlett (Diary of a CEO podcast) given the
-        description, but per the no-guessing rule on names (see the
-        Krystyna/Max corrections earlier), recorded as literally said
-        rather than silently 'corrected' to a guess. Worth a quick confirm."
+    - name: "Steven Bartlett (Diary of a CEO), and his guests"
+      note: "CONFIRMED 2026-08-16 -- the 'Simon Bartlett' wording on
+        2026-08-16 was a speech-to-text artifact, corrected once checked."
   current_toolchain: [Google Gemini, Grok, ChatGPT, Cursor, Claude]  # ANSWERED
                                        # 2026-08-16, Round 8 Q3. What he's been meaning
                                        # to evaluate but hasn't -- not yet answered.
@@ -900,21 +897,39 @@ ai_tracking:
     - "Podcast and audiobook listening history -- owner wants a full history
       of everything he's ever listened to, requested 2026-08-16 as
       something that 'could help feed decisions' for AI tracking (and
-      plausibly quest-master/hobbies too). Not scoped yet -- likely sources
-      would be Spotify, Apple Podcasts, Apple Books/Audible, none of which
-      have a live connector here. Real integration idea, not built."
-  digest:                             # ANSWERED (interpreted) 2026-08-16, Round 8 Q4
+      plausibly quest-master/hobbies too). SCOPED 2026-08-16 -- owner only
+      uses Apple's built-in Podcasts app and Amazon Audible, no Spotify.
+      Researched both:
+      PODCASTS (Apple): genuine limitation, not just an unbuilt
+      integration -- Apple Podcasts has no built-in full history log, only
+      a short 'Recently Played' list that doesn't accumulate over time.
+      The closest real option is requesting a personal data export from
+      privacy.apple.com ('Apple Media Services Information'), which
+      reportedly includes feed URLs and enough raw data to reconstruct
+      playback history, but needs manual reverse-engineering, not a clean
+      export -- effort and completeness both uncertain until the owner
+      actually requests one and we see what's in it.
+      AUDIOBOOKS (Audible): no official export either, but well-established
+      free third-party tools exist that run on the owner's own device --
+      OpenAudible or Libation (desktop apps) or the 'Audible Library
+      Extractor' browser extension can export the full library as CSV.
+      This gives purchased/owned audiobooks, not a minute-by-minute
+      listened log, but that's a reasonable proxy for most people. Same
+      local-tool-plus-Drive-drop pattern as Withings -- not something
+      Claude can pull directly, the owner would need to run one of these
+      himself and drop the CSV in Drive.
+      NEXT STEP: owner decides whether to (a) request the Apple data
+      export and see what it actually contains, (b) run an Audible export
+      tool for the audiobook half only (the cleaner win), or (c) both.
+      Not built yet either way."
+  digest:                             # CONFIRMED 2026-08-16, Round 8 Q4
     cadence: weekly
     depth: only-if-it-changes-my-actions
-    note: "Owner's literal wording was ambiguous via speech-to-text: 'yes
-      daily headlines or weekly brief that only surfaces what I would do' --
-      reads like an echo of the question rather than a clean pick between
-      the two options. Interpreted as the weekly, high-signal-only option
-      because it's consistent with his stated preference elsewhere
-      (operating.daily_brief note: wants to automate rather than read
-      reports daily, and was unsure a daily brief adds value at all). NOT
-      independently confirmed word-for-word -- flag this reading back to
-      him and correct if wrong."
+    note: "Owner's initial wording was ambiguous via speech-to-text ('yes
+      daily headlines or weekly brief that only surfaces what I would do'),
+      read as an echo of the question. Explicitly confirmed 2026-08-16 as
+      weekly, high-signal-only -- consistent with his stated preference to
+      automate rather than read reports daily (see operating.daily_brief)."
 
 # ── Round 9 ──────────────────────────────────────────────────────────────────
 goals:
