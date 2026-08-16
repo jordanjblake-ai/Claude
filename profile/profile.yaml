@@ -22,15 +22,20 @@ orientation:
     - ai_workout_coach: "Replace a paid monthly service that programs workouts with an AI-driven equivalent."
     - grocery_automation: "Automate grocery ordering — already discussed separately with Claude, treat as an existing thread to fold in."
     - gift_buying: "Struggles to choose/purchase gifts for family members — wants this taken off his plate."
-  known_leaks: []                     # what quietly didn't happen last month — still open
+  known_leaks:
+    - "Doctor's appointment for a lingering chest infection never got booked. Mostly recovered but still flares up under high-output effort (beach volleyball) and when talking/laughing — affects breathing capacity in the moment."
+    - "Cleaner never got scheduled to come to the flat."
 
 # Ranked, no ties. Arbitration rule 1 depends on this ordering.
+# Owner flagged this as a vibe check, not a fixed law — CEO agent has standing
+# permission to notice when the ranking looks stale and propose a re-rank
+# rather than waiting for the quarterly re-plan.
 priorities:
-  - TODO                              # 1st — finance | health | relationships | ai | hobbies
-  - TODO
-  - TODO
-  - TODO
-  - TODO
+  - finance                           # 1st
+  - health
+  - hobbies
+  - relationships
+  - ai
 
 stack:
   phone: TODO                         # ios | android

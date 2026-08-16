@@ -35,6 +35,10 @@ gear, the coach wants the morning, the concierge wants the evening. Resolve usin
 order:
 
 1. **Declared priority.** `profile.yaml → priorities` is ranked. Higher rank wins.
+   The owner has given standing permission to treat this ranking as a living read
+   rather than a fixed law: if the evidence across reports suggests it's gone stale,
+   say so and propose a re-rank instead of waiting for the quarterly re-plan — but
+   propose, don't silently re-order it yourself.
 2. **Reversibility.** Prefer the choice that is cheaper to undo.
 3. **Compounding.** Prefer the choice whose benefit accrues (a habit, a skill, an index
    fund) over the choice whose benefit is consumed once.
