@@ -180,12 +180,15 @@ finance:
         reimbursement: "Separately, other players who trained that session pay
           the owner back their share. No attendee list exists (events aren't
           sent as invites) and there's no WhatsApp access to infer headcount.
-          Proposed fix, pending owner confirmation: owner adds player count to
-          the event title/description (e.g. 'Beach Volleyball w/ Mark --
-          3 players') when creating it -- calendar connector can read that
-          directly, no new tooling needed."
-        status: "Mark's own-payment side is fully specced; reimbursement side
-          pending the event-title convention being confirmed/adopted"
+          FIX CONFIRMED by owner: he'll add player count to the event
+          title/description (e.g. 'Beach Volleyball w/ Mark -- 3 players')
+          when creating it -- calendar connector can read that directly, no
+          new tooling needed. Considered and explicitly declined a Telegram
+          bot alternative -- doesn't actually solve visibility (a bot only
+          sees messages sent to it, not existing WhatsApp threads) and would
+          require Mark to adopt a new app for no reason when this is free."
+        status: "Fully specced on both sides. Not yet built -- next step is
+          the actual read-calendar-and-draft-payment logic."
       - payee: Justyna (cleaner)
         trigger: "Per completed visit, presumably -- not explicitly confirmed"
         amount_rule: "~GBP 18/hour (owner unsure of exact rate); hours per
@@ -193,11 +196,14 @@ finance:
         blocker: "Visits are arranged over Facebook Messenger, which has no
           connector here -- there is no way for any agent in this system to
           see when a visit happened, so this can't be triggered automatically
-          at all right now, regardless of the payment-rails question. Would
-          need either a different scheduling channel (e.g. a shared calendar
-          event, same trick as Mark) or a manual owner confirmation after
-          each visit."
-        status: blocked on visit-detection, not just payment rails
+          at all right now, regardless of the payment-rails question.
+          FIX CONFIRMED by owner: same trick as Mark -- put visits on the
+          calendar as the trigger source (owner creates the event himself
+          when arranging via Messenger), confirm/adjust the draft payment
+          afterward if actual hours differ."
+        status: "Trigger mechanism agreed; still need hours-per-visit and the
+          exact trigger timing (on visit day vs. after) before this is fully
+          specced like Mark's entry."
     note: "Owner open to adding more payees later, or a lighter-weight version
       that just prompts for these payments rather than drafting them --
       his words: 'we'll see'."
