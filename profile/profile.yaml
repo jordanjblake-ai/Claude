@@ -246,6 +246,36 @@ finance:
       note: "Also flagged under known_leaks -- visits haven't been consistently
         scheduled recently. Increasing to weekly and fixing the leak are really
         the same fix."
+    - name: Water (Thames Water)
+      amount_gbp: 30                    # CONFIRMED 2026-08-16 by owner -- "approx", not
+                                       # exact, treat as a rounded estimate
+      day_of_month: TODO
+    - name: Energy (electric)
+      amount_gbp: 81                    # CONFIRMED 2026-08-16 by owner -- "approx". Owner
+                                       # said "electric bills (so energy approx GBP 81)" --
+                                       # unclear whether this is electric-only or a combined
+                                       # dual-fuel bill that also includes gas. Worth
+                                       # confirming which.
+      day_of_month: TODO
+    - name: Council tax (London Borough of Merton)
+      amount: TODO                      # NEW 2026-08-16 -- owner confirmed this is a real
+                                       # regular bill, biller confirmed (LB Merton), amount
+                                       # not yet given
+      day_of_month: TODO
+    - name: Training program (current coach, via GoCardless)
+      amount_gbp: 60                    # NEW 2026-08-16 by owner, "current training program
+                                       # coach (GoCardless GBP 60)". Paid via GoCardless
+                                       # direct debit, distinct payment rail from the Mark
+                                       # Garcia-Kidd entries above (those are GBP 20/session
+                                       # Stripe and GBP 50/hour bank transfer). NOT YET
+                                       # CONFIRMED whether this is the same tailored beach
+                                       # volleyball gym program mentioned in
+                                       # health.training_week, a different coach entirely,
+                                       # or possibly related to Mark's Performance Training
+                                       # Group under another billing arrangement -- ask
+                                       # directly rather than assume it's a fourth
+                                       # unrelated coaching expense.
+      day_of_month: TODO
   debts: []                           # confirmed: no debt of any kind
   accounts:                           # names only, never numbers -- 10 institutions is a lot
                                        # of surface area; matters for aggregator coverage below
