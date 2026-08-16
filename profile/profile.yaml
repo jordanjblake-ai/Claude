@@ -118,7 +118,16 @@ finance:
     - {institution: Chip, type: savings app}
     - {institution: PayPal, type: payments}
     - {institution: Revolut, type: current account/card}
-    - {institution: Aviva (MyAviva), type: pension, note: "~50K, see current_gbp ambiguity above"}
+    - institution: Aviva (MyAviva)
+      type: pension
+      note: "~50K, see current_gbp ambiguity above. Owner recalls API/open-banking
+        access existing at one point, unsure if still active. Researched: Aviva
+        runs a developer portal (developer.aviva.co.uk) but it's oriented at
+        pension-provider/payroll B2B integration, not confirmed consumer AIS via
+        aggregators. No solid public confirmation either way. Practical next step
+        is checking the MyAviva portal/app directly for an open-banking consent
+        option, or contacting Aviva support -- owner offered to help obtain
+        access if possible, worth doing once other Round 3 items are settled."
   aggregator: TODO                    # TrueLayer/Plaid both cover the major UK banks, but
                                        # coverage of Chip, LifeStage Money and Revolut via
                                        # open banking is worth checking before committing
@@ -127,6 +136,45 @@ finance:
                                        # proposed from real transaction history once the
                                        # aggregator is live rather than invented upfront.
   agent_write_access: false           # keep false until it's been right for a quarter
+
+  # Owner wants two specific payees automated -- flagged as its own item rather
+  # than folded into agent_write_access, because it changes the guardrail in
+  # operating.never_without_asking ("spend money") for these two people
+  # specifically. Not built. See rollout note: true unattended send isn't
+  # realistically available yet on UK consumer banking for arbitrary payees
+  # (see payment_rails_research below) -- recommended v1 is draft-and-approve,
+  # not silent auto-pay. Needs explicit owner confirmation before build starts.
+  payment_automation_requested:
+    - payee: Mark (beach volleyball coach)
+      trigger: "A calendar event with Mark marked as completed/passed"
+      amount_rule: "GBP 50/hour, split among however many players (excl. Mark)
+        trained in that session -- owner doesn't train 1:1 with Mark, so other
+        players reimburse their share to the owner. Amount owed by owner to
+        Mark, and amount owed back to owner by other players, both depend on
+        session attendance which isn't currently captured anywhere structured.
+        Needs a concrete data source (calendar attendees? a manual tally?)
+        before this can be computed automatically -- ask the owner."
+      status: requirements captured, not designed
+    - payee: Justyna (cleaner)
+      trigger: TODO                     # presumably per completed visit -- not yet asked
+      amount_rule: TODO                 # rate not yet captured (see fixed_commitments.Cleaner)
+      status: requirements captured, not designed
+    note: "Owner open to adding more payees later, or a lighter-weight version
+      that just prompts for these payments rather than sending them
+      automatically -- his words: 'we'll see'. Treat draft-and-approve as the
+      working v1 target unless he explicitly asks for full unattended send."
+
+  payment_rails_research:
+    date: 2026-08-16
+    finding: "UK 'commercial VRP' (variable recurring payments to third-party
+      payees, not just your own accounts) is brand new infrastructure -- the
+      UK Payments Initiative (UKPI) cVRP scheme's first live payments were only
+      expected Q1 2026. It requires the receiving payee's bank/PISP to support
+      it too, which a personal coach or cleaner almost certainly won't. So
+      genuine unattended auto-pay to Mark and Justyna isn't realistically
+      buildable right now through standard consumer banking. A payment
+      link/reminder that the owner approves with one tap (via Monzo, Revolut,
+      or a bank transfer draft) is the realistic near-term version."
 
 # ── Rounds 4–5 ───────────────────────────────────────────────────────────────
 health:
