@@ -8,15 +8,19 @@
 
 meta:
   last_updated: 2026-08-16
-  interview_rounds_complete: [1, 2, 4, 5]  # Round 3 still open. Aggregator confirmed
+  interview_rounds_complete: [1, 2, 3, 4, 5]  # Round 3 CLOSED 2026-08-16 -- all four
+                                       # questions now answered: aggregator confirmed
                                        # (lifestage_money, working, with known staleness
-                                       # caveats) and net worth composition now RESOLVED
-                                       # 2026-08-16 (see finance.headline_metric) -- the two
-                                       # remaining Round 3 items are categorisation
-                                       # granularity confirmation (a category list is
-                                       # already seeded from real transaction data, just
-                                       # unconfirmed by the owner) and Justyna's rate/
-                                       # trigger -- rounds can complete out of order
+                                       # caveats), net worth composition resolved (see
+                                       # finance.headline_metric), categorisation confirmed
+                                       # as-is by owner, agent_write_access already read-
+                                       # only per the CLAUDE.md recommendation and
+                                       # unchallenged. Justyna's rate/trigger is a separate,
+                                       # still-open loose end under
+                                       # finance.fixed_commitments/
+                                       # payment_automation_requested -- not one of the
+                                       # official Round 3 questions, doesn't block the tick.
+                                       # rounds can complete out of order
   region: United Kingdom              # determines banking & health API options
   timezone: Europe/London
   general_area: London (Mitcham)      # city-level only, for local-service automation
@@ -216,20 +220,15 @@ finance:
                                        # full spec.
       day_of_month: TODO
     - name: Mobile (Three)
-      amount: TODO                      # found via subscription sweep 2026-08-16 --
-                                       # was NOT previously captured here. Recurring
-                                       # monthly bill since at least Oct 2025. Amount
-                                       # not visible in notification emails, only "your
-                                       # bill is ready" pings -- ask owner or find an
-                                       # actual invoice.
-      day_of_month: TODO
-    - name: Mobile (Three)
-      amount: TODO                      # found via subscription sweep 2026-08-16 --
-                                       # was NOT previously captured here. Recurring
-                                       # monthly bill since at least Oct 2025. Amount
-                                       # not visible in notification emails, only "your
-                                       # bill is ready" pings -- ask owner or find an
-                                       # actual invoice.
+      amount_gbp: 6                     # CONFIRMED 2026-08-16 by owner -- there's only
+                                       # ONE real subscription with Three, not two (the
+                                       # subscription sweep on 2026-08-16 had turned up
+                                       # what looked like two separate recurring bills;
+                                       # that was wrong, collapsed into this single entry).
+                                       # Owner's estimate, ~GBP 6/month -- likely a
+                                       # SIM-only or data-only plan given how low that is
+                                       # for a primary mobile line; not yet confirmed
+                                       # against an actual invoice.
       day_of_month: TODO
     - name: Cleaner (Justyna)
       amount_per_hour_gbp: 18           # owner unsure, "can't remember 100%" -- treat as
@@ -435,7 +434,8 @@ finance:
   categories:                         # SEEDED 2026-08-16 from the LifeStage export's own
                                        # "CATEGORY GROUP" field rather than invented --
                                        # matches the "propose from real history" plan.
-                                       # Owner hasn't reviewed/confirmed this list yet.
+                                       # CONFIRMED 2026-08-16 by owner -- this list is
+                                       # good as-is, no changes requested.
     - Transfers                       # mostly round-ups and inter-account moves --
                                        # NOT real spend, exclude from spend totals
     - Rent payment
@@ -682,6 +682,7 @@ relationships:
     inner:                            # captured 2026-08-16
       - name: Krystyna MacGibbon
         relationship: partner
+        cadence_target: daily            # CONFIRMED 2026-08-16 by owner -- they speak daily
         note: "Owner initially gave the anglicised spelling 'Christina' and
           flagged it as wrong. Confirmed via Gmail correspondence (calendar
           invites, shared docs, a Google family group) that the correct name
@@ -693,8 +694,29 @@ relationships:
           relationship are captured, per the no-secrets rule and because
           it's a third party's sensitive medical information, not the
           owner's to have logged without her knowledge either way."
-      - {name: Debbie Blake, relationship: mother}
-      - {name: Max "Maxie" Dombey, relationship: cousin}
+      - name: Debbie Blake
+        relationship: mother
+        cadence_target: "every 2 weeks"  # CONFIRMED 2026-08-16 by owner -- this is a
+                                       # target he wants to hit, not current behaviour;
+                                       # see note
+        note: "CONFIRMED 2026-08-16 by owner: despite being in the inner
+          circle, actual contact is currently infrequent -- in his own
+          words she's 'more of a challenging character' for him, though he
+          loves her dearly. Wants to message her roughly every 2 weeks. This
+          is the clearest signal so far of a relationship that may need
+          deliberate investment (Round 6 Q4) -- worth revisiting directly
+          rather than assuming, since 'challenging' could mean several
+          different things and the right nudge tone (gentle vs. blunt)
+          matters more here than for anyone else in the inner circle."
+      - name: Maks Dombey
+        relationship: cousin
+        cadence_target: "every 5 days"   # CONFIRMED 2026-08-16 by owner
+        note: "NAME CORRECTED 2026-08-16 -- owner previously gave 'Max
+          \"Maxie\" Dombey'; he flagged that spelling as wrong, correct
+          spelling is 'Maks'. Contact mode: they play games together online
+          on their phones -- worth keeping in mind for relationship-
+          concierge nudges, since 'reach out' for this pairing likely means
+          'start a game session', not a message or call."
       - {name: Sean O'Keeffe, relationship: "closest friend, secondary school"}
       - {name: Robbie O'Keeffe, relationship: "closest friend, secondary school"}
     second:                           # captured 2026-08-16
@@ -712,12 +734,22 @@ relationships:
           and whether she belongs here."
   outstanding: "Owner mentioned 'my cousins' (plural, unnamed) and a 'Beach
     Volleyball friends' group as existing but didn't name individuals beyond
-    Max Dombey. Searched Gmail for additional Dombey/Cope-surname contacts
+    Maks Dombey. Searched Gmail for additional Dombey/Cope-surname contacts
     and found nothing further conclusive. Ask for names if worth tracking
-    individually, or leave as an informal group."
+    individually, or leave as an informal group.
+    ALSO STILL OPEN 2026-08-16: cadence targets only captured for 3 of 5
+    inner-circle people so far (Krystyna, Debbie, Maks) -- Sean O'Keeffe and
+    Robbie O'Keeffe don't have one yet, and no second-ring cadence has been
+    asked at all. Round 6 Q3's other half (prompt-me vs. draft-for-me) is
+    also still unanswered -- see relationships.contact_preference below."
   contact_preference: TODO            # prompt_me | draft_for_me -- not yet asked
-  active_investments: []              # relationships needing deliberate attention now
-                                       # -- not yet asked
+  active_investments:                 # relationships needing deliberate attention now
+    - "Debbie Blake (mother) -- owner's own words 2026-08-16: 'more of a
+      challenging character... though I love her dearly', contact currently
+      infrequent despite inner-circle status, target every 2 weeks. Strongest
+      signal so far for Round 6 Q4; not yet explicitly confirmed as
+      'needing repair' vs. just naturally lower-cadence, worth asking
+      directly."
   occasions:
     source: TODO                      # contacts | calendar | to be seeded
     lead_time_days: TODO

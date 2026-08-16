@@ -12,7 +12,7 @@ without it — the "unlocks" line says which one.
 
 - [x] Round 1 — Orientation (cross-cutting)
 - [x] Round 2 — Finance: the picture
-- [ ] Round 3 — Finance: the plumbing
+- [x] Round 3 — Finance: the plumbing
 - [x] Round 4 — Health: the target
 - [x] Round 5 — Health: the sensors
 - [ ] Round 6 — Relationships: the people
