@@ -256,7 +256,10 @@ finance:
         GBP 3,736.18. PLUS a Regular Saver GBP 2,100.00 found via the
         LifeStage 'Accounts and assets' aggregator screenshot (same day) --
         wasn't visible in the owner's own First Direct screenshot. Total
-        GBP 6,236.18."
+        GBP 6,236.18. RECONFIRMED via a second owner screenshot direct from
+        the First Direct app's own 'Balances' page (same day, same 1st
+        Account/Savings Account figures) -- highest confidence on those two;
+        Regular Saver still aggregator-sourced only."
     - institution: NatWest
       type: current + savings account
       note: "Owner is currently locked out of the NatWest app itself, can't
@@ -297,13 +300,21 @@ finance:
         products."
     - institution: PayPal
       type: payments
-      note: "Real balance from the LifeStage 'Accounts and assets' aggregator
-        screenshot 2026-08-16: GBP Wallet GBP 0.00."
+      note: "CORRECTED 2026-08-16 via owner's own PayPal app screenshot: GBP
+        balance is GBP 0.00 (matches LifeStage), but there's also a EUR
+        balance of EUR 172.93 (~GBP 143.22 estimated) that the LifeStage
+        aggregator screenshot didn't show at all -- it only surfaced the GBP
+        wallet. Another concrete example of an incomplete/stale LifeStage
+        feed, this time by omission rather than a wrong number. Using
+        GBP 143.22 (PayPal's own estimated GBP equivalent) as the real
+        balance for this account."
     - institution: Revolut
       type: current account/card
       note: "Real balance from owner's screenshot 2026-08-16: Total wealth
         GBP 330, all in Cash (Savings/Invest/Crypto currently empty).
-        Cash itself is multi-currency: EUR 265.93, GBP 103.75, MXN 0, TRY 0."
+        Cash itself is multi-currency: EUR 265.93, GBP 103.75, MXN 0, TRY 0.
+        RECONFIRMED via a second owner screenshot direct from the Revolut
+        app (same day, same figures) -- highest confidence."
     - institution: Halifax
       type: current + savings account
       note: "NEW 2026-08-16 -- owner mentioned being locked out of this
