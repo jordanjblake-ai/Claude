@@ -190,19 +190,17 @@ finance:
                                        # exists to build.
   fixed_commitments:
     - name: Rent
-      amount_gbp: ~1300                 # ESTIMATED 2026-08-16 from the LifeStage
-                                       # transaction export: GBP 3,900 in the
-                                       # "Rent payment" category over the last 90
-                                       # days, i.e. 3 months. Estimated, not
-                                       # confirmed against a single line item -- ask
-                                       # owner to confirm the exact figure.
-      day_of_month: TODO
+      amount_gbp: 1300                  # CONFIRMED 2026-08-16 by owner. Matches the
+                                       # earlier LifeStage-export estimate (~GBP 1,300)
+                                       # almost exactly.
+      day_of_month: 20
     - name: Gym membership
-      amount: TODO
-      day_of_month: TODO
+      amount_gbp: 199                   # CONFIRMED 2026-08-16 by owner
+      day_of_month: 1
     - name: Virgin Media (internet)
-      amount: TODO
-      day_of_month: TODO
+      amount_gbp: 44                    # CONFIRMED 2026-08-16 by owner
+      day_of_month: 10                  # owner's words: "usually around the 10th" --
+                                       # treat as approximate, not a fixed date
       note: "This is the bill expensed via employer above -- outgoing here, reimbursed as income there."
     - name: Mark Garcia-Kidd's Performance Training Group ("Hybrid Vacations LTD" on statements)
       amount_gbp: 20                    # per session, found via Stripe receipts in the
@@ -235,8 +233,9 @@ finance:
                                        # against an actual invoice.
       day_of_month: TODO
     - name: Cleaner (Justyna)
-      amount_per_hour_gbp: 18           # owner unsure, "can't remember 100%" -- treat as
-                                       # approximate until confirmed against an actual invoice
+      amount_per_hour_gbp: 19           # CORRECTED 2026-08-16 by owner -- was previously
+                                       # recorded as an unsure GBP 18 estimate; real rate
+                                       # is GBP 19/hour.
       hours_per_visit: TODO
       current_cadence: monthly
       desired_cadence: weekly           # owner wants to increase frequency
@@ -490,9 +489,10 @@ finance:
         status: "Fully specced on both sides. Not yet built -- next step is
           the actual read-calendar-and-draft-payment logic."
       - payee: Justyna (cleaner)
-        trigger: "Per completed visit, presumably -- not explicitly confirmed"
-        amount_rule: "~GBP 18/hour (owner unsure of exact rate); hours per
-          visit not yet known"
+        trigger: "CONFIRMED 2026-08-16 by owner -- one hour after the cleaning
+          calendar booking, same day (not the day after)."
+        amount_rule: "GBP 19/hour, CONFIRMED 2026-08-16 by owner (corrected
+          from an unsure GBP 18 estimate). Hours per visit still not known."
         blocker: "Visits are arranged over Facebook Messenger, which has no
           connector here -- there is no way for any agent in this system to
           see when a visit happened, so this can't be triggered automatically
@@ -501,9 +501,8 @@ finance:
           calendar as the trigger source (owner creates the event himself
           when arranging via Messenger), confirm/adjust the draft payment
           afterward if actual hours differ."
-        status: "Trigger mechanism agreed; still need hours-per-visit and the
-          exact trigger timing (on visit day vs. after) before this is fully
-          specced like Mark's entry."
+        status: "Trigger timing and rate now confirmed. Only remaining gap
+          before this is fully specced like Mark's entry: hours-per-visit."
     note: "Owner open to adding more payees later, or a lighter-weight version
       that just prompts for these payments rather than drafting them --
       his words: 'we'll see'."
