@@ -1,0 +1,17 @@
+# Secrets and local run artifacts -- never commit these.
+# Per CLAUDE.md: no account numbers, API keys, access tokens in this repo.
+
+# OAuth tokens saved locally by scripts/health/withings_sync.py
+scripts/health/.withings_tokens.json
+scripts/health/*.tokens.json
+
+# CSV exports staged locally before being moved to Drive
+scripts/health/exports/
+*.local.csv
+
+# Standard Python/OS noise
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*

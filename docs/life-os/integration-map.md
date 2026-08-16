@@ -19,6 +19,13 @@ Three ways to move data. Use the cheapest one that works:
    many-steps-few-runs. n8n self-hosted is the alternative if you'd rather own it.
 3. **A scheduled agent** for judgement calls. If a step requires reading something and
    deciding, that is not an automation step, it is an agent step.
+4. **A local script + Drive drop**, for sources that need something only the owner's own
+   device can do — an OAuth browser redirect to `localhost`, or reading a sandboxed store
+   like Apple Health. The script's only job is producing a file; Drive (already live)
+   is the handoff back into everything else. First used for the LifeStage Money CSV
+   exports, now reused for Withings (`scripts/health/withings_sync.py`) and Apple Health
+   (`docs/life-os/apple-health-setup.md`). Prefer this over inventing a new integration
+   shape every time a source can't be reached directly from the cloud.
 
 The instinct to reach for Zapier first is worth resisting. Most of what people build in
 Zapier for a system like this is now a connector call.
@@ -70,9 +77,8 @@ the country wastes the setup effort.
 
 | Source | Reach it with | Lands in | Effort |
 | --- | --- | --- | --- |
-| Smart scale (Withings) | Withings Health API — proper OAuth, historical backfill | Notion `Body` DB | M |
-| Smart scale (Renpho/other) | App → Apple Health/Google Fit → bridge app → webhook | Same | M |
-| Apple Health aggregate | Health Auto Export (iOS) → scheduled webhook → Make → store | Notion / Sheet | M |
+| Smart scale (Withings) | **BUILDING.** Withings Health API via OAuth — `scripts/health/withings_sync.py` in this repo (local script, own-device OAuth, outputs CSV) | Notion `Body` DB | M |
+| Apple Health aggregate | **BUILDING.** Health Auto Export (iOS) → CSV → Drive folder (see `docs/life-os/apple-health-setup.md`) — simpler than the originally-planned webhook/Make route since Drive is already a live connector | Notion `Body` DB | M |
 | Garmin / Whoop / Oura | Official developer APIs; Whoop and Oura are the friendliest | Notion `Recovery` DB | M |
 | Google Fit | Fitness REST API | Sheet | M |
 | Training sessions | Strava API, or calendar events tagged as training | Notion `Training` DB | S–M |

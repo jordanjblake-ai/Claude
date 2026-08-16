@@ -334,10 +334,33 @@ health:
         phone number -- deliberately NOT copied here, per the no-secrets
         rule at the top of this file. Only medical content is recorded."
   sensors:
-    scale_pipe: TODO                  # withings api | apple health bridge | manual | none
-    wearable_pipe: TODO
+    scale_pipe: withings_api           # BUILDING 2026-08-16. Local OAuth+sync script
+                                       # at scripts/health/withings_sync.py in this repo.
+                                       # Runs on the owner's machine (OAuth needs a
+                                       # localhost redirect), outputs CSV, owner drops it
+                                       # in the "Life OS -- Health Exports" Drive folder.
+                                       # Setup steps he still needs to do: register an app
+                                       # at developer.withings.com, set env vars, run
+                                       # `python3 withings_sync.py auth` once. See
+                                       # scripts/health/README.md.
+    wearable_pipe: none                # no wearable (see stack.wearable) -- Eight Sleep
+                                       # covers recovery/sleep instead, via the Apple
+                                       # Health export pipe below if it writes there
     nutrition_tracking: TODO          # be honest; don't build on an abandoned habit
-    aggregation_hub: TODO             # apple health | google fit | none
+    aggregation_hub: apple_health       # BUILDING 2026-08-16. Bridge app: Health Auto
+                                       # Export (owner still needs to install + configure
+                                       # on his iPhone -- see
+                                       # docs/life-os/apple-health-setup.md). Same
+                                       # handoff pattern: CSV dropped into "Life OS --
+                                       # Health Exports" Drive folder.
+    body_data_pipe_status: |
+      Not live yet -- infrastructure built 2026-08-16, owner setup steps still pending:
+      1. Withings: register developer app, run local auth script once (his action)
+      2. Apple Health: install/configure Health Auto Export (his action)
+      Both feed the same Drive folder; Claude reads/parses from there into the
+      Notion "Body" database (created 2026-08-16:
+      https://app.notion.com/p/4bbdf5ae67574f21b6c1680d1e669b69). First manual
+      entry logged there already: 88kg, 2026-08-16.
 
 # ── Rounds 6–7 ───────────────────────────────────────────────────────────────
 relationships:
