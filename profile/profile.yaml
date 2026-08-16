@@ -881,10 +881,36 @@ ai_tracking:
 
 # ── Round 9 ──────────────────────────────────────────────────────────────────
 goals:
-  hobbies: []                         # {name, starved: true|false}
-  deadlined: []                       # {name, deadline, why_it_matters}
-  skills: []                          # {name, measure, twelve_month_target}
-  uncommitted_hours_per_week: TODO    # be pessimistic
+  hobbies:                            # PARTIAL 2026-08-16, answers Round 9 Q1
+    - name: Beach Volleyball
+      starved: false                  # clearly the opposite -- training ~4x/week,
+                                       # matches health.training_week exactly
+      note: "Taking it very seriously -- a specific gym program tailored for it,
+        not general fitness. Also the driver behind the long-horizon goal
+        below."
+    - {name: "Pokemon GO", starved: TODO}
+    - {name: "Whiteout Survival", starved: TODO}
+    - name: "Online board games and card games with Max Dombey"
+      starved: TODO
+      note: "This is the same 'they play games together online on their
+        phones' contact mode already recorded on Max's relationship entry
+        (every-5-days cadence) -- not a separate activity, the game
+        sessions ARE the relationship cadence."
+                                       # Which hobby has been starved of time longest --
+                                       # the second half of Round 9 Q1 -- not yet
+                                       # answered directly, hence all the TODOs above.
+  deadlined:                          # PARTIAL 2026-08-16, answers Round 9 Q2
+    - name: "Compete in beach volleyball at the highest level in the UK"
+      deadline: TODO                  # owner gave the goal but no target date --
+                                       # ask directly, "a real deadline" is the
+                                       # explicit ask in Round 9 Q2
+      why_it_matters: "Owner's own words 2026-08-16: wants to 'feel like I
+        belong' -- this reads as an identity goal, not just a performance
+        target. Worth keeping that framing in mind for quest-master
+        reporting, progress toward this isn't just a stat line."
+  skills: []                          # {name, measure, twelve_month_target} -- Round 9
+                                       # Q3 not yet answered
+  uncommitted_hours_per_week: TODO    # be pessimistic -- Round 9 Q4 not yet answered
 
 # ── Round 10 ─────────────────────────────────────────────────────────────────
 operating:
