@@ -692,6 +692,11 @@ relationships:
     inner:                            # captured 2026-08-16
       - name: Krystyna MacGibbon
         relationship: partner
+        location: Ealing, London         # CONFIRMED 2026-08-16 by owner, via the date-night
+                                       # context doc -- lives separately from the owner
+                                       # (Mitcham), which is why "meet in the middle"
+                                       # matters for date planning. See
+                                       # relationships.date_nights below.
         cadence_target: daily            # CONFIRMED 2026-08-16 by owner -- they speak daily
         note: "Owner initially gave the anglicised spelling 'Christina' and
           flagged it as wrong. Confirmed via Gmail correspondence (calendar
@@ -818,6 +823,42 @@ relationships:
         the relationship-concierge should treat this as a standing block to
         defend when scheduling, not merely note its absence after the
         fact."
+  date_nights:                        # ADDED 2026-08-16 -- owner supplied a full context
+                                       # doc for date planning with Krystyna. Full detail,
+                                       # the running list of ideas already suggested (to
+                                       # avoid repeats), and the exact output format live
+                                       # in docs/life-os/date-night-ideas.md -- this is
+                                       # just a pointer plus the facts other agents might
+                                       # need (e.g. health-coach/finance-cfo shouldn't
+                                       # suggest alcohol-involving venues or ignore the
+                                       # sensory-load angle).
+    tracking_doc: docs/life-os/date-night-ideas.md
+    google_doc: "Created 2026-08-16, 'Life OS -- Autism-Friendly Date Night
+      Ideas', kept in sync with the tracking doc above."
+    both_autistic: true                # owner's words: "We are both Autistic" (Jordan
+                                       # self-identified, Krystyna diagnosed AuDHD --
+                                       # see her entry above)
+    alcohol: none                      # owner's words: "we do not drink alcohol" -- applies
+                                       # to date planning and any other suggestions
+                                       # involving Jordan and/or Krystyna. NOTE: this means
+                                       # the "pint"/"beer" phrasing in the Sean/Robbie
+                                       # draft messages (2026-08-16, before this context
+                                       # doc arrived) was a miss -- worth re-drafting those
+                                       # if the owner wants, since he personally doesn't
+                                       # drink.
+    style: "Autism-friendly, low-sensory, calm. 'Meet in the middle' between
+      Mitcham and Ealing, or easily reached by public transport from both --
+      occasionally further afield only if exceptionally tranquil or
+      interesting."
+    interests: [Pokemon, Disney, Moomins, Museums, Parks, Nature, Coffee,
+      Fine Art, Architecture, History]
+    output_format: "WhatsApp-friendly message with links and prices listed,
+      plus a 'text infographic' per idea (a code block covering Sensory
+      Profile, Highlights, and Quick Facts) that's easy to screenshot and
+      share. British English, no em dashes."
+    cadence: "3 new ideas per week, never repeating a venue already in
+      docs/life-os/date-night-ideas.md. A weekly Routine handles this
+      automatically -- see that doc for the schedule."
 
 # ── Round 8 ──────────────────────────────────────────────────────────────────
 ai_tracking:
