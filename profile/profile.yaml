@@ -27,11 +27,55 @@ orientation:
   ninety_day_objective:
     - finance_oversight: "Better visibility into finances, with someone/something reviewing spend and flagging where money could be handled better."
     - ai_workout_coach: "Replace a paid monthly service that programs workouts with an AI-driven equivalent."
-    - grocery_automation: "Automate grocery ordering — already discussed separately with Claude, treat as an existing thread to fold in."
+    - grocery_automation: "See the dedicated grocery_automation section below -- this
+        thread turned out to already have a real technical plan behind it, found in
+        the owner's Drive, not just a stated intention."
     - gift_buying: "Struggles to choose/purchase gifts for family members — wants this taken off his plate."
   known_leaks:
     - "Doctor's appointment for a lingering chest infection never got booked. Mostly recovered but still flares up under high-output effort (beach volleyball) and when talking/laughing — affects breathing capacity in the moment."
     - "Cleaner never got scheduled to come to the flat."
+
+# Found 2026-08-16 in the owner's Drive -- a prior Claude session had already
+# scoped this in real detail. Source doc:
+# https://docs.google.com/document/d/1DqRafroQ9ulZkdy085o5ZSXZs1qInXrWAjfcq9lNTic
+# Full item-level order history lives in that other session's chat history, not
+# duplicated here -- this is a summary, treat the doc as the source of truth.
+grocery_automation:
+  status: scoped, not built
+  household: owner only, single household
+  automation_level: "Fully automatic basket build + delivery slot selection.
+    Owner handles final payment/checkout himself -- the agent must stop once
+    the basket is filled and a slot is reserved, never proceeding to payment.
+    This is a hard boundary, not a preference."
+  retailer: Sainsbury's
+  diet_goal: high protein / muscle gain
+  budget: no fixed cap
+  cadence: weekly
+  technical_findings:
+    - "No public Sainsbury's API for personal/consumer use -- rules out a
+      clean API integration."
+    - "No Sainsbury's or grocery MCP connector available in Claude's
+      connector directory (checked)."
+    - "Chosen mechanism: Claude in Chrome, browsing the live site directly.
+      Will NOT enter login credentials on the owner's behalf (security
+      boundary) -- owner logs in himself, then it continues."
+    - "Requires a live, open Chrome session on the owner's machine at run
+      time -- cannot run purely in the cloud. Cowork's scheduled triggers can
+      fire from the cloud, but the actual basket-filling step still needs the
+      owner's computer awake and Chrome open when it runs. 'Unattended' in
+      practice means the owner leaves the machine on/Chrome open on shop day,
+      or kicks it off manually that morning."
+  staples_draft: "Derived from 10 orders (10 Apr - 27 Jul 2026): near-certain
+    staples include bananas, British beef mince, Eatlean protein grated
+    cheese, sweet potato, eggs, salmon poke, red onions, avocados. A full
+    proposed weekly list exists in the source doc. NOT yet confirmed by the
+    owner -- treat as a draft."
+  open_decisions:
+    - "Staples list not yet confirmed/edited by owner"
+    - "No delivery slot preference (day/time/saver-slot-ok) captured yet"
+    - "Substitution rule for out-of-stock items not yet discussed"
+    - "Exact mechanics for guaranteeing the stop-before-payment boundary not
+      yet fully defined"
 
 # Ranked, no ties. Arbitration rule 1 depends on this ordering.
 # Owner flagged this as a vibe check, not a fixed law — CEO agent has standing
@@ -227,15 +271,54 @@ finance:
 
 # ── Rounds 4–5 ───────────────────────────────────────────────────────────────
 health:
+  # Partially pre-filled 2026-08-16 from files found in the owner's Google
+  # Drive (Health folder + a GP appointment draft), NOT yet confirmed by the
+  # owner in conversation. Treat every value below as a starting point to
+  # verify in Round 4, not a settled answer -- especially the weight data,
+  # which is 14 months stale.
   objective: TODO                     # fat loss | strength | endurance | recomp | consistency
   metrics:
-    weight: {current: TODO, target: TODO, unit: TODO}
-    others: []                        # {name, current, target}
+    weight:
+      current: TODO                   # last known data point (Jun 2025, STALE): 89.7kg
+      target: TODO                    # last known implied goal (same stale source): 80kg
+      unit: kg
+    others:
+      - name: Body fat %
+        current: TODO                 # last known (Jun 2025, STALE): 15.8%
+        target: TODO
+      - name: BMI
+        current: TODO                 # last known (Jun 2025, STALE): 27.4 ("overweight" band)
+        target: TODO
+    source_note: "All figures above from a Withings scan dated June 2025 --
+      found in Drive, not provided by the owner this conversation. 14+ months
+      old, do not treat as current. Ask for an up-to-date reading."
   training_week:
     sessions_per_week: TODO
     types: []
     preferred_time: TODO              # when it must happen to survive the calendar
-  known_derailers: []                 # the owner's specific failure pattern
+  known_derailers:
+    - "A structured knee-pain rehab/return-to-squatting program exists in
+      Drive (recently viewed, so possibly still relevant) -- suggests a past
+      or ongoing knee issue that shaped training design. Not yet confirmed
+      as current with the owner."
+  medical_context:
+    - condition: "Polypoidal sinusitis / nasal polyps"
+      history: "Dating back to at least 2018. Previous ENT referral requests
+        in 2018 and December 2022."
+      current_symptoms: "Nasal obstruction, restricted airflow, postnasal
+        drip -- affecting sleep quality. Owner drafted a GP appointment
+        request on 2026-08-08 (found in Drive) requesting review and a
+        renewed ENT referral."
+      relationship_to_chest_infection_leak: "UNCLEAR -- the known_leaks entry
+        above describes a lingering chest infection affecting breathing
+        during beach volleyball and while talking/laughing. This sinusitis
+        history is a separate, chronic, previously-diagnosed condition. Do
+        not assume they're the same thing without the owner confirming --
+        could be unrelated, could be the chest symptoms flaring the sinus
+        issue or vice versa."
+      note: "The GP letter draft contains the owner's DOB, home address and
+        phone number -- deliberately NOT copied here, per the no-secrets
+        rule at the top of this file. Only medical content is recorded."
   sensors:
     scale_pipe: TODO                  # withings api | apple health bridge | manual | none
     wearable_pipe: TODO
