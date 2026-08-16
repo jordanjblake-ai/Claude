@@ -169,21 +169,22 @@ finance:
       amount: TODO
       day_of_month: TODO
       note: "This is the bill expensed via employer above -- outgoing here, reimbursed as income there."
-    - name: Mark's Performance Training Group ("Hybrid Vacations LTD" on statements)
+    - name: Mark Garcia-Kidd's Performance Training Group ("Hybrid Vacations LTD" on statements)
       amount_gbp: 20                    # per session, found via Stripe receipts in the
                                        # 2026-08-16 subscription sweep: 2026-07-07,
                                        # 07-27, 08-10 (irregular spacing, not weekly)
       day_of_month: TODO
       note: "CLARIFIED 2026-08-16 by owner: this is a ~16-person, 2-hour group
         session run by Mark -- a SEPARATE arrangement from the small-group/1:1
-        coaching in finance.payment_automation_requested (which is still
-        priced at GBP 50/hour, unverified against any receipt). Don't
-        conflate the two -- same coach, two different products."
-    - name: Beach volleyball coach (Mark) -- small-group/1:1 sessions
-      amount: TODO                      # GBP 50/hour assumed, per owner's original
-                                       # statement -- NOT found in the subscription
-                                       # sweep, so likely paid a different way (cash?
-                                       # bank transfer?). See
+        coaching below. Don't conflate the two -- same coach, two different
+        products. Full name (Mark Garcia-Kidd) confirmed 2026-08-16 via a
+        Monzo activity screenshot -- see the Monzo account note above."
+    - name: Beach volleyball coach (Mark Garcia-Kidd) -- small-group/1:1 sessions
+      amount_gbp: 50                    # CONFIRMED 2026-08-16 -- a Monzo app screenshot
+                                       # showed two real GBP 50.00 payments to "Mark
+                                       # Garcia-Kidd" (Wimbledon). Paid via plain bank
+                                       # transfer, not Stripe -- explains why the
+                                       # subscription sweep never found it. See
                                        # finance.payment_automation_requested for the
                                        # full spec.
       day_of_month: TODO
@@ -219,26 +220,41 @@ finance:
                                        # of surface area; matters for aggregator coverage below
     - institution: Virgin Money
       type: current + savings account
-      note: "Real balances from a LifeStage Money 'Accounts and assets'
-        screenshot 2026-08-16 (LifeStage's own aggregator view, not a
-        direct app screenshot like most other entries -- flagged since the
-        owner's whole reason for this exercise is that some LifeStage
-        connectors are stale; Chase's connection showed as 'Connected' /
-        recently updated on the same Connections page, so treating these as
-        reasonably fresh). Current account: GBP 0.00. Savings account:
-        GBP 7,958.92. Total GBP 7,958.92."
+      note: "CORRECTED 2026-08-16 via owner's own Virgin Money app
+        screenshot -- the LifeStage aggregator screenshot had the
+        current/savings split backwards. Real split: 'M Plus Current'
+        GBP 7,958.92, 'M Plus Saver' GBP 0.00. Total unchanged at
+        GBP 7,958.92, but if this account is ever used for anything that
+        depends on which product holds the money (e.g. instant-access
+        planning), use this corrected split, not the earlier one."
     - institution: Chase
       type: current + savings account
-      note: "Real balances from the same LifeStage 'Accounts and assets'
-        screenshot 2026-08-16. Current account ('Jordan's Account'):
-        GBP 328.05. Savings: Round-up GBP 130.70, Saver GBP 0.00. Total
-        GBP 458.75. Chase's own Connections entry showed 'Connected,
-        updated 16th Aug 14:47' -- same day, high confidence."
+      note: "CORRECTED 2026-08-16 via owner's own Chase app screenshot:
+        current account ('Jordan's Account') is actually GBP 338.81, not
+        the GBP 328.05 the LifeStage aggregator showed -- a real GBP 10.76
+        gap, small but a genuine discrepancy, not just a formatting
+        difference. Savings (Round-up GBP 130.70, Saver GBP 0.00) not
+        independently reconfirmed via the Chase app itself, only via
+        LifeStage. Total using the corrected current-account figure:
+        GBP 469.51."
     - institution: Monzo
       type: current + savings account
-      note: "Real balances from the same LifeStage 'Accounts and assets'
-        screenshot 2026-08-16. Current account: GBP 651.44. Savings:
-        GBP 29.16. Total GBP 680.60."
+      note: "RECONFIRMED 2026-08-16 via owner's own Monzo app screenshot --
+        current account GBP 651.44 matches the LifeStage figure exactly.
+        Savings GBP 29.16 not independently reconfirmed, only via
+        LifeStage. Total GBP 680.60. NOTABLE: the Monzo activity feed
+        visible in the screenshot shows two GBP 50.00 payments to 'Mark
+        Garcia-Kidd' (Wimbledon) -- this is the beach volleyball coach
+        referenced throughout finance.fixed_commitments and
+        finance.payment_automation_requested. Two things this resolves:
+        (1) his full name is Mark Garcia-Kidd, not just 'Mark'; (2) the
+        GBP 50/hour small-group/1:1 coaching IS being paid, via a plain
+        Monzo bank transfer rather than Stripe -- which is exactly why it
+        never showed up in the Gmail/Stripe subscription sweep. The
+        'unverified against any receipt' caveat on that GBP 50/hour figure
+        in payment_automation_requested can now be dropped -- these two
+        GBP 50.00 transfers are direct evidence of it actually happening at
+        exactly that rate."
     - institution: LifeStage Money
       type: financial guidance app (built by WPS Advisory on Moneyhub's Open
         Finance platform -- not a standalone savings product)
@@ -411,7 +427,7 @@ finance:
   payment_automation_requested:
     v1_model: draft_and_approve          # owner-confirmed; not silent auto-send
     payees:
-      - payee: Mark (beach volleyball coach) -- small-group/1:1 coaching ONLY
+      - payee: Mark Garcia-Kidd (beach volleyball coach) -- small-group/1:1 coaching ONLY
         trigger: "A calendar event with Mark has passed"
         amount_rule: "GBP 50 x the event's duration in hours. Owner pays Mark
           the FULL amount every time regardless of headcount (corrected from
@@ -423,12 +439,12 @@ finance:
           Performance Training Group (2-hour sessions), not this
           small-group/1:1 coaching. An earlier note here wrongly treated the
           20 as contradicting the 50/hour; it doesn't, they're unrelated
-          expenses that happen to share a payee. The GBP 50/hour figure for
-          THIS specific automation is still unverified against a receipt --
-          no Stripe evidence for it was found in the sweep, likely because
-          it's paid some other way (cash? bank transfer?). Worth confirming
-          with the owner how this one actually gets paid before building the
-          draft-and-approve logic."
+          expenses that happen to share a payee. CONFIRMED 2026-08-16: a
+          Monzo app screenshot shows two real GBP 50.00 transfers to 'Mark
+          Garcia-Kidd' (Wimbledon) -- paid via plain bank transfer, not
+          Stripe, which is why the subscription sweep never found it. Full
+          surname (Garcia-Kidd) also confirmed from that same screenshot.
+          The GBP 50/hour rate is no longer just an assumption."
         reimbursement: "Separately, other players who trained that session pay
           the owner back their share. No attendee list exists (events aren't
           sent as invites) and there's no WhatsApp access to infer headcount.
