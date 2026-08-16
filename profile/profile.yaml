@@ -79,7 +79,13 @@ finance:
       variable: true
   headline_metric:
     name: net_worth
-    current: TODO                     # needed to know if the target is on-trend or a moonshot
+    current_gbp: 150000                # AMBIGUOUS -- owner said "~150K" then separately
+                                       # mentioned a ~50K pension. Unclear if the 150K
+                                       # already includes the pension or is on top of it
+                                       # (i.e. true current net worth may be ~150K or
+                                       # ~200K). Confirm before treating either as solid --
+                                       # it changes the required monthly delta to hit
+                                       # the target materially.
     target_gbp: 1000000
     by: 2027-12-31                    # "end of next year" from 2026-08-16
   fixed_commitments:
@@ -100,9 +106,22 @@ finance:
       amount: TODO
       day_of_month: TODO
       note: "Flagged under known_leaks -- visits haven't actually been scheduled recently, so this commitment may be lapsed rather than active. Worth confirming which is true."
-  debts: []                           # {name, balance, rate, revolving: true|false}
-  accounts: []                        # {institution, type} — names only, never numbers
-  aggregator: TODO
+  debts: []                           # {name, balance, rate, revolving: true|false} -- not yet asked
+  accounts:                           # names only, never numbers -- 10 institutions is a lot
+                                       # of surface area; matters for aggregator coverage below
+    - {institution: Virgin Money, type: main current account}
+    - {institution: Chase, type: payments/current account}
+    - {institution: Monzo, type: current account}
+    - {institution: LifeStage Money, type: savings/investment app}
+    - {institution: First Direct, type: dormant/lingering account}
+    - {institution: NatWest, type: dormant/lingering account}
+    - {institution: Chip, type: savings app}
+    - {institution: PayPal, type: payments}
+    - {institution: Revolut, type: current account/card}
+    - {institution: Aviva (MyAviva), type: pension, note: "~50K, see current_gbp ambiguity above"}
+  aggregator: TODO                    # TrueLayer/Plaid both cover the major UK banks, but
+                                       # coverage of Chip, LifeStage Money and Revolut via
+                                       # open banking is worth checking before committing
   categories: []                      # 8–12 buckets, proposed from real history
   agent_write_access: false           # keep false until it's been right for a quarter
 
