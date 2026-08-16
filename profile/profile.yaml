@@ -148,8 +148,30 @@ finance:
       amount: TODO
       day_of_month: TODO
       note: "This is the bill expensed via employer above -- outgoing here, reimbursed as income there."
-    - name: Beach volleyball coach
-      amount: TODO
+    - name: Beach volleyball coach (Mark, trades as "Hybrid Vacations LTD")
+      amount_gbp: 20                    # CORRECTED 2026-08-16, found via real Stripe
+                                       # receipts in Gmail during the subscription sweep
+                                       # -- supersedes the earlier "GBP 50/hour, full
+                                       # amount" assumption in
+                                       # finance.payment_automation_requested. Charges
+                                       # found: GBP 20 on 2026-07-07, 2026-07-27,
+                                       # 2026-08-10 -- irregular spacing, not weekly.
+                                       # OWNER SHOULD CONFIRM the real rate/logic before
+                                       # the payment automation is built further on the
+                                       # old numbers. Also check whether Hybrid
+                                       # Vacations already auto-charges via Stripe --
+                                       # if so, the planned draft-and-approve
+                                       # automation may be partly redundant. Logged in
+                                       # Notion Subscriptions DB, status "flagged for
+                                       # review."
+      day_of_month: TODO
+    - name: Mobile (Three)
+      amount: TODO                      # found via subscription sweep 2026-08-16 --
+                                       # was NOT previously captured here. Recurring
+                                       # monthly bill since at least Oct 2025. Amount
+                                       # not visible in notification emails, only "your
+                                       # bill is ready" pings -- ask owner or find an
+                                       # actual invoice.
       day_of_month: TODO
     - name: Cleaner (Justyna)
       amount_per_hour_gbp: 18           # owner unsure, "can't remember 100%" -- treat as
@@ -225,7 +247,16 @@ finance:
         amount_rule: "GBP 50 x the event's duration in hours. Owner pays Mark
           the FULL amount every time regardless of headcount (corrected from
           an earlier assumption of a split) -- so this side needs only the
-          calendar event and its duration, no attendance data."
+          calendar event and its duration, no attendance data.
+          ** CONTRADICTED 2026-08-16 by real data ** -- the Gmail subscription
+          sweep found Mark actually trades as 'Hybrid Vacations LTD' and the
+          real Stripe charges are GBP 20 (2026-07-07, 07-27, 08-10), not
+          GBP 50/hour. Do not build the payment logic on the old number until
+          the owner confirms what's actually correct -- flat 20/session? A
+          different hourly rate? Also unclear whether Hybrid Vacations
+          already auto-charges his card via Stripe, which would make part of
+          this automation redundant. See finance.fixed_commitments and the
+          Notion Subscriptions DB entry for the same flag."
         reimbursement: "Separately, other players who trained that session pay
           the owner back their share. No attendee list exists (events aren't
           sent as invites) and there's no WhatsApp access to infer headcount.
