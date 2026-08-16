@@ -163,12 +163,15 @@ finance:
                                        # 143.22 + Nottingham LISA 43,845.58 = GBP 182,568.47
                                        # (rounded here to 182,568). No debt (confirmed).
                                        #
-                                       # EXCLUDES NatWest (~GBP 7,078-7,578) and Halifax
-                                       # (~GBP 1.92) -- owner is currently locked out of
-                                       # both apps, so those figures are aggregator-cached
-                                       # only, not independently confirmed. Including them
-                                       # would put the range at roughly GBP 189,600-190,150.
-                                       # Revisit and fold in once access is regained.
+                                       # NatWest and Halifax are counted as GBP 0.00 each
+                                       # (see finance.accounts) -- owner is locked out of
+                                       # both apps and explicitly said 2026-08-16 to assume
+                                       # no real money sits in either until he can check
+                                       # directly, overriding the LifeStage aggregator's
+                                       # cached figures (~GBP 7,078-7,578 for NatWest,
+                                       # ~GBP 1.92 for Halifax). Revisit once access is
+                                       # regained -- this assumption could understate net
+                                       # worth if either turns out to hold real money.
     target_gbp: 1000000
     by: 2027-12-31                    # "end of next year" from 2026-08-16
     lifestage_own_reported_total_gbp: 153676   # LifeStage Money's own dashboard
@@ -305,19 +308,15 @@ finance:
     - institution: NatWest
       type: current + savings account
       note: "Owner is currently locked out of the NatWest app itself, can't
-        confirm balance directly (2026-08-16). However the LifeStage
-        'Accounts and assets' aggregator screenshot (same day) shows cached
-        NatWest data: current account ('BLAKE JJ') GBP 500.00, Regular
-        Saver GBP 6,578.00, Savings Builder GBP 500.00 (Savings Builder
-        appears listed twice at the same value across screenshots --
-        possibly one line, not two). LOWER CONFIDENCE than the owner's own
-        screenshots elsewhere in this list -- this is aggregator-cached
-        data for an account the owner cannot currently verify directly, and
-        the whole point of this exercise is that some of these connectors
-        are known to be stale. Treat as indicative, not confirmed, until
-        access is regained. Total shown by LifeStage: GBP 7,578.00 (or
-        GBP 7,078.00 if Savings Builder is a duplicate line, not two
-        accounts)."
+        confirm balance directly (2026-08-16). The LifeStage 'Accounts and
+        assets' aggregator screenshot (same day) showed cached NatWest data
+        (current account 'BLAKE JJ' GBP 500.00, Regular Saver GBP 6,578.00,
+        Savings Builder GBP 500.00) -- but owner explicitly said 2026-08-16
+        he isn't confident this account holds any real money and asked to
+        assume GBP 0.00 until he can check directly. TREATING AS GBP 0.00
+        per that instruction, overriding the aggregator-cached figures
+        above. Revisit and confirm the real balance once access is
+        regained -- this assumption could be wrong in either direction."
     - institution: Chip
       type: savings app
       note: "Real balances from owner's screenshots 2026-08-16. Savings tab:
@@ -359,14 +358,14 @@ finance:
         app (same day, same figures) -- highest confidence."
     - institution: Halifax
       type: current + savings account
-      note: "NEW 2026-08-16 -- owner mentioned being locked out of this
-        alongside NatWest. The LifeStage 'Accounts and assets' aggregator
-        screenshot (same day) shows cached data: current account GBP 0.00,
-        a second (savings-type) account GBP 1.92. Same lower-confidence
-        caveat as NatWest above -- aggregator-cached, not independently
-        confirmed by the owner, who cannot currently check the Halifax app
-        directly. Effectively negligible balance either way (~GBP 1.92
-        total) even if stale."
+      note: "Owner mentioned being locked out of this alongside NatWest. The
+        LifeStage 'Accounts and assets' aggregator screenshot (same day)
+        showed cached data (current account GBP 0.00, a second
+        savings-type account GBP 1.92) -- but owner explicitly said
+        2026-08-16 he isn't confident this account holds any real money and
+        asked to assume GBP 0.00 until he can check directly. TREATING AS
+        GBP 0.00 per that instruction (was already effectively negligible
+        either way). Revisit once access is regained."
     - institution: American Express (Platinum Cashback Everyday Credit Card)
       type: credit card -- CANCELLED
       note: "NEW 2026-08-16, found in owner's own screenshot. Card account is
