@@ -78,11 +78,28 @@ finance:
       cadence: variable
       variable: true
   headline_metric:
-    name: TODO                        # net worth | savings rate | monthly spend | debt | runway
-    current: TODO
-    target: TODO
-    by: TODO
-  fixed_commitments: []               # {name, amount, day_of_month}
+    name: net_worth
+    current: TODO                     # needed to know if the target is on-trend or a moonshot
+    target_gbp: 1000000
+    by: 2027-12-31                    # "end of next year" from 2026-08-16
+  fixed_commitments:
+    - name: Rent
+      amount: TODO
+      day_of_month: TODO
+    - name: Gym membership
+      amount: TODO
+      day_of_month: TODO
+    - name: Virgin Media (internet)
+      amount: TODO
+      day_of_month: TODO
+      note: "This is the bill expensed via employer above -- outgoing here, reimbursed as income there."
+    - name: Beach volleyball coach
+      amount: TODO
+      day_of_month: TODO
+    - name: Cleaner
+      amount: TODO
+      day_of_month: TODO
+      note: "Flagged under known_leaks -- visits haven't actually been scheduled recently, so this commitment may be lapsed rather than active. Worth confirming which is true."
   debts: []                           # {name, balance, rate, revolving: true|false}
   accounts: []                        # {institution, type} — names only, never numbers
   aggregator: TODO
