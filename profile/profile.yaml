@@ -908,13 +908,43 @@ goals:
         belong' -- this reads as an identity goal, not just a performance
         target. Worth keeping that framing in mind for quest-master
         reporting, progress toward this isn't just a stat line."
-  skills: []                          # {name, measure, twelve_month_target} -- Round 9
-                                       # Q3 not yet answered
-  uncommitted_hours_per_week: TODO    # be pessimistic -- Round 9 Q4 not yet answered
+  skills:                             # ANSWERED 2026-08-16, Round 9 Q3
+    - name: "Health numbers for competitive beach volleyball"
+      measure: "TODO -- owner's words: wants his numbers 'in alignment with
+        what a person of my size should be around for beach volleyball'.
+        Not an arbitrary target, a sport-appropriate benchmark for his
+        height/build. Needs research into typical body composition ranges
+        for competitive beach volleyball players before this can become a
+        real number. Directly feeds health.metrics.weight.target and the
+        body fat % target, both still TODO there -- resolve together."
+      twelve_month_target: TODO
+  uncommitted_hours_per_week: 3       # CONFIRMED 2026-08-16 by owner, Round 9 Q4.
+                                       # WORTH FLAGGING: this is separate from the
+                                       # 8 training sessions/week already in
+                                       # health.training_week (beach volleyball 4x,
+                                       # gym 2x, sauna 2x) -- those are committed,
+                                       # not uncommitted, time. 3 hours/week of truly
+                                       # free time alongside an 8-session training
+                                       # load, a fortnightly date night, daily
+                                       # contact with Krystyna, gaming, and everything
+                                       # else is tight. Exactly the overplanning risk
+                                       # integration-map.md warned about before this
+                                       # number existed -- surface this in the next
+                                       # weekly review rather than let it sit quietly.
 
 # ── Round 10 ─────────────────────────────────────────────────────────────────
 operating:
-  daily_brief: {time: TODO, surface: TODO}
+  daily_brief:
+    time: TODO
+    surface: TODO
+    note: "OPEN QUESTION 2026-08-16 -- owner isn't sure a daily brief adds
+      enough value and wants to automate as much as possible rather than
+      read a report every day. Not resolved yet -- don't default to a
+      standard daily brief without checking back. Worth proposing an
+      exception-based alternative (something only surfaces when there's
+      real signal: drift, a deadline, a decision only he can make) rather
+      than a fixed daily habit regardless of whether anything changed --
+      see if that framing lands better than 'time and surface'."
   weekly_review: {day: TODO, time: TODO, max_minutes: TODO}
   never_without_asking:               # hard guardrails, enforced by every agent
     - send messages as me
