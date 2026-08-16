@@ -14,8 +14,15 @@ meta:
 
 # ── Round 1 ──────────────────────────────────────────────────────────────────
 orientation:
-  ninety_day_objective: TODO          # the one outcome, stated as an outcome
-  known_leaks: []                     # what quietly didn't happen last month
+  # Owner found "pick one" hard to answer cleanly — the honest answer was four
+  # concrete workstreams, not one outcome. Keeping all four rather than forcing
+  # a false single priority; ranking happens in the priorities list below.
+  ninety_day_objective:
+    - finance_oversight: "Better visibility into finances, with someone/something reviewing spend and flagging where money could be handled better."
+    - ai_workout_coach: "Replace a paid monthly service that programs workouts with an AI-driven equivalent."
+    - grocery_automation: "Automate grocery ordering — already discussed separately with Claude, treat as an existing thread to fold in."
+    - gift_buying: "Struggles to choose/purchase gifts for family members — wants this taken off his plate."
+  known_leaks: []                     # what quietly didn't happen last month — still open
 
 # Ranked, no ties. Arbitration rule 1 depends on this ordering.
 priorities:
