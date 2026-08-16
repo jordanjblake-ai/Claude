@@ -217,21 +217,42 @@ finance:
         account, this may be the answer to both the aggregator decision and
         the Aviva pension access question, with no new signup needed. Owner
         checking what's already linked in the app."
-    - {institution: First Direct, type: dormant/lingering account}
-    - {institution: NatWest, type: dormant/lingering account}
+    - institution: First Direct
+      type: current + savings account
+      note: "CORRECTED 2026-08-16 -- not actually dormant. Real balances from
+        owner's own screenshot: 1st Account GBP 400.00, Savings Account
+        GBP 3,736.18. Total GBP 4,136.18."
+    - institution: NatWest
+      type: current account
+      note: "Owner is currently locked out, can't confirm balance right now
+        (2026-08-16). Not necessarily dormant -- access issue, not
+        inactivity. Revisit once he regains access."
     - {institution: Chip, type: savings app}
     - {institution: PayPal, type: payments}
-    - {institution: Revolut, type: current account/card}
+    - institution: Revolut
+      type: current account/card
+      note: "Real balance from owner's screenshot 2026-08-16: Total wealth
+        GBP 330, all in Cash (Savings/Invest/Crypto currently empty).
+        Cash itself is multi-currency: EUR 265.93, GBP 103.75, MXN 0, TRY 0."
+    - institution: Halifax
+      type: current account
+      note: "NEW 2026-08-16 -- owner mentioned being locked out of this
+        alongside NatWest, wasn't previously in this list at all. Balance
+        unknown until access is regained."
+    - institution: American Express (Platinum Cashback Everyday Credit Card)
+      type: credit card -- CANCELLED
+      note: "NEW 2026-08-16, found in owner's own screenshot. Card account is
+        cancelled, GBP 0.00 balance. Not a debt, informational only."
     - institution: Aviva (MyAviva)
       type: pension
-      note: "~50K, see current_gbp ambiguity above. Owner recalls API/open-banking
-        access existing at one point, unsure if still active. Researched: Aviva
-        runs a developer portal (developer.aviva.co.uk) but it's oriented at
-        pension-provider/payroll B2B integration, not confirmed consumer AIS via
-        aggregators. No solid public confirmation either way. Practical next step
-        is checking the MyAviva portal/app directly for an open-banking consent
-        option, or contacting Aviva support -- owner offered to help obtain
-        access if possible, worth doing once other Round 3 items are settled."
+      note: "CORRECTED 2026-08-16 -- real fund value from owner's own screenshot:
+        GBP 68,318.72 (fund: 'Aviva Pensions My Future Focus Long Term Growth
+        S6', 42,582.1005 units @ GBP 1.6044, 100% allocation, risk rating 5 of
+        7). Replaces the earlier ~50K estimate -- a real difference of
+        ~18K, worth carrying through to the headline net worth figure.
+        API/open-banking access question is now moot for getting the value
+        (owner can just screenshot it), though still relevant if automated
+        sync is ever wanted."
     - institution: Crypto wallets (via LifeStage Money)
       type: "ETH, staked ETH, DAI, ALGO, USDS -- found 2026-08-16 in the LifeStage
         transaction export, not previously captured anywhere. Only transaction
