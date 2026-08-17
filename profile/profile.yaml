@@ -1034,12 +1034,14 @@ health:
       Also see training_week.scheduling_note -- this same sweep proved
       the 16 Jun and 23 Jun sessions were BOTH flagged as 'missed' by
       TrueCoach and also fully completed and logged, direct confirmation
-      of the day-shift explanation. Original two inconsistencies still
-      flagged: Back Squat logged at 90kg on 4 Aug then 70kg on 11 Aug
-      (genuine deload or a logging gap, not confirmed), and Seal Row
-      jumping from 14kg dumbbells to a 64kg 'low row' machine between
-      sessions (almost certainly an equipment change, not a real 4.5x
-      strength jump) -- both still worth Jordan confirming directly."
+      of the day-shift explanation. RESOLVED 2026-08-17, all three flagged
+      11 Aug inconsistencies confirmed directly by Jordan: Back Squat at
+      70kg (vs 90kg on 4 Aug) was a deliberate lighter session due to
+      fatigue that day, not a deload or logging gap; Seal Row's jump to a
+      64kg 'low row' machine confirmed as an equipment change, not a real
+      4.5x strength jump; Weighted Aleknas logged as '2x20' was in fact 2
+      sets of 20 reps at a 10kg plate, done by choice instead of the
+      prescribed 4 sets, not a logging gap."
     historical_weights_sheet: "https://docs.google.com/spreadsheets/d/1HXGy7kAAk9w683lO-ltVsOJvM7O500nkk_f1AQhZumE/edit
       -- UPDATED 2026-08-17, 'Life OS - Historical Training Weights'. Same
       52 rows as training_log_db above (up from 24, see that entry for
