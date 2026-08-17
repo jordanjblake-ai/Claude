@@ -159,7 +159,19 @@ finance:
     - name: Salary
       cadence: monthly
       variable: false
-      amount_annual_gbp: 60000        # approximate, per owner ("something around 60K")
+      amount_annual_gbp: 61708         # UPDATED 2026-08-17 -- superseded the ~60K
+                                       # estimate with the exact 'Reference Salary'
+                                       # (GBP 61,707.99) from HID Corporation's own
+                                       # Total Reward Statement (Perquisite Reward
+                                       # Centre), sourced directly, not estimated.
+                                       # Likely the pre-salary-sacrifice base salary
+                                       # (pension is paid via sacrifice, and benefit
+                                       # levels like life assurance/income protection
+                                       # are calculated off this figure) -- not 100%
+                                       # confirmed which definition HID uses, but this
+                                       # is materially more precise than the prior
+                                       # guess either way. See finance.employee_benefits
+                                       # for the full Total Reward breakdown.
     - name: Internet bill (expensed)
       cadence: monthly
       variable: false
@@ -239,7 +251,8 @@ finance:
         session run by Mark -- a SEPARATE arrangement from the small-group/1:1
         coaching below. Don't conflate the two -- same coach, two different
         products. Full name (Mark Garcia-Kidd) confirmed 2026-08-16 via a
-        Monzo activity screenshot -- see the Monzo account note above."
+        Monzo activity screenshot -- see the Monzo account note above.
+        SCHEDULE CONFIRMED 2026-08-17: Tuesdays, 18:30-20:30."
     - name: Beach volleyball coach (Mark Garcia-Kidd) -- small-group/1:1 sessions
       amount_gbp: 50                    # CONFIRMED 2026-08-16 -- a Monzo app screenshot
                                        # showed two real GBP 50.00 payments to "Mark
@@ -248,7 +261,8 @@ finance:
                                        # subscription sweep never found it. See
                                        # finance.payment_automation_requested for the
                                        # full spec.
-      day_of_month: TODO
+      day_of_month: TODO                # duration confirmed 2026-08-17: ~1 hour per
+                                       # session, day of week still not given
     - name: Mobile (Three)
       amount_gbp: 6                     # CONFIRMED 2026-08-16 by owner -- there's only
                                        # ONE real subscription with Three, not two (the
@@ -520,6 +534,95 @@ finance:
         another source among many -- this one the owner already trusts and
         acts on."
 
+  employee_benefits:                  # NEW 2026-08-17 -- owner pasted the real content
+                                       # of HID Corporation's benefits portal
+                                       # (Perquisite Reward Centre, via Mercer Marsh
+                                       # Benefits) directly into chat: the Benefits
+                                       # Overview page, the Total Reward Statement, and
+                                       # the underlying Health Shield/pension/life/CI
+                                       # policy detail. All figures below are sourced
+                                       # from that, not estimated.
+    selection_window_deadline: "URGENT, TIME-SENSITIVE: the current benefit
+      selection window closes 31 Aug 2026 (selections effective 1 Sep
+      2026) -- as of 2026-08-17 that's about 2 weeks out. Any change to
+      pension %, healthcare cash plan level, or picking up Cycle to
+      Work/Tusker EV needs to happen before then or it waits for the next
+      window. Flagged directly to owner in chat 2026-08-17, no action
+      taken here -- selections happen on the portal itself, which Claude
+      has no access to."
+    total_reward_annual_gbp: 74312.75   # 'Total Reward 2026' from the Total Reward
+                                       # Statement (as of 30 Sep 2026, an annualised
+                                       # projection, not a past-dated actual). Breaks
+                                       # down as My Total Reward (reference salary +
+                                       # company contribution) GBP 66,467.67, though
+                                       # the exact gap to the 74,312.75 headline figure
+                                       # isn't reconciled from what was pasted --
+                                       # recorded as-is rather than guessing the
+                                       # composition.
+    pension:
+      provider: Aviva (Group Personal Pension)  # this IS the Aviva pension already
+                                       # tracked in net worth at GBP 68,318.72 (fund:
+                                       # 'Aviva Pensions My Future Focus Long Term
+                                       # Growth'), this section is the contribution
+                                       # detail behind that balance, not a new asset.
+      employee_contribution_pct: 5      # of reference salary, via salary sacrifice
+      employer_match_pct: 5             # HID matches 1-5%, owner is at the max match
+      employee_contribution_annual_gbp: 3085.44   # GBP 257.12/month
+      employer_contribution_annual_gbp: 3548.16   # GBP 295.68/month
+      total_contribution_annual_gbp: 6633.61
+      annual_management_charge_pct: 0.50
+      note: "Combined ~10.7% of reference salary going in annually between
+        both sides. Salary sacrifice means the employee portion never hits
+        take-home pay or NI -- already the most tax-efficient way to fund
+        this, no obvious lever to pull here beyond deciding whether to
+        contribute above the matched 5% (HID won't match beyond 5%, so
+        anything past that is unmatched but still tax-advantaged)."
+    life_assurance:
+      provider: MetLife
+      cover: 3x salary
+      employer_paid_annual_gbp: 292.68
+      employee_cost_gbp: 0
+      note: "Auto-covers up to GBP 1,250,000; above that needs underwriting.
+        Payout goes to whoever's named on the Expression of Wish form --
+        worth confirming one's on file, not visible from the portal pages
+        pasted."
+    critical_illness_cover:
+      provider: Unum
+      cover: "GBP 100,000 lump sum, capped at 5x salary"
+      status: CORE (auto-enrolled unless opted out)
+      employer_paid_annual_gbp: 507.70
+      employee_cost_gbp: 0
+      conditions_covered: [Cancer, Coronary Artery Bypass Grafts, Heart Attack,
+        Kidney failure, Major Organ Transplant, Multiple Sclerosis, Stroke]
+      extras: "Help@hand app (remote GP, mental health support, physio,
+        EAP access), Employee Assistance Programme via Lifeworks (24/7
+        helpline, financial/legal support, tailored fitness plans), Unum
+        Cancer Pathway support. Pre-existing conditions are excluded --
+        relevant given health.medical_context (sinusitis, self-identified
+        autism) predates this cover, worth being aware those wouldn't
+        trigger a payout even though they're not critical-illness-grade
+        conditions anyway."
+      note: "Taxable as a benefit-in-kind (P11D) -- the premium itself, not
+        any payout received, which stays tax-free."
+    income_protection:
+      provider: TODO                    # not named in what was pasted
+      cover: 75% of salary
+      employer_paid_annual_gbp: 332.61
+      employee_cost_gbp: 0
+    healthcare_cash_plan: "See health.insurance for the full detail -- Health
+      Shield Friendly Society, Single Cover Level 1, GBP 78.48/year,
+      employer-paid."
+    available_not_selected:
+      - "Cycle to Work scheme -- available, not currently selected. Owner
+        already owns and commutes on an e-bike (see health.training_week),
+        so this is really about a FUTURE bike via salary sacrifice, not
+        something to backdate onto the one already owned. Worth knowing
+        it exists for next time, not an action item now."
+      - "Tusker Electric Vehicles scheme -- available, not currently
+        selected. Salary-sacrifice EV lease. No known current car in this
+        profile either way, flagged as available rather than recommended,
+        purely informational until owner says whether it's relevant."
+
   # Owner wants two specific payees automated -- flagged as its own item rather
   # than folded into agent_write_access, because it changes the guardrail in
   # operating.never_without_asking ("spend money") for these two people
@@ -659,6 +762,21 @@ health:
       - {type: Beach volleyball, sessions_per_week: 4}
       - {type: Gym, sessions_per_week: 2}
       - {type: Sauna, sessions_per_week: 2}
+    beach_volleyball_sessions: "CLARIFIED 2026-08-17 by owner, 3 of the 4
+      weekly beach volleyball sessions now have real names/times/coaches:
+      (1) private 1:1 with Mark Garcia-Kidd, ~1 hour, day not yet given,
+      phone stays courtside so this session isn't captured by any tracker;
+      (2) Mark's Performance Training Group, Tuesdays 18:30-20:30 (2h,
+      the same 'Hybrid Vacations LTD' GBP 20/session entry in
+      finance.fixed_commitments); (3) Crystal Palace Deep Dish, Thursdays
+      20:30-22:00 (1.5h) -- not confirmed whether this is Mark-coached or
+      independent open play, owner just said he 'trains' there. The 4th
+      weekly session implied by the sessions_per_week:4 target is still
+      unnamed -- worth asking directly rather than assuming what it is.
+      Owner also cycles to and from all of these on an e-bike -- no
+      distance/duration given, so not quantified anywhere, flagged rather
+      than guessed. See gym_program.program_doc for how this feeds the
+      Steps assumptions on the Programme page."
     preferred_time: TODO               # not yet answered -- when must this happen to
                                        # survive the calendar? 8 sessions/week is a lot
                                        # to fit; worth checking this against
@@ -834,28 +952,53 @@ health:
         protected, predictable cadence (date nights, training week
         structure) may matter more than it would for someone without this
         context. Not a basis for assumptions beyond what's stated here."
-  insurance:                           # NEW 2026-08-16
-    provider: TODO                     # via employer -- name not yet given
-    policy_document: NOT_YET_SUPPLIED  # owner said 2026-08-16 this covers at least
-                                       # dental hygienist visits and sports massage,
-                                       # and wants the contract read properly so he
-                                       # maximises what he's entitled to. Can't do
-                                       # that without the actual document -- same
-                                       # pattern as everything else Claude can't reach
-                                       # directly: owner drops the policy PDF/document
-                                       # into Drive, then it gets read and summarised
-                                       # here (coverage, limits, network requirements,
-                                       # claim process) once supplied.
-    known_covered:                     # what owner has said is covered so far, not yet
-                                       # verified against the actual policy text
-      - "Dental hygienist"
-      - "Sports massage"
-    note: "Booking the hygienist (Simply Bright, Mitcham) and sports massage
-      (Savoy Sports Massage) is deliberately paused until this policy is
-      reviewed -- owner wants to book in whatever way actually maximises
-      the cover (e.g. in-network provider requirements, pre-authorisation,
-      claim-after-paying vs. direct billing) rather than by default. See
-      the known_leaks entries for both appointments."
+  insurance:                           # RESOLVED 2026-08-17 -- owner pasted the real
+                                       # benefits portal content (Perquisite Reward
+                                       # Centre, HID Corporation's employee benefits
+                                       # site via Mercer Marsh Benefits) plus the
+                                       # actual Health Shield plan document, both
+                                       # sourced directly, not guessed.
+    provider: "Health Shield Friendly Society Limited -- a Healthcare Cash Plan,
+      'Single Cover - Level 1' (the company-funded level, GBP 6.54/month =
+      GBP 78.48/year, employer-paid, owner pays GBP 0 at this level).
+      Scheme year runs 1 April to 31 March. Claims portal (owner's own
+      login): https://members.healthshield.co.uk/memberMP/OLClaims.aspx --
+      claim online for fast payment direct to account, per the plan
+      document, rather than a paper form. Claim by submitting proof of
+      purchase (receipt) -- no pre-authorisation or in-network requirement
+      mentioned, this is a
+      cashback-style plan, pay first then reclaim up to the annual cap
+      per category, 100% reimbursed up to that cap."
+    policy_document: "Full 'HIDCORPORATIONLIMITEDMP-APRIL2026' plan document
+      pasted directly into chat 2026-08-17 -- Level 1 annual caps per
+      adult (dependent children get a separate, lower cap): Dental GBP 65,
+      Optical GBP 65, Combined Physiotherapy GBP 170, GP Anytime
+      unlimited, Chiropody GBP 65, Health & Wellbeing GBP 85, Health
+      Screening GBP 85, Specialist Consultation/ECG/X-ray/Pathology/MRI
+      GBP 200, Dental Accident GBP 180, Personal Accident Protection a
+      single GBP 5,000 payment. Levels 2-4 raise every cap substantially
+      for GBP 16.07/34.04/50.11 extra per month -- not needed unless
+      Level 1's caps turn out too low in practice."
+    known_covered:
+      - "Dental hygienist -- Dental category, GBP 65/year cap at Level 1,
+        100% reimbursed up to that. Simply Bright, Mitcham can be booked
+        and paid, then claimed."
+      - "Sports massage -- NOT its own line item on the plan document, the
+        Benefits Overview page's own marketing text lists 'sports massage
+        and acupuncture' as example 'therapy treatments', which best
+        matches the Health & Wellbeing category (GBP 85/year cap at
+        Level 1, complementary therapies), not Combined Physiotherapy
+        (GBP 170/year, more likely clinical/prescribed physio). Genuinely
+        not 100% certain which category Health Shield will apply it to
+        from the document alone -- worth confirming with Health Shield
+        directly (or via the member portal once registered) before
+        assuming the higher figure. Savoy Sports Massage can be booked
+        and paid either way, the claim just needs the right category on
+        the form."
+    note: "Both appointments (hygienist, sports massage) can now be booked
+      without waiting -- this was the blocker, and it's resolved. Pay at
+      time of treatment, keep the receipt, submit a claim form to Health
+      Shield afterward. See the known_leaks entries for both appointments."
   sensors:
     scale_pipe: withings_api           # LIVE as of 2026-08-16. Owner registered a
                                        # Withings developer app, ran the local auth
