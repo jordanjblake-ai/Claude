@@ -757,11 +757,39 @@ health:
       BMI now computed from height + weight (2026-08-16), see the caveat on
       why it isn't used as a target."
   training_week:
-    sessions_per_week: 8                # target, per owner 2026-08-16
+    sessions_per_week: 10                # UPDATED 2026-08-17 -- was 8, owner raised sauna
+                                       # to 4x/week (see sauna note below), moving the
+                                       # weekly total up by 2. Gym deliberately left at 2,
+                                       # see gym_frequency_decision below.
     types:
       - {type: Beach volleyball, sessions_per_week: 4}
       - {type: Gym, sessions_per_week: 2}
-      - {type: Sauna, sessions_per_week: 2}
+      - {type: Sauna, sessions_per_week: 4}   # UPDATED 2026-08-17, owner's choice, taking
+                                       # the top of the 3-4x/week evidence range flagged
+                                       # 2026-08-17 (was 2x/week). CAUTION worth being
+                                       # direct about: this reads as "+2 sessions" but
+                                       # the real time cost depends entirely on whether
+                                       # sauna access sits right next to wherever the
+                                       # other 6 sessions already happen. If it's the
+                                       # same gym/leisure centre, this is a 15-20min
+                                       # tack-on, low real cost. If it needs its own trip,
+                                       # this is 2 genuinely new calendar blocks against
+                                       # an already-tight 3 free hours/week (see health's
+                                       # Performance Log 'Reality check'). Not confirmed
+                                       # either way -- worth Jordan clarifying since it
+                                       # changes whether this change is nearly free or a
+                                       # real new time cost.
+    gym_frequency_decision: "ANSWERED 2026-08-17 -- owner asked whether gym days should
+      also change. Recommendation: leave at 2x/week, not a hedge, a real
+      finding. NSCA guidance for in-season resistance training is 1-3x/week,
+      with common practice being to step down from 3x pre-season to 2x once
+      competition ramps up, exactly matching the current In-Season Programme
+      structure already in place. Given the beach volleyball volume already
+      confirmed real (Mark 1:1, Tuesday performance group, Thursday Deep
+      Dish, one more unnamed) and the already-tight 3-free-hours-a-week
+      reality, adding gym volume would work against recovery, not for it.
+      If anything changes, it should be through the Pre-season (SPP) phase
+      already planned on the Programme page, not a standing weekly bump."
     beach_volleyball_sessions: "CLARIFIED 2026-08-17 by owner, 3 of the 4
       weekly beach volleyball sessions now have real names/times/coaches:
       (1) private 1:1 with Mark Garcia-Kidd, ~1 hour, day not yet given,
@@ -979,10 +1007,15 @@ health:
       single GBP 5,000 payment. Levels 2-4 raise every cap substantially
       for GBP 16.07/34.04/50.11 extra per month -- not needed unless
       Level 1's caps turn out too low in practice."
+    claims_link: "https://members.healthshield.co.uk/memberMP/OLClaims.aspx --
+      owner's own claims portal login, given directly 2026-08-17. Claim
+      online here after paying for treatment, rather than a paper form."
     known_covered:
       - "Dental hygienist -- Dental category, GBP 65/year cap at Level 1,
-        100% reimbursed up to that. Simply Bright, Mitcham can be booked
-        and paid, then claimed."
+        100% reimbursed up to that. Simply Bright, Mitcham: booking link
+        https://www.simplybright.co.uk/bookings/mitcham -- their real
+        branch-specific booking page, verified 2026-08-17 via web search,
+        lands directly on the Mitcham branch, not just the homepage."
       - "Sports massage -- NOT its own line item on the plan document, the
         Benefits Overview page's own marketing text lists 'sports massage
         and acupuncture' as example 'therapy treatments', which best
@@ -992,13 +1025,31 @@ health:
         not 100% certain which category Health Shield will apply it to
         from the document alone -- worth confirming with Health Shield
         directly (or via the member portal once registered) before
-        assuming the higher figure. Savoy Sports Massage can be booked
-        and paid either way, the claim just needs the right category on
-        the form."
+        assuming the higher figure. UNRESOLVED 2026-08-17: a real web
+        search for 'Savoy Sports Massage' (Mitcham/Wimbledon/Merton) found
+        no verifiable business by that exact name -- several other real
+        sports massage therapists in the area turned up (Nadia Baker
+        Sports Therapist, Nordic Balance, Wimbledon Physio) but none
+        confirmed as the right one. NOT guessing a link for this, per the
+        no-fabricated-URLs rule -- need the actual name/link from Jordan
+        directly before a booking link can go on the dashboard."
+    booking_to_calendar_pipeline: "REQUESTED 2026-08-17 by owner: once an
+      appointment is actually booked, a calendar invite should be created
+      automatically and the dashboard should reflect it. Honest version of
+      what's actually buildable: there's no webhook or integration into
+      Simply Bright's or Savoy's booking systems, so Claude can't detect a
+      booking the moment it happens on their site. The real mechanism: the
+      moment Jordan tells Claude the date/time he's booked (a message, not
+      a new site connector), Claude creates the calendar event immediately
+      via the Calendar connector and flips the relevant dashboard chip from
+      'Ready to book' to 'Booked, see calendar'. Not fully automatic, but
+      same-turn, no separate step. Nothing booked yet as of this note."
     note: "Both appointments (hygienist, sports massage) can now be booked
-      without waiting -- this was the blocker, and it's resolved. Pay at
-      time of treatment, keep the receipt, submit a claim form to Health
-      Shield afterward. See the known_leaks entries for both appointments."
+      without waiting on the insurance question -- that was the blocker,
+      and it's resolved. Sports massage still needs the real business link
+      from Jordan before anything can be added to the dashboard for it.
+      Pay at time of treatment, keep the receipt, submit a claim via
+      claims_link above. See the known_leaks entries for both appointments."
   sensors:
     scale_pipe: withings_api           # LIVE as of 2026-08-16. Owner registered a
                                        # Withings developer app, ran the local auth
