@@ -780,16 +780,35 @@ health:
                                        # changes whether this change is nearly free or a
                                        # real new time cost.
     gym_frequency_decision: "ANSWERED 2026-08-17 -- owner asked whether gym days should
-      also change. Recommendation: leave at 2x/week, not a hedge, a real
-      finding. NSCA guidance for in-season resistance training is 1-3x/week,
-      with common practice being to step down from 3x pre-season to 2x once
-      competition ramps up, exactly matching the current In-Season Programme
-      structure already in place. Given the beach volleyball volume already
-      confirmed real (Mark 1:1, Tuesday performance group, Thursday Deep
-      Dish, one more unnamed) and the already-tight 3-free-hours-a-week
-      reality, adding gym volume would work against recovery, not for it.
-      If anything changes, it should be through the Pre-season (SPP) phase
-      already planned on the Programme page, not a standing weekly bump."
+      also change IN COMPETITION. Recommendation: leave at 2x/week, not a
+      hedge, a real finding. NSCA guidance for in-season resistance
+      training is 1-3x/week, with common practice being to step down from
+      3x pre-season to 2x once competition ramps up, exactly matching the
+      current In-Season Programme structure already in place. Given the
+      beach volleyball volume already confirmed real (Mark 1:1, Tuesday
+      performance group, Thursday Deep Dish, one more unnamed) and the
+      already-tight 3-free-hours-a-week reality, adding gym volume in
+      Competition would work against recovery, not for it."
+    full_annual_plan: "BUILT OUT 2026-08-17, owner asked for the full 12
+      months, phase by phase, not just the phase table. Now on the
+      Programme page and the Notion page both: gym days AND volleyball
+      days per phase (Competition 2 gym/4 volleyball, Transition 0-2/0-1,
+      Off-season GPP 4/2, Pre-season SPP 3-to-2/2-to-4, Taper 1-2/4),
+      with actual exercise tables for the three phases that didn't have
+      any yet (Off-season GPP: a 4-day upper/lower hypertrophy split,
+      8-12 reps, the one deliberate point in the year accessories can
+      genuinely change; Pre-season SPP: 3x/week early dropping to 2x,
+      3-6 rep power work, Power Clean reintroduced and best-to-date
+      retested; Taper: 1-2x/week, sharply reduced volume). Off-season
+      volleyball dropping to 2/week is owner's own number, not
+      estimated. Off-season gym at 4/week is grounded in real team-sport
+      GPP guidance (3-4 days/week standard), specifically justified by
+      the volleyball drop freeing real capacity, not a default bump.
+      Off-season/Pre-season exercise tables are a researched TEMPLATE,
+      not sourced from Connor's actual Nov-Mar programming, that history
+      hasn't been pulled from Gmail yet (only the current In-Season
+      block and a Week 1-6 pre-season sample have been) -- flagged on
+      both pages as something to reconcile once that block starts."
     beach_volleyball_sessions: "CLARIFIED 2026-08-17 by owner, 3 of the 4
       weekly beach volleyball sessions now have real names/times/coaches:
       (1) private 1:1 with Mark Garcia-Kidd, ~1 hour, day not yet given,
