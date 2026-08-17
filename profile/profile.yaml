@@ -674,8 +674,15 @@ health:
       tell a moved session from a skipped one. The Programme page and
       Training Program Notion page are now named by session content
       (Strength Session / Prehab Session), not by weekday, to match this.
-      Real completion rate is still genuinely unknown either way, logging
-      in the Training Log with a note when the day shifts would settle it."
+      CONFIRMED 2026-08-17, not just inferred: the wider Gmail pull for
+      historical weights turned up direct proof -- the 16 Jun and 23 Jun
+      Strength sessions each have BOTH a 'missed workout' TrueCoach email
+      AND a real, Connor-commented, fully logged completion with actual
+      weights. The session happened, just not on the day TrueCoach
+      expected, exactly the day-shift-not-skip pattern owner described.
+      Real completion rate is still genuinely unknown either way beyond
+      that, logging in the Training Log with a note when the day shifts
+      would settle it fully."
   gym_program:                        # NEW 2026-08-16 -- owner wants Claude to programme
                                        # the 2x/week gym sessions specifically for beach
                                        # volleyball, and to log weights/results so the
@@ -743,26 +750,48 @@ health:
       that exercise) and 'Result' (Completed as suggested / Adjusted
       lighter / Adjusted heavier / Bodyweight-no load / Not logged) --
       owner asked for a way to see a suggested next weight and confirm or
-      override it, this is that mechanism. Seeded 2026-08-17 with 24 real
-      historical rows seeded across 18 Jun, 23 Jul, 4 Aug and 11 Aug 2026,
-      pulled from Connor's own inline comments on TrueCoach workout emails
-      (a genuine mid-build discovery: the 'Connor Campbell has commented on
-      a workout' emails, unlike plain prescription emails, carry Jordan's
-      real logged numbers). Two real inconsistencies found in that data and
-      flagged on the page rather than smoothed over: Back Squat logged at
-      90kg on 4 Aug then 70kg on 11 Aug (genuine deload or a logging gap,
-      not confirmed), and Seal Row jumping from 14kg dumbbells to a 64kg
-      'low row' machine between sessions (almost certainly an equipment
-      change, not a real 4.5x strength jump) -- both worth Jordan
-      confirming directly."
-    historical_weights_sheet: "https://docs.google.com/spreadsheets/d/10-prAif3M8b6M-4tFUZH5ZcAaLhygV3aYotVDr54ECg/edit
-      -- NEW 2026-08-17, 'Life OS - Historical Training Weights'. The same
-      24 real historical rows as training_log_db above, as a spreadsheet in
-      Drive per owner's explicit ask for the historical-weights database to
-      also live there, easier to scan/filter than the Notion database for a
-      quick check. Not live-synced with Notion, a snapshot from the same
-      Gmail sweep -- if the two ever disagree, the Training Log DB is the
-      one being actively logged against going forward."
+      override it, this is that mechanism. Seeded 2026-08-17 with 26 real
+      historical rows across 18 Jun, 23 Jul, 4 Aug and 11 Aug 2026, pulled
+      from Connor's own inline comments on TrueCoach workout emails (a
+      genuine mid-build discovery: the 'Connor Campbell has commented on a
+      workout' emails, unlike plain prescription emails, carry Jordan's
+      real logged numbers). EXTENDED 2026-08-17, same day, per owner's
+      follow-up ask to search further for more logged weights: a full
+      (not sampled) sweep of every 'commented on a workout' email in the
+      current In-Season Programme block found 4 more real sessions with
+      logged data that the first pass missed -- 16 Jun and 23 Jun
+      (Strength) and 25 Jun and 9 Jul (Prehab) -- added as 26 more rows,
+      52 total. The 16 Jun session is the earliest known session of this
+      block, a real baseline: Power Clean 60kg, Back Squat 70kg, Bench
+      55kg, RDL 30kg, Seal Row 50kg (low row), Aleknas 10kg. Three more
+      real inconsistencies found and flagged rather than smoothed over,
+      on top of the two below: Seal Row switched to 'bent over row' at
+      30kg on 23 Jun (equipment change from the 16 Jun low row baseline,
+      not a real drop); Weighted Aleknas dropped 10kg to 5kg the same
+      session with no reason given; several Prehab exercises across 25
+      Jun and 9 Jul were confirmed done in Jordan's reply but with no
+      weight figure given, logged as 'Not logged' rather than guessed.
+      Also see training_week.scheduling_note -- this same sweep proved
+      the 16 Jun and 23 Jun sessions were BOTH flagged as 'missed' by
+      TrueCoach and also fully completed and logged, direct confirmation
+      of the day-shift explanation. Original two inconsistencies still
+      flagged: Back Squat logged at 90kg on 4 Aug then 70kg on 11 Aug
+      (genuine deload or a logging gap, not confirmed), and Seal Row
+      jumping from 14kg dumbbells to a 64kg 'low row' machine between
+      sessions (almost certainly an equipment change, not a real 4.5x
+      strength jump) -- both still worth Jordan confirming directly."
+    historical_weights_sheet: "https://docs.google.com/spreadsheets/d/1HXGy7kAAk9w683lO-ltVsOJvM7O500nkk_f1AQhZumE/edit
+      -- UPDATED 2026-08-17, 'Life OS - Historical Training Weights'. Same
+      52 rows as training_log_db above (up from 24, see that entry for
+      what was added and why). Recreated at a new file ID rather than
+      edited in place: the Drive tools available can create files and
+      update file metadata, but can't update an existing file's content,
+      a limitation already on record elsewhere (relationships.date_nights).
+      The original file (10-prAif3M8b6M...) was trashed, not permanently
+      deleted, to avoid a stale duplicate sitting in Drive under the same
+      name. Not live-synced with Notion, a snapshot from the same Gmail
+      sweep -- if the two ever disagree, the Training Log DB is the one
+      being actively logged against going forward."
     existing_coach_and_platform: "Owner already has a coach, Connor Campbell,
       and logs results on TrueCoach (a third-party coaching app), not just
       the Training Log above. CONFIRMED 2026-08-16: Connor is the GBP
