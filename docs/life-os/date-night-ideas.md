@@ -94,6 +94,25 @@ Doc for easy phone access ("Life OS - Autism-Friendly Date Night Ideas").
   garden, walled and sheltered, quiet even when central London is busy.
   https://www.chelseaphysicgarden.co.uk/
 
+### Week 7, 2026-08-17
+- Osterley Park and House (Isleworth, near Ealing): £9.50/adult gardens only,
+  up to £17.00 house and gardens (National Trust members free). Grand
+  Georgian house with Robert Adam interiors, extensive parkland, a lake and
+  farmland walks, a genuinely quiet countryside feel this close to London.
+  https://www.nationaltrust.org.uk/visit/london/osterley-park-and-house
+- Dulwich Picture Gallery (Dulwich): £10/adult for the collection. England's
+  first purpose-built public art gallery, small and serene, a mausoleum,
+  and a walled garden cafe. Balances the last two weeks toward the Mitcham
+  side of London.
+  https://www.dulwichpicturegallery.org.uk/
+- Kew Gardens (Richmond): £20/adult online on weekdays, £22 at weekends
+  (peak season pricing, cheaper off-peak Nov to Jan). 300+ acres, Victorian
+  glasshouses including the Palm House and Temperate House, and a treetop
+  walkway. Busier on the main paths on a nice day than anything else on
+  this list, included anyway as the "exceptionally interesting, worth
+  going further for" pick.
+  https://www.kew.org/kew-gardens/visit-kew-gardens/tickets
+
 ## Format template for new entries
 
 ```
