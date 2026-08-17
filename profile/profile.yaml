@@ -240,6 +240,35 @@ finance:
                                        # replacement for the manually-assembled
                                        # figure this whole screenshot exercise
                                        # exists to build.
+  second_gmail_account_subscriptions:  # NEW 2026-08-17, owner shared a screenshot of a
+                                       # second Google/Apple account's subscriptions,
+                                       # not previously known about. India-region
+                                       # pricing (INR), separate from every other
+                                       # account tracked in this profile. First sighting
+                                       # of this account entirely -- worth asking
+                                       # directly whether there's more on it (other
+                                       # subscriptions, balances) not yet in this
+                                       # picture, not assumed either way.
+    note: "Total ~GBP 6.84/month approx, not folded into the main fixed-commitments
+      total below, different account and currency. Logged on the Ledger dashboard
+      as its own section rather than merged into the primary total."
+    subscriptions:
+      - name: Apple TV
+        product: Apple TV Channel
+        amount_inr: 99
+        amount_gbp_approx: 0.76         # at GBP 1 = INR 129.6 (17 Aug 2026 mid-market,
+                                       # WebSearch-sourced), not what the card actually
+                                       # gets charged, real cost depends on its own FX fee
+        renews: 11 September
+      - name: Google One
+        product: Google AI Plus
+        amount_inr: 399
+        amount_gbp_approx: 3.08
+        renews: 11 September
+      - name: YouTube Premium
+        amount_inr: 389
+        amount_gbp_approx: 3.00
+        renews: 24 August
   fixed_commitments:
     - name: Rent
       amount_gbp: 1300                  # CONFIRMED 2026-08-16 by owner. Matches the
