@@ -193,7 +193,7 @@ finance:
       variable: true
   headline_metric:
     name: net_worth
-    current_gbp: 182568                # RESOLVED 2026-08-16 -- no longer ambiguous. Real
+    current_gbp: 182953                # UPDATED 2026-08-17, was 182568. Real
                                        # figure assembled account-by-account from the
                                        # owner's own app screenshots (highest confidence)
                                        # and cross-checked against the LifeStage Money
@@ -213,8 +213,12 @@ finance:
                                        # 330.00 + Amex 0.00 + Aviva pension 68,318.72 +
                                        # Coinbase 1,461.26 + Chip 53,124.48 + Virgin Money
                                        # 7,958.92 + Chase 469.51 + Monzo 680.60 + PayPal
-                                       # 143.22 + Nottingham LISA 43,845.58 = GBP 182,568.47
-                                       # (rounded here to 182,568). No debt (confirmed).
+                                       # 143.22 + Nottingham LISA 43,845.58 + Sainsbury's
+                                       # Nectar 384.56 = GBP 182,953.03 (rounded here to
+                                       # 182,953). No debt (confirmed). Nectar included at
+                                       # full value despite 'spending is locked', see the
+                                       # note under finance.accounts, not a hidden asset,
+                                       # just a points balance mid-unlock.
                                        #
                                        # NatWest and Halifax are counted as GBP 0.00 each
                                        # (see finance.accounts) -- owner is locked out of
@@ -544,6 +548,20 @@ finance:
         aggregation link as 'Expired', so LifeStage/Chip's view of this
         account cannot be trusted -- these screenshot-sourced figures are the
         only reliable numbers currently available for it."
+    - institution: Sainsbury's Nectar
+      type: loyalty points
+      note: "NEW 2026-08-17, real screenshot: 76,912 points, worth GBP 384.56 at
+        Nectar's standard 200-points-per-GBP1 rate (the app's own 'worth at
+        least' figure, checks out exactly against that rate, not a marketing
+        rounding). CAVEAT worth being direct about: the app currently shows
+        'Spending is locked', tied to an 'Unlock to Win' task flow with 2 of
+        4 steps completed, the specific remaining tasks aren't visible from
+        the screenshot. Counted in net worth below at full value anyway,
+        it's a real, precisely known balance with an active unlock path in
+        progress, not an unknown or frozen one, closer to the LISA's
+        withdrawal-penalty situation than to NatWest/Halifax's genuine
+        lockout. Revisit if the points turn out to expire or the unlock
+        stalls."
   aggregator: lifestage_money             # CONFIRMED 2026-08-16 -- owner successfully
                                        # exported and delivered a real transaction
                                        # CSV (8,466 rows, back to Feb 2023). Working,
