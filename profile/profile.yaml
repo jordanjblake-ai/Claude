@@ -152,6 +152,18 @@ stack:
     rings: "https://claude.ai/code/artifact/69c3e1ec-d938-4ae2-af33-a0b284664b90
       -- 'Jordan's Rings', inner/second ring cadence, the protected date
       night, and open relationship gaps."
+    mallorca_camp_prep: "https://claude.ai/code/artifact/3074202c-f2b1-4c0e-b0b2-e1d3e017a65a
+      -- NEW 2026-08-17, 'Mallorca Camp Prep'. Day-by-day calorie/protein/
+      water/sodium targets for the 3-13 Oct 2026 trip, by day-type (travel,
+      arrival, double-session, rest/tour, tournament), built from last
+      year's real Beach Box Camps schedule and published sports-nutrition
+      hydration/energy guidance. Also a packing checklist (electrolytes,
+      protein sachets, sun protection, GHIC, travel insurance since Health
+      Shield doesn't cover treatment abroad) and a sleep-protection note
+      given the schedule's late evening events. Linked from the Programme
+      page's Transition section rather than merged into it, keeps that
+      page from bloating with trip-specific detail that's only relevant
+      for these 11 days."
 
 # ── Rounds 2–3 ───────────────────────────────────────────────────────────────
 finance:
