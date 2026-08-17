@@ -979,7 +979,15 @@ relationships:
                                        # sensory-load angle).
     tracking_doc: docs/life-os/date-night-ideas.md
     google_doc: "Created 2026-08-16, 'Life OS -- Autism-Friendly Date Night
-      Ideas', kept in sync with the tracking doc above."
+      Ideas'. LIMITATION FOUND 2026-08-17: the Drive connector's tools can
+      create files and edit metadata (title/parent), but there's no tool
+      to replace an existing file's body content -- so weekly updates
+      can't actually keep this Doc in sync without either recreating it
+      each time (bad, breaks the stable link/duplicates it) or leaving it
+      static after week 1. Treat docs/life-os/date-night-ideas.md as the
+      one real source of truth going forward; the Doc is a one-time
+      snapshot from 2026-08-16 only, not a live mirror. Worth mentioning to
+      the owner rather than silently letting the Doc go stale."
     both_autistic: true                # owner's words: "We are both Autistic" (Jordan
                                        # self-identified, Krystyna diagnosed AuDHD --
                                        # see her entry above)
