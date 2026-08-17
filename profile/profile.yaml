@@ -139,10 +139,16 @@ stack:
       load, recovery leaks, medical context, sensor status. Links out to the
       programme below rather than embedding it."
     programme: "https://claude.ai/code/artifact/26fdde24-46fe-4550-96b9-9250eb89ce89
-      -- 'Jordan's Programme', the beach volleyball gym programme (Day A /
-      Day B), kept deliberately separate from the health dashboard since it
-      updates against logged training, not sensor data. Links to the
-      Training Log for actual logging."
+      -- 'Jordan's Programme', Connor Campbell's real beach volleyball gym
+      programme (a Strength Session and a Prehab Session, named for content
+      not weekday, since the day itself moves with work/beach volleyball
+      per owner 2026-08-17). UPDATED 2026-08-17: also carries the weekly
+      essentials (steps, sauna, sports massage), a fuel/calorie section, a
+      deload-week plan, and a 'how this keeps progressing without Connor'
+      section, see health.gym_program below for the source facts. Kept
+      deliberately separate from the health dashboard since it updates
+      against logged training, not sensor data. Links to the Training Log
+      for actual logging."
     rings: "https://claude.ai/code/artifact/69c3e1ec-d938-4ae2-af33-a0b284664b90
       -- 'Jordan's Rings', inner/second ring cadence, the protected date
       night, and open relationship gaps."
@@ -660,6 +666,16 @@ health:
                                        # happens, since overplanning relative to real
                                        # free time is the single most common way
                                        # training schedules collapse
+    scheduling_note: "CLARIFIED 2026-08-17 by owner: the two gym sessions
+      (below) don't reliably land on the specific weekdays Connor
+      originally set, work and the beach volleyball schedule move them
+      around, and the session still gets done that week. Don't read the
+      'missed workout' TrueCoach emails as a true miss rate, they can't
+      tell a moved session from a skipped one. The Programme page and
+      Training Program Notion page are now named by session content
+      (Strength Session / Prehab Session), not by weekday, to match this.
+      Real completion rate is still genuinely unknown either way, logging
+      in the Training Log with a note when the day shifts would settle it."
   gym_program:                        # NEW 2026-08-16 -- owner wants Claude to programme
                                        # the 2x/week gym sessions specifically for beach
                                        # volleyball, and to log weights/results so the
@@ -672,33 +688,81 @@ health:
       A/Day B template has been replaced with Connor Campbell's REAL,
       current programming, pulled from a Gmail sweep of 201 TrueCoach
       emails (swoletron@truecoach.co). Current block ('In-Season
-      Programme', started ~16 Jun 2026): Tuesday = Power Clean, Back
-      Squat, Barbell Bench Press, Romanian Deadlift, Seal Row, Weighted
-      Aleknas, all tied to individualised %-of-best-to-date; Thursday =
-      'Prehab Sesh' -- weighted pull-up, internal/external rotation work,
+      Programme', started ~16 Jun 2026): Strength Session = Power Clean,
+      Back Squat, Barbell Bench Press, Romanian Deadlift, Seal Row,
+      Weighted Aleknas, all tied to individualised %-of-best-to-date;
+      Prehab Session = weighted pull-up, internal/external rotation work,
       45-degree adductor, single-leg RDL + row, Blackburns, side plank.
       Full detail and the Power Clean progression (60-65% in mid-June up
       to 70-80% by mid-July, stable since) are on the page. Earlier blocks
       found in the same sweep: a pre-season Week 1-6 (~27 Apr-15 Jun,
-      3x/week Mon/Wed/Fri, French contrast method) and evidence of a prior
-      'Week 24' block before that (dated 20 Apr 2026) implying the
-      coaching relationship goes back toward late 2025 -- not fully mapped
-      yet, only sampled.
-      REAL FINDING, worth acting on: nearly every Tuesday/Thursday session
-      in the current block has a matching 'missed workout' email, this is
-      the default outcome most weeks since May, not occasional. Confirms
-      the overplanning risk already flagged under
-      goals.uncommitted_hours_per_week is actually happening, not
-      theoretical. Also: Jordan told Connor on 18 Jun 'I will definitely
-      be minimum of 3 [sessions], if not 4' -- the real programme only
-      prescribes 2/week, worth asking him directly whether that's a
-      mismatch worth raising with Connor."
+      3x/week Mon/Wed/Fri, French contrast method) and a 'Week 23/24'
+      block around mid-to-late April 2026.
+      COACHING HISTORY CORRECTED 2026-08-17: a direct Gmail search on
+      swoletron@truecoach.co (not just sampling) confirms real, dated
+      TrueCoach/Connor Campbell emails back to at least February 2024,
+      continuously, over two and a half years, not 'late 2025' as
+      previously estimated from the Week 24 reference alone. Older TrueCoach
+      activity exists on the same address back to December 2019, but under
+      a different program name ('Awaken Training Series', different weekly
+      numbering) and a different sender name ('Athlete Support'), not
+      confirmed as Connor, so not counted as part of this same coaching
+      relationship. Not fully mapped session-by-session before 2026, only
+      the boundary confirmed -- revisit if a fuller multi-year picture is
+      wanted.
+      ADHERENCE REFRAMED 2026-08-17: nearly every Strength/Prehab session
+      has a matching 'missed workout' TrueCoach email, but per owner this
+      is mostly the session landing on a different day that week (work,
+      beach volleyball), not skipped training, see training_week.scheduling_note.
+      Still on record and still worth raising with Connor directly: Jordan
+      told him on 18 Jun 'I will definitely be minimum of 3 [sessions], if
+      not 4' -- the real programme only prescribes 2/week, that gap doesn't
+      go away just because the day is flexible.
+      ADDED 2026-08-17, all now on the Programme page and this Notion page:
+      weekly essentials (steps 10,000-12,000 on training days/7,000 floor
+      on rest days; sauna bumped from 2x to a recommended 3x/week per
+      recovery-heat-exposure evidence; sports massage currently at zero
+      bookings despite insurance cover and a chosen provider, recommended
+      monthly moving to fortnightly given 8 sessions/week prescribed, not
+      quarterly), a fuel section (~175-180g protein/day, ~2,900-3,000kcal
+      training days, ~2,500-2,600kcal rest days, session-timing guidance),
+      a deload-week plan (evidence favours every 4-6 weeks over quarterly,
+      documented honestly as a gap against the owner's quarterly framing,
+      with a concrete 40%-volume-cut template), and a 'how this keeps
+      progressing without Connor' section (%-based autoregulation for the
+      three main lifts, double progression for accessories, a 3-session
+      stall as the real trigger for a new block)."
     training_log_db: "https://app.notion.com/ec293a1395554790a27c4f20729c7364 --
-      'Training Log' database. Fields: Date, Session (Day A / Day B / Beach
-      volleyball / Sauna / Other), Exercise, Weight (kg), Sets, Reps, RPE,
-      Notes. Owner logs each session here; review monthly and revise the
-      Training Program page against real RPE/weight trends per the review
-      rules written on that page. Empty so far -- not yet in use."
+      'Training Log' database. Fields: Date, Session (In-Season Programme /
+      Prehab Sesh / Beach volleyball / Sauna / Other -- the select option
+      labels still carry '(Tue)'/'(Thu)' from the original setup, cosmetic
+      only, left alone to avoid breaking the 24 rows already logged against
+      them, not a claim that those days are fixed), Exercise, Weight (kg),
+      Sets, Reps, RPE, Notes, plus two fields ADDED 2026-08-17: 'Suggested
+      Weight (kg)' (a small step up from the most recent logged weight for
+      that exercise) and 'Result' (Completed as suggested / Adjusted
+      lighter / Adjusted heavier / Bodyweight-no load / Not logged) --
+      owner asked for a way to see a suggested next weight and confirm or
+      override it, this is that mechanism. Seeded 2026-08-17 with 24 real
+      historical rows seeded across 18 Jun, 23 Jul, 4 Aug and 11 Aug 2026,
+      pulled from Connor's own inline comments on TrueCoach workout emails
+      (a genuine mid-build discovery: the 'Connor Campbell has commented on
+      a workout' emails, unlike plain prescription emails, carry Jordan's
+      real logged numbers). Two real inconsistencies found in that data and
+      flagged on the page rather than smoothed over: Back Squat logged at
+      90kg on 4 Aug then 70kg on 11 Aug (genuine deload or a logging gap,
+      not confirmed), and Seal Row jumping from 14kg dumbbells to a 64kg
+      'low row' machine between sessions (almost certainly an equipment
+      change, not a real 4.5x strength jump) -- both worth Jordan
+      confirming directly."
+    historical_weights_sheet: "https://docs.google.com/spreadsheets/d/10-prAif3M8b6M-4tFUZH5ZcAaLhygV3aYotVDr54ECg/edit
+      -- NEW 2026-08-17, 'Life OS - Historical Training Weights'. The same
+      24 real historical rows as training_log_db above, as a spreadsheet in
+      Drive per owner's explicit ask for the historical-weights database to
+      also live there, easier to scan/filter than the Notion database for a
+      quick check. Not live-synced with Notion, a snapshot from the same
+      Gmail sweep -- if the two ever disagree, the Training Log DB is the
+      one being actively logged against going forward."
     existing_coach_and_platform: "Owner already has a coach, Connor Campbell,
       and logs results on TrueCoach (a third-party coaching app), not just
       the Training Log above. CONFIRMED 2026-08-16: Connor is the GBP
@@ -706,10 +770,10 @@ health:
       2026-08-17 -- rather than owner exporting TrueCoach directly, his
       real program was reconstructed from the TrueCoach email
       notifications already sitting in Gmail (swoletron@truecoach.co),
-      which turned out to be a complete enough record on its own. See
-      program_doc above for what was found. Deeper history (the block
-      before 'Week 24', pre ~Apr 2026) hasn't been pulled yet, only
-      sampled -- revisit if a fuller multi-month picture is wanted."
+      which turned out to be a complete enough record on its own, including
+      real logged weights via Connor's inline comment emails (see
+      training_log_db above). See program_doc above for the corrected,
+      confirmed coaching-history timeline (Feb 2024 onward)."
   known_derailers:
     - "RESOLVED, per owner 2026-08-16: the knee-pain rehab program found in
       Drive is no longer relevant -- 'no longer apparent'. Kept here as
