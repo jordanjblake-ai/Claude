@@ -126,6 +126,26 @@ stack:
       # is the workaround). Agent reads/parses from here automatically.
   desktop: windows                    # laptop, new high-spec unit arriving next week
   live_connectors: [gmail, google_calendar, google_drive, notion, github]
+  dashboards:                         # NEW 2026-08-17 -- private Claude artifacts built from
+                                       # this profile. Each is a static snapshot, regenerated
+                                       # by hand when the underlying data changes materially,
+                                       # not auto-refreshing. Re-publish the same file path to
+                                       # update any of these in place.
+    ledger: "https://claude.ai/code/artifact/8e2da4e4-69d1-4eef-b3d2-718c5f9aceeb --
+      'Jordan's Ledger', net worth, accounts, fixed commitments,
+      subscriptions, and MoneySavingExpert-grounded recommendations."
+    performance_log: "https://claude.ai/code/artifact/e6d04db9-0a53-4e04-949a-9ef732023371
+      -- 'Jordan's Performance Log', weight/body fat/sleep/HR, training week
+      load, recovery leaks, medical context, sensor status. Links out to the
+      programme below rather than embedding it."
+    programme: "https://claude.ai/code/artifact/26fdde24-46fe-4550-96b9-9250eb89ce89
+      -- 'Jordan's Programme', the beach volleyball gym programme (Day A /
+      Day B), kept deliberately separate from the health dashboard since it
+      updates against logged training, not sensor data. Links to the
+      Training Log for actual logging."
+    rings: "https://claude.ai/code/artifact/69c3e1ec-d938-4ae2-af33-a0b284664b90
+      -- 'Jordan's Rings', inner/second ring cadence, the protected date
+      night, and open relationship gaps."
 
 # ── Rounds 2–3 ───────────────────────────────────────────────────────────────
 finance:
