@@ -1025,14 +1025,14 @@ health:
         not 100% certain which category Health Shield will apply it to
         from the document alone -- worth confirming with Health Shield
         directly (or via the member portal once registered) before
-        assuming the higher figure. UNRESOLVED 2026-08-17: a real web
-        search for 'Savoy Sports Massage' (Mitcham/Wimbledon/Merton) found
-        no verifiable business by that exact name -- several other real
-        sports massage therapists in the area turned up (Nadia Baker
-        Sports Therapist, Nordic Balance, Wimbledon Physio) but none
-        confirmed as the right one. NOT guessing a link for this, per the
-        no-fabricated-URLs rule -- need the actual name/link from Jordan
-        directly before a booking link can go on the dashboard."
+        assuming the higher figure. RESOLVED 2026-08-17: Jordan gave the
+        real booking link directly, Savoy trades through Direct Physio
+        Ltd's Cliniko booking system:
+        https://direct-physio-ltd.uk1.cliniko.com/bookings#service
+        (the pasted link had Google Ads/Analytics tracking params
+        appended -- gl/gcl_au/ga/ga_XMY5XHFXYW -- stripped before storing,
+        they're session-specific click-tracking tokens, not part of the
+        real address, and would likely go stale)."
     booking_to_calendar_pipeline: "REQUESTED 2026-08-17 by owner: once an
       appointment is actually booked, a calendar invite should be created
       automatically and the dashboard should reflect it. Honest version of
