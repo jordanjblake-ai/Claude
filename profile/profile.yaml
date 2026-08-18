@@ -459,7 +459,12 @@ finance:
         GBP 6,236.18. RECONFIRMED via a second owner screenshot direct from
         the First Direct app's own 'Balances' page (same day, same 1st
         Account/Savings Account figures) -- highest confidence on those two;
-        Regular Saver still aggregator-sourced only."
+        Regular Saver still aggregator-sourced only. FLAGGED 2026-08-18 by
+        owner: bank-switch-bonus advice on the Ledger dashboard suggested
+        First Direct's own switch offer, which he obviously can't claim
+        since he already banks here. This account (and any other in this
+        list he already holds) should be cross-checked against BEFORE
+        recommending a switching bonus, not after."
     - institution: NatWest
       type: current + savings account
       note: "Owner is currently locked out of the NatWest app itself, can't
