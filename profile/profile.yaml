@@ -31,6 +31,22 @@ meta:
                                        # platform's vault if a specific integration
                                        # ever needs it.
 
+identity:                             # NEW 2026-08-18, given directly by owner to make
+                                       # financial/lifestyle advice properly targeted --
+                                       # e.g. exclude retirement-age or car-ownership
+                                       # advice that doesn't apply to him.
+  age: 32
+  gender: male
+  housing: renting, London (Mitcham)
+  owns_a_car: false
+  tax_status: "Higher-rate taxpayer. Owner's own estimate is ~GBP 65,000/year;
+    the documented, sourced figure is finance.income_sources Salary at GBP
+    61,707.99 (HID's own Total Reward Statement, not an estimate). Either
+    figure clears the GBP 50,270 higher-rate threshold (2026/27: 20% up to
+    GBP 37,700 taxable, 40% above), so this doesn't change the conclusion:
+    Personal Savings Allowance is GBP 500/year, not the GBP 1,000 basic-rate
+    figure, and savings interest above that is taxed at 40%, not 20%."
+
 # ── Round 1 ──────────────────────────────────────────────────────────────────
 orientation:
   # Owner found "pick one" hard to answer cleanly — the honest answer was four
@@ -309,15 +325,25 @@ finance:
       day_of_month: TODO                # duration confirmed 2026-08-17: ~1 hour per
                                        # session, day of week still not given
     - name: Mobile (Three)
-      amount_gbp: 6                     # CONFIRMED 2026-08-16 by owner -- there's only
-                                       # ONE real subscription with Three, not two (the
-                                       # subscription sweep on 2026-08-16 had turned up
-                                       # what looked like two separate recurring bills;
-                                       # that was wrong, collapsed into this single entry).
-                                       # Owner's estimate, ~GBP 6/month -- likely a
-                                       # SIM-only or data-only plan given how low that is
-                                       # for a primary mobile line; not yet confirmed
-                                       # against an actual invoice.
+      amount_gbp: 7.50                  # CORRECTED 2026-08-18 -- owner checked his own
+                                       # transaction history and says it's actually
+                                       # ~GBP 7.50/month, not the earlier GBP 6 estimate.
+                                       # Asked to deep-dive Gmail to confirm the exact
+                                       # figure: no invoice, receipt, or payment-amount
+                                       # email exists in the inbox for this line (the
+                                       # monthly 'Your bill is ready' emails link out to
+                                       # log in rather than stating a figure, and no
+                                       # Gmail/Drive record shows the pound amount) -- so
+                                       # this couldn't be independently verified against a
+                                       # document, only against a real Three price-rise
+                                       # notice (26 Feb 2026, effective 1 Apr 2026): plans
+                                       # <=4GB rose by GBP 1.80/mo, 5-99GB by GBP 1.90/mo,
+                                       # 100GB+ by GBP 2.30/mo, which is at least
+                                       # consistent with a low SIM-only plan landing
+                                       # around GBP 7.50 post-rise. Using the owner's own
+                                       # confirmed figure (highest available confidence,
+                                       # he can see his actual bank transaction) rather
+                                       # than guessing further.
       day_of_month: TODO
     - name: Cleaner (Justyna)
       amount_per_hour_gbp: 19           # CORRECTED 2026-08-16 by owner -- was previously
