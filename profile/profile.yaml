@@ -371,7 +371,23 @@ finance:
     - name: Council tax (London Borough of Merton)
       amount: TODO                      # NEW 2026-08-16 -- owner confirmed this is a real
                                        # regular bill, biller confirmed (LB Merton), amount
-                                       # not yet given
+                                       # not yet given. SEARCHED 2026-08-18: two real
+                                       # payment receipts found in Gmail (noreply@
+                                       # epayments.merton.gov.uk, account ref 77959708),
+                                       # GBP 1,379.84 on 20 May 2024 and GBP 364.25 on 1 Jun
+                                       # 2025 -- both one-off card payments via the web
+                                       # portal (Payment Reference WEB-...), not a Direct
+                                       # Debit. The two amounts are too different and too
+                                       # infrequent (over a year apart) to be a fixed
+                                       # monthly instalment, looks more like manual/ad-hoc
+                                       # payments (possibly catching up arrears) than a
+                                       # steady billing rhythm. Still TODO: still can't
+                                       # state a real monthly figure with confidence from
+                                       # this evidence -- owner would need to check the My
+                                       # Tax and Benefits portal (merton.gov.uk/
+                                       # mytaxandbenefits) for the actual instalment plan,
+                                       # or confirm whether it's paid ad hoc rather than on
+                                       # a schedule at all.
       day_of_month: TODO
     - name: Coach Connor (TrueCoach), via GoCardless
       amount_gbp: 60                    # CONFIRMED 2026-08-16 by owner -- this IS Connor's
