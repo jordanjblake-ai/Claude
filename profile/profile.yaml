@@ -247,6 +247,37 @@ finance:
                                        # worth if either turns out to hold real money.
     target_gbp: 1000000
     by: 2027-12-31                    # "end of next year" from 2026-08-16
+    status_quo_projection_gbp: 190721 # ADDED 2026-08-19 at the owner's request
+                                       # ("Salary and saving alone won't reach it,
+                                       # add a currently projected number so I can
+                                       # see where I'll likely be without much
+                                       # change"). Method: current net worth
+                                       # (GBP 182,953.03) + 16.4 months (499 days)
+                                       # to the target date x a real GBP 473.80/
+                                       # month mechanical change -- GBP 552.80/
+                                       # month Aviva pension contribution (see
+                                       # employee_benefits.pension, already
+                                       # happening) plus the actual net cash
+                                       # surplus from the last 12 months of the
+                                       # Money Dashboard export excl. transfers,
+                                       # which nets to roughly GBP -79/month
+                                       # (essentially break-even: GBP 46,673.50
+                                       # income vs GBP -47,621.46 real spend over
+                                       # the trailing year). No investment growth
+                                       # assumed -- this is a floor, not a
+                                       # ceiling. Leaves a GBP ~809,000 gap at
+                                       # the target date. Owner's own read on
+                                       # this 2026-08-19: "I clearly need to
+                                       # start some sort of side hustle and/or
+                                       # look at large returning stocks, though I
+                                       # don't want to do much more than S&P 500
+                                       # and the S&P Tech 500" -- no side-hustle
+                                       # or investment plan exists yet, this is
+                                       # just the trajectory without one.
+                                       # Recompute rather than reuse verbatim
+                                       # once real numbers move meaningfully
+                                       # (trailing-12mo spend, target date, or
+                                       # net worth itself).
     lifestage_own_reported_total_gbp: 153676   # LifeStage Money's own dashboard
                                        # figure, screenshotted 2026-08-16 (its
                                        # "Net worth" chart header). NOT being
