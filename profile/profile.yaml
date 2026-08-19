@@ -247,37 +247,93 @@ finance:
                                        # worth if either turns out to hold real money.
     target_gbp: 1000000
     by: 2027-12-31                    # "end of next year" from 2026-08-16
-    status_quo_projection_gbp: 190721 # ADDED 2026-08-19 at the owner's request
-                                       # ("Salary and saving alone won't reach it,
-                                       # add a currently projected number so I can
-                                       # see where I'll likely be without much
-                                       # change"). Method: current net worth
-                                       # (GBP 182,953.03) + 16.4 months (499 days)
-                                       # to the target date x a real GBP 473.80/
-                                       # month mechanical change -- GBP 552.80/
-                                       # month Aviva pension contribution (see
-                                       # employee_benefits.pension, already
-                                       # happening) plus the actual net cash
-                                       # surplus from the last 12 months of the
-                                       # Money Dashboard export excl. transfers,
-                                       # which nets to roughly GBP -79/month
-                                       # (essentially break-even: GBP 46,673.50
-                                       # income vs GBP -47,621.46 real spend over
-                                       # the trailing year). No investment growth
-                                       # assumed -- this is a floor, not a
-                                       # ceiling. Leaves a GBP ~809,000 gap at
-                                       # the target date. Owner's own read on
-                                       # this 2026-08-19: "I clearly need to
-                                       # start some sort of side hustle and/or
-                                       # look at large returning stocks, though I
-                                       # don't want to do much more than S&P 500
-                                       # and the S&P Tech 500" -- no side-hustle
-                                       # or investment plan exists yet, this is
-                                       # just the trajectory without one.
-                                       # Recompute rather than reuse verbatim
-                                       # once real numbers move meaningfully
-                                       # (trailing-12mo spend, target date, or
-                                       # net worth itself).
+    status_quo_projection_gbp: 182272 # ADDED 2026-08-19, REVISED 2026-08-19 same
+                                       # day -- owner pushed back on the first pass
+                                       # ("really are you sure? I don't think
+                                       # you've done a good analysis of this...
+                                       # think much deeper"), and he was right to.
+                                       # First pass (GBP 190,721, now superseded)
+                                       # netted 12 months of transactions excluding
+                                       # only the "Transfers" category, which
+                                       # missed that a GBP 10,000 one-off gift from
+                                       # family ("DEBORA BLAKE Foreign money",
+                                       # 2025-11-13) was sitting inside "Income"
+                                       # and never isolated as non-repeatable.
+                                       # Deeper pass, same GBP 182,953.03 current
+                                       # net worth and 16.4 months (499 days) to
+                                       # the target date:
+                                       #  - Real salary confirmed directly against
+                                       #    HID payroll lines in the bank feed
+                                       #    ("HID CORPORATION LI A872"): GBP
+                                       #    46,321.89 over the trailing 12 months,
+                                       #    not the annualised benefits-statement
+                                       #    figure -- matches within GBP 350 of
+                                       #    the "Income" category total, salary
+                                       #    data checks out.
+                                       #  - TRUE all-in net cash movement, every
+                                       #    transaction, no category exclusions,
+                                       #    trailing 12mo: +GBP 2,868.19. This
+                                       #    already nets out every internal
+                                       #    transfer that has both legs inside the
+                                       #    export (Virgin GBP 10,033.06, Chase,
+                                       #    the NatWest-labelled GBP 200/month --
+                                       #    that one turned out to be a transfer
+                                       #    between two ALREADY-tracked accounts,
+                                       #    not money reaching NatWest at all,
+                                       #    a false lead, checked and ruled out).
+                                       #  - Strip out the GBP 10,000 family gift
+                                       #    (non-repeatable, not earned): recurring
+                                       #    net = GBP -7,131.81 over 12 months =
+                                       #    GBP -594.32/month. Real spending and
+                                       #    transfers are outrunning real salary
+                                       #    once the windfall is removed.
+                                       #  - Add the GBP 552.80/month Aviva pension
+                                       #    contribution (salary sacrifice, see
+                                       #    employee_benefits.pension -- sourced
+                                       #    from the Aug 2026 HID benefits portal
+                                       #    directly, more current than the bank
+                                       #    feed's own "Pension" sub-account,
+                                       #    which stopped syncing after 2024-11).
+                                       #  - Mechanical monthly change: GBP -594.32
+                                       #    + 552.80 = GBP -41.52/month -- flat to
+                                       #    very slightly down, not the GBP
+                                       #    +473.80/month first claimed.
+                                       # Projected net worth barely moves from
+                                       # today: GBP 182,953.03 - (41.52 x 16.4) =
+                                       # GBP ~182,272. Gap to target: GBP ~817,700.
+                                       # No investment growth assumed -- floor,
+                                       # not ceiling.
+                                       #
+                                       # SEPARATE finding surfaced while digging
+                                       # into this, NOT folded into the projection
+                                       # above because it's backward-looking, not
+                                       # a repeatable flow: transaction history
+                                       # shows ~GBP 7,500 sent toward Halifax since
+                                       # Apr 2026 with nothing recorded coming
+                                       # back, and irregular activity on a Tesco
+                                       # Bank account too -- neither is genuinely
+                                       # empty. Both stay at GBP 0.00 in the
+                                       # current net-worth figure per the owner's
+                                       # own instruction (locked out, can't
+                                       # verify), but this means GBP 182,953.03
+                                       # is more likely an understatement of
+                                       # today's real net worth than an
+                                       # overstatement. Flagged in the dashboard's
+                                       # "Where it sits" section and footer.
+                                       # Revisit both figures once the owner
+                                       # regains NatWest/Halifax access, and
+                                       # recompute the projection itself once
+                                       # trailing-12mo spend, the target date, or
+                                       # net worth move meaningfully -- don't
+                                       # reuse either number verbatim past that.
+                                       # Owner's own read 2026-08-19: "I clearly
+                                       # need to start some sort of side hustle
+                                       # and/or look at large returning stocks,
+                                       # though I don't want to do much more than
+                                       # S&P 500 and the S&P Tech 500" -- no
+                                       # side-hustle or investment plan exists
+                                       # yet, this is just the trajectory without
+                                       # one.
     lifestage_own_reported_total_gbp: 153676   # LifeStage Money's own dashboard
                                        # figure, screenshotted 2026-08-16 (its
                                        # "Net worth" chart header). NOT being
