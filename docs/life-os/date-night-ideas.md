@@ -113,6 +113,26 @@ Doc for easy phone access ("Life OS - Autism-Friendly Date Night Ideas").
   going further for" pick.
   https://www.kew.org/kew-gardens/visit-kew-gardens/tickets
 
+### Week 8, 2026-08-24
+- Morden Hall Park (Morden, right by Mitcham): FREE. National Trust, open
+  daily 9am to 5pm. 125 acres of water meadows and wetland boardwalks along
+  the River Wandle, a 50-bed rose garden, a restored snuff mill, two quiet
+  cafes and a second-hand bookshop. Deliberately the Mitcham side of the
+  ledger this week, an easy short bus or tram ride from home for Jordan.
+  https://www.nationaltrust.org.uk/visit/london/morden-hall-park
+- Boston Manor House (Brentford, near Ealing): FREE, open Tuesday to
+  Sunday, 12pm to 5pm (closed Good Friday, Easter Sunday, 24 to 26 Dec and
+  1 Jan). Recently restored Jacobean manor house, one stop from Ealing
+  Broadway on the Piccadilly line, set inside its own public park.
+  https://bostonmanorhouse.org/visit-us/
+- Strawberry Hill House & Garden (Twickenham): from £16.50/adult online
+  for the house (garden entry free), open Wednesday to Sunday, 10am to 4pm,
+  last entry 3pm. Horace Walpole's Gothic Revival "little castle", ornate
+  fan-vaulted ceilings and stained glass, small timed-entry groups keep it
+  calm. A genuine meet-in-the-middle pick, a direct train from both Mitcham
+  (via Wimbledon) and Ealing.
+  https://www.strawberryhillhouse.org.uk/visit-us/
+
 ## Format template for new entries
 
 ```
